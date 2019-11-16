@@ -5,11 +5,13 @@ import styled from 'styled-components'
 
 const StyledSidebar = styled.div`
 
-    position:absolute;
+    position:fixed;
     height:100%;
-    margin-left: ${(props) => props.open ? 0 : `-${props.width}`};
+    width: ${(props) => `${props.width}%`};
+    margin-left: ${(props) => props.open ? 0 : `-${props.width}%`};
     background-color: #00000020;
     z-index:999;
+    transition: margin 1s;
 
 
 `
@@ -22,7 +24,7 @@ class ExpandableSidebar extends Component
         this.state = 
         {
             open:true,
-            width:250
+            width:50
         }
     }
 
@@ -40,8 +42,7 @@ class ExpandableSidebar extends Component
        
        
             <div className="expandable-sidebar">
-                <StyledSidebar open={this.state.open}>
-                    <SidebarButton />
+                <StyledSidebar open={this.state.open} width={this.state.width}>
                     <section>
                         <div>
                             <h2>MENU</h2>
