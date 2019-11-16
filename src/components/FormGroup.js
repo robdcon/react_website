@@ -19,7 +19,9 @@ class FormGroup extends Component
                             type="text"
                             placeholder={this.props.placeholder}
                             required={this.props.required} 
-                            onChange={(e) => this.props.handleChange(e)}
+                            name={this.props.name}
+                            onChange={this.props.onChange}
+                            onBlur={this.props.onBlur}
                         />
                     )
                     :
@@ -30,12 +32,21 @@ class FormGroup extends Component
                             type="text"
                             placeholder={this.props.placeholder}
                             required={this.props.required} 
-                            onChange={(e) => this.props.handleChange(e)}
+                            name={this.props.name}
+                            onChange={this.props.onChange}
+                            onBlur={this.props.onBlur}
                         />
                     )
                     
                 }
-                <p className="help-block text-danger"></p>
+                <p className="help-block text-danger">
+
+                    {(this.props.touched && this.props.errors) &&
+
+                        <span>This field is required</span>
+                    
+                    }
+                </p>
             </div>       
       )
     }

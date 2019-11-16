@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header'
 import image from '../../assets/header-bg.jpg'
 import FormGroup from '../FormGroup'
-import {withFormik} from 'formik'
+import {withFormik, Field} from 'formik'
 
 const fields =
 {
@@ -55,40 +55,8 @@ const fields =
 
 class Contact extends Component
 {
-    constructor(props)
-    {
-      super(props)
-      this.state =
-      {
-        name:"",
-        email:"",
-        phone:"",
-        message: "",
-        submitted: false,
-        error: false
-      }
-    }
 
-    sendForm = (e) =>
-    {
-      const formDetails = JSON.stringify(this.state)
-      console.log('FORM DETAILS', formDetails)
-      alert(formDetails)
-      this.resetForm()
-      e.preventDefault()
-    }
-
-    resetForm = () =>
-    {
-      this.setState({
-
-        name:"",
-        email:"",
-        phone:"",
-        message:""
-
-      })
-    }
+    
 
     render() 
     {
@@ -112,7 +80,7 @@ class Contact extends Component
                 </div>
                 <div className="row">
                   <div className="col-lg-12">
-                    <form id="contactForm" name="sentMessage" onSubmit={(e) => {e.preventDefault()}}>
+                    <form id="contactForm" name="sentMessage" onSubmit={this.props.handleSubmit}>
                       <div className="row">
                           {
                             fields.sections.map((section, sectionIndex) =>
@@ -127,22 +95,13 @@ class Contact extends Component
                                      return <FormGroup
 
                                      {...field}
-                                      // id={item.name} 
-                                      // placeholder={item.placeholder}
-                                      // required={item.required} 
-                                      // errorMessage={item.errorMessage}
-                                      // value={item.name}
-                                      // type={item.type}
-                                      // onChange={(e) => {item.handleChange(e)}}
                                       key={i}
-                                      // value={this.state[field.name]}
-                                      handleChange={(e) => {
-                                        
-                                        this.setState({
-
-                                        [field.name]:e.target.value
-
-                                      })} }
+                                      value={this.props.values[field.name]}
+                                      name={field.name}
+                                      onChange={this.props.handleChange}
+                                      onBlur={this.props.handleBlur}
+                                      touched={this.props.touched[field.name]}
+                                      errors={this.props.errors[field.name]}
                                       />
                                     })
                                   }
@@ -195,9 +154,10 @@ class Contact extends Component
       return errors
     },
 
-    handleSubmit: (errors, {setSubmitting}) =>
+    handleSubmit: (values, {setSubmitting}) =>
     {
-      alert('Form Submitted')
+      const formValues = JSON.stringify(values)
+      console.log('Form Submitted: ', formValues )
     }
     
 

@@ -13,6 +13,7 @@ import About from './components/Pages/About'
 import Services from './components/Pages/Services'
 import Contact from './components/Pages/Contact'
 import Portfolio from './components/Pages/Portfolio'
+import ExpandableSidebar from './components/ExpandableSidebar'
 
 
 class App extends Component {
@@ -21,6 +22,8 @@ class App extends Component {
 
     <Router>
      <PageWrapper> 
+
+        <ExpandableSidebar />
 
          <Route 
           exact={true}
