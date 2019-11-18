@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header'
-import PortfolioItem from '../PortfolioItem'
+import PortfolioItem, {PortfolioItemAlt} from '../PortfolioItem'
 import image from '../../assets/web-background-planning-at-desk-med-compression-1200.jpg'
 import item1 from '../../assets/portfolio/01-thumbnail.jpg'
 import item2 from '../../assets/portfolio/02-thumbnail.jpg'
@@ -9,8 +9,9 @@ import websiteThumb01 from '../../assets/portfolio/website-web-design-thumb-01.j
 import websiteThumb02 from '../../assets/portfolio/website-web-design-thumb-02.jpg'
 import websiteThumb03 from '../../assets/portfolio/website-web-design-thumb-03.jpg'
 import websiteThumb04 from '../../assets/portfolio/website-web-design-thumb-04.jpg'
+import portfolio from '../../api/portfolio.js'
 
-
+console.log(portfolio)
 
 const portfolioItems = 
 [
@@ -48,6 +49,8 @@ const websites =
   }
 ]
 
+
+
 class Portfolio extends Component 
 {
     render() 
@@ -73,11 +76,42 @@ class Portfolio extends Component
                 <div className="row">
 
                   {
-                    websites.map((item) =>
+                    websites.map((item, i) =>
                     {
                       return <PortfolioItem
+                        key={i}
                         image={item.image}
                         icon={item.icon}
+                      />
+                    })
+                  }
+                 
+                </div>
+              </div>
+            </section>
+
+            <section className="bg-light page-section" id="portfolio-02">
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-12 text-center">
+                    <h2 className="section-heading text-uppercase">Portfolio</h2>
+                    <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  </div>
+                </div>
+                <div className="row">
+
+                  {
+                    portfolio.images[0].array.map((item, i) =>
+                    {
+                      return <PortfolioItemAlt
+                      key={i}
+                      title={item.title}
+                      caption={item.caption}
+                      url={item.url}
+                      url_lg={item.url_lg}
+                      alt={item.alt}
+                      tags={item.tags}
+                      category={item.category}
                       />
                     })
                   }

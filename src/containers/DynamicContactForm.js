@@ -145,9 +145,10 @@ class DynamicContactForm extends Component
                    (this.state.fieldIndex < this.state.formFields.length) ?
                    (
                     
-                    (this.state.formFields).map((field) =>
+                    (this.state.formFields).map((field, i) =>
                     {
                         return  <FormGroup
+                        key={i}
                         data-animate
                         {...field}
                         name={field.name}

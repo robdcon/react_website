@@ -56,9 +56,9 @@ const NavButton = (props) =>
     return(
         <StyledNavButton width={props.width} open={props.open}>
            
-            <span class="fa-stack fa-1x" onClick={props.handler}>
+            <span className="fa-stack fa-1x" onClick={props.handler}>
                 
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                <i className="fas fa-circle fa-stack-2x text-primary"></i>
                 <i className={`fas fa-plus fa-stack-1x fa-1x`}></i> 
                
                     {/* <IoMdMenu size={"50px"} /> */}
@@ -75,7 +75,7 @@ class ExpandableSidebar extends Component
         super(props)
         this.state = 
         {
-            open:true,
+            open:false,
             width:100
         }
     }
