@@ -26,9 +26,13 @@ const StyledSidebar = styled.div`
 
 const StyledSection= styled.section`
 
-   width:80%;
-   margin:0 auto;
-   height:100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 80%;
+margin: 0 auto;
+height: 100%;
     
 
 

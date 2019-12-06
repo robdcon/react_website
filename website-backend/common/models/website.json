@@ -1,0 +1,46 @@
+{
+  "name": "Website",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "default": "Website Title"
+    },
+    "Url": {
+      "type": "string",
+      "default": "Unpublished"
+    },
+    "Author": {
+      "type": "string",
+      "default": "Rob Connolly"
+    },
+    "Industry": {
+      "type": "string"
+    },
+    "Technologies": {
+      "type": [
+        "string"
+      ]
+    },
+    "Start_Date": {
+      "type": "date"
+    },
+    "Price": {
+      "type": "number"
+    },
+    "Pages": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -5,7 +5,9 @@
 /public/vendor
 # testing
 /coverage
-
+*.png
+*.jpg
+*.svg
 # production
 /build
 
@@ -15,4 +17,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# images
+
 
