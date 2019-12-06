@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Tween, Timeline, SplitWords, SplitLetters, Controls } from 'react-gsap';
+import { Controller, Scene } from 'react-scrollmagic';
+
+ 
+const Screen = (props) => (
+  <div>
+    <Controller>
+      <Scene duration={600} pin>
+       {props.children}
+      </Scene>
+    </Controller>
+  </div>
+);
 
 const TweenComponent = () => (
     <Tween from={{ x: '100px', rotation: -360 }}>
@@ -28,7 +40,17 @@ const StyledSlideshow = styled.section`
     color: white;
     position: relative;
     text-align: center;
- 
+    section
+    {
+        width:100%;
+        height:100vh;
+        min-height:600px;
+        background-color: #eee;
+        color: white;
+        position: relative;
+        text-align: center;
+        
+    }
     /* Center the content of the sections */
     .inner {
         margin: 0 auto;
@@ -69,9 +91,11 @@ class Slideshow extends Component
                         <p>Slide description text goes here.</p>
                     </div>
                 </section>
-                <section id="two">…</section>
-                <section id="three">…</section>
-                <section id="four">…</section>
+                <Screen><section id="two"></section></Screen>
+                <Screen><section id="three">…</section></Screen>
+                <Screen><section id="four">…</section></Screen>
+
+
                 
                 
             </StyledSlideshow> 

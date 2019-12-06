@@ -16,6 +16,7 @@ import Portfolio from './components/Pages/Portfolio'
 import ExpandableSidebar from './components/ExpandableSidebar'
 import DynamicContactForm from './containers/DynamicContactForm'
 
+
 const fields = ['name', 'email', 'message']
 
 class App extends Component {

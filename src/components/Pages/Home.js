@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header'
 import image from '../../assets/web-background-dark-med-compression-1200.jpg'
-import Slideshow from '../Slideshow'
+import Sectionwipe from '../Sectionwipe'
 
 
 class Home extends Component {
@@ -15,9 +15,9 @@ class Home extends Component {
             showBtn={true}
             image={image}
            />
-           <Slideshow>
-             <h1>Hello!</h1>
-           </Slideshow>
+           <Sectionwipe>
+            
+           </Sectionwipe>
         </div>
       );
     }
