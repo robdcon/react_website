@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SingleService from '../SingleService'
 import Header from '../Header'
 import image from '../../assets/web-background-dark-med-compression-1200.jpg'
-
+import TweenComponent from '../TweenComponent'
 
 
 const serviceList = 
@@ -58,12 +58,12 @@ class Services extends Component
                     
                     />
                   })
-                
                 }
               
               </div>
             </div>
           </section>
+          <TweenComponent></TweenComponent>
         </div>
       );
     }

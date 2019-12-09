@@ -15,6 +15,7 @@
   },
   "validations": [],
   "relations": {
+    
     "Profile": {
       "type": "hasOne",
       "model": "Profile",

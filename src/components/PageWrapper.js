@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Nav from './Nav'
+import CollapsableNav from './CollapsableNav'
 
 
 export default class PageWrapper extends Component
@@ -9,8 +9,7 @@ export default class PageWrapper extends Component
         return(
 
             <div>
-               
-               <Nav />
+               <CollapsableNav />
                 {this.props.children}
             </div>
         )

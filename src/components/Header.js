@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 
+import StyledHeader from '../styled/StyledHeader'
+
 class Header extends Component 
 {
     constructor(props)
@@ -9,7 +11,8 @@ class Header extends Component
     }
     render() {
       return (
-        <div>
+        
+          <StyledHeader>
             <header className="masthead" style={{backgroundImage:"url(" + this.props.image +")"}}>
                 <div className="container">
                 <div className="intro-text">
@@ -19,7 +22,7 @@ class Header extends Component
                 </div>
                 </div>
             </header>
-        </div>
+          </StyledHeader>
       );
     }
   }

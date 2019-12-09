@@ -10,6 +10,8 @@ import websiteThumb02 from '../../assets/portfolio/website-web-design-thumb-02.j
 import websiteThumb03 from '../../assets/portfolio/website-web-design-thumb-03.jpg'
 import websiteThumb04 from '../../assets/portfolio/website-web-design-thumb-04.jpg'
 import portfolio from '../../api/portfolio.js'
+import SectionWipe2 from '../SectionWipe2'
+import SplitText from '../SplitText'
 
 console.log(portfolio)
 
@@ -119,6 +121,8 @@ class Portfolio extends Component
                 </div>
               </div>
             </section>
+            <SectionWipe2></SectionWipe2>
+            <SplitText></SplitText>
         </div>
       );
     }

@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import {IoMdMenu} from 'react-icons/io'
+import ContactMailIcon from '@material-ui/icons/ContactMail';
 
 
 
@@ -41,32 +41,53 @@ height: 100%;
 const StyledNavButton = styled.div`
 
     position:absolute;
-    top:1em;
-    width:50px;
-    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    top:25px;
+    width:${(props) => props.btnWidth}px;
+    height:${(props) => props.btnWidth}px;
     color:#fff;
-    right: ${(props) =>  props.open ?  0 : `-50px`}
-    margin-left: ${(props) => props.open ? 0 : "100px"};
+    right: ${(props) =>  props.open ?  0 : `-${props.btnWidth}px`}
+    margin-left: ${(props) => props.open ? 0 : "100%"};
     background-color: transparent;
     z-index:9999;
     transition: all .333s;
     cursor:pointer;
     
+`
 
+const StyledSidebarHeader = styled.div`
+
+   width:100%;
+   position:absolute;
+   display:flex;
+   justify-content:flex-end;
+   align-items:center;
+   top:0;
+   left:0;
+   height:50px;
 
 `
+
+const SidebarHeader = (props) => 
+{
+    return(
+
+        <StyledSidebarHeader>
+            {props.children}
+        </StyledSidebarHeader>
+    )
+}
+
 const NavButton = (props) =>
 {
     return(
-        <StyledNavButton width={props.width} open={props.open}>
+        <StyledNavButton btnWidth={props.btnWidth} open={props.open}>
            
-            <span className="fa-stack fa-1x" onClick={props.handler}>
-                
-                <i className="fas fa-circle fa-stack-2x text-primary"></i>
-                <i className={`fas fa-plus fa-stack-1x fa-1x`}></i> 
-               
-                    {/* <IoMdMenu size={"50px"} /> */}
-            </span>
+            <ContactMailIcon style={{ color: 'yellow' }} onClick={props.handler}>
+
+            </ContactMailIcon>
           
         </StyledNavButton>
     )
@@ -101,12 +122,13 @@ class ExpandableSidebar extends Component
                
                 <StyledSidebar open={this.state.open} width={this.state.width}>
                     <StyledSection>
-                        <NavButton handler={this.toggle} width={this.state.width} open={this.state.open}/>
-                       
-                            {this.props.children}
-                       
+                        <SidebarHeader>
+                            <NavButton handler={this.toggle} btnWidth="50" open={this.state.open}/>
+                        </SidebarHeader>
+                        {this.props.children}
                     </StyledSection>
                 </StyledSidebar>
+                
             </div>  
              
       )
