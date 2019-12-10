@@ -51,7 +51,7 @@ class Services extends Component
                  serviceList.map((service) =>
                   {
                     return <SingleService
-
+                    key={service.title}
                     title={service.title}
                     description={service.caption}
                     icon={service.icon}

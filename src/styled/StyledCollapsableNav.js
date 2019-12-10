@@ -2,11 +2,9 @@ import styled from 'styled-components'
 
 const StyledCollapsableNav = styled.nav`
 
-padding-top: 25px;
-padding-bottom: 25px;
-padding-left:50px;
-transition: padding-top .3s,padding-bottom .3s;
-border: none;
+display:flex;
+flex:row center center;
+height:100px;
 background-color: transparent;
 
 position: fixed;

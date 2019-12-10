@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import StyledCollapsableNav from '../styled/StyledCollapsableNav'
-import MenuIcon from '@material-ui/icons/Menu';
+import CollapsableNavMenu from './CollapsableNavMenu'
 import Logo from './Logo'
+import MenuButton from './MenuButton';
+
 
 
 const pages = 
@@ -28,36 +30,57 @@ const pages =
 
 class CollapsableNav extends Component 
 {
+    constructor(props)
+    {
+        super(props)
+        this.state = 
+        {
+            collapsed:true
+        }
+    }
+
     render() 
     {
       return (
        
             <div className="nav">
+
                 <StyledCollapsableNav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 
                     <div className="container">
                         
-                      <Logo text="ROB CONNOLLY DESIGN" />
+                        <Logo text="ROB CONNOLLY DESIGN" />
+                        {
+                            (this.state.collapsed) ?
+                            (
+                            
+                               <MenuButton toggleMenu={this.props.toggleMenu} />
+                            
+                            ) :
 
-                        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="/navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                            <i className="fas fa-bars"></i>
-                        </button>
+                            (
+                            
+                            <div className="collapse navbar-collapse" id="navbarResponsive">
 
-                        <div className="collapse navbar-collapse" id="navbarResponsive">
-                            <ul className="navbar-nav text-uppercase ml-auto">
-                            {
-                                pages.map(page => 
+                                <ul className="navbar-nav text-uppercase ml-auto">
                                 {
-                                    return   <li key={page.title} className="nav-item"><Link className="nav-link js-scroll-trigger" to={page.path}>{page.title}</Link></li>
-                                })
-                            }
-                            </ul>
-                        </div>
+                                    pages.map(page => 
+                                    {
+                                        return   <li key={page.title} className="nav-item"><Link className="nav-link js-scroll-trigger" to={page.path}>{page.title}</Link></li>
+                                    })
+                                }
+                                </ul>
+
+                            </div>
+                            
+                            )
+
+                        }
+
                     </div>
 
                 </StyledCollapsableNav>
-            
-              
+             
             </div>       
       )
     }

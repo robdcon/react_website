@@ -11,15 +11,15 @@ class Header extends Component
     }
     render() {
       return (
-        
+
           <StyledHeader>
             <header className="masthead" style={{backgroundImage:"url(" + this.props.image +")"}}>
                 <div className="container">
-                <div className="intro-text">
-                    <div className="intro-lead-in">{this.props.title}</div>
-                    <div className="intro-heading text-uppercase">{this.props.subtitle}</div>
-                    {this.props.showBtn && <Link className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" to="/services">{this.props.btnText}</Link>}
-                </div>
+                  <div className="intro-text">
+                      <h1 className="header-title">{this.props.title}</h1>
+                      <p className="header-tagline text-uppercase">{this.props.subtitle}</p>
+                      {this.props.showBtn && <Link className="btn btn-primary btn-xl text-uppercase" to="/services">{this.props.btnText}</Link>}
+                  </div>
                 </div>
             </header>
           </StyledHeader>

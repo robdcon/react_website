@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 
-
-
-
 const StyledSidebar = styled.div`
 
     position:fixed;
@@ -19,22 +16,18 @@ const StyledSidebar = styled.div`
     background-color: #000000;
     z-index:9999;
     transition: margin .33s;
-    
-
 
 `
 
 const StyledSection= styled.section`
 
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 80%;
-margin: 0 auto;
-height: 100%;
-    
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
 
 `
 
@@ -85,7 +78,7 @@ const NavButton = (props) =>
     return(
         <StyledNavButton btnWidth={props.btnWidth} open={props.open}>
            
-            <ContactMailIcon style={{ color: 'yellow' }} onClick={props.handler}>
+            <ContactMailIcon style={{ color: '#fed136' }} onClick={props.handler}>
 
             </ContactMailIcon>
           

@@ -10,6 +10,8 @@ const StyledHeader = styled.div`
     header
     {
         height:100%;
+        display:flex;
+        flex: column center center;
     }
 
 `
