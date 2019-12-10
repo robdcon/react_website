@@ -28,7 +28,7 @@ export default class PageWrapper extends Component
         return(
 
             <div>
-                <CollapsableNavMenu open={this.state.menuOpen}></CollapsableNavMenu>
+                <CollapsableNavMenu open={this.state.menuOpen} toggleMenu={() => {this.toggleMenu()}}></CollapsableNavMenu>
                 <CollapsableNav toggleMenu={() => {this.toggleMenu()}} collapsed={this.state.menuOpen}/>
                 {this.props.children}
             </div>

@@ -54,7 +54,9 @@ class CollapsableNavMenu extends Component
         {
             open:props.open
         }
+
     }
+
     render() 
     {
       return (
@@ -82,8 +84,8 @@ class CollapsableNavMenu extends Component
                 {
                     pages.map(page => 
                     (
-                        <StyledListItem key={page.title} className="custom-nav-item">
-                              <Link className="custom-nav-link" to={page.path}>{page.title}</Link>
+                        <StyledListItem  key={page.title} className="custom-nav-item">
+                              <Link onClick={() => {this.props.toggleMenu()}} className="custom-nav-link" to={page.path}>{page.title}</Link>
                         </StyledListItem>
                     ))
                 }
