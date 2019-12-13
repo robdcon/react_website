@@ -21,7 +21,7 @@ const StyledCollapsableNavMenu = styled.div`
     justify-content:center;
     align-items:center;
     background-color:#000000;
-    transition: top 1s ease-in-out;
+    transition: top .5s ease-in-out;
 
 `
 
@@ -68,7 +68,7 @@ class CollapsableNavMenu extends Component
                (this.props.open) ?
                
                (<Tween
-                duration={1}
+                duration={.5}
                 staggerFrom={{
                     opacity: 0,
                     y:50
@@ -78,7 +78,7 @@ class CollapsableNavMenu extends Component
                    y:0
                   }}
                   stagger={0.15}
-                  delay={.5}
+                  delay={.25}
                   
                 >
                 {

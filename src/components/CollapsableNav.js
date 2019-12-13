@@ -4,6 +4,8 @@ import StyledCollapsableNav from '../styled/StyledCollapsableNav'
 import CollapsableNavMenu from './CollapsableNavMenu'
 import Logo from './Logo'
 import MenuButton from './MenuButton';
+import StyledNavList from '../styled/StyledNavList'
+import StyledResponsiveDiv from '../styled/StyledResponsiveDiv'
 
 
 
@@ -46,40 +48,31 @@ class CollapsableNav extends Component
             <div className="nav">
 
                 <StyledCollapsableNav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-
-                    <div className="container">
-                        
+   
                         <Logo text="ROB CONNOLLY DESIGN" />
-                        {
-                            (this.state.collapsed) ?
-                            (
-                            
-                               <MenuButton toggleMenu={this.props.toggleMenu} />
-                            
-                            ) :
 
-                            (
+                        <StyledResponsiveDiv>
                             
-                            <div className="collapse navbar-collapse" id="navbarResponsive">
+                            <StyledNavList className="text-uppercase" id="navbarResponsive">
 
-                                <ul className="navbar-nav text-uppercase ml-auto">
+                                
                                 {
                                     pages.map(page => 
                                     {
                                         return   <li key={page.title} className="nav-item"><Link className="nav-link js-scroll-trigger" to={page.path}>{page.title}</Link></li>
                                     })
                                 }
-                                </ul>
+                               
 
-                            </div>
-                            
-                            )
+                            </StyledNavList>
 
-                        }
+                        </StyledResponsiveDiv>
 
-                    </div>
+                    <MenuButton toggleMenu={this.props.toggleMenu} />
 
                 </StyledCollapsableNav>
+
+
              
             </div>       
       )

@@ -9,7 +9,15 @@ export const media =
 			${css(...args)}
 		}
 
+	`,
+	desktop: (...args) => css`
+
+		@media (min-width:800px)
+		{
+			${css(...args)}
+		}
+
 	`
 }
-//import media from '../utils/media
+//import {media} from '../utils/media
 //${media.handheld`width:100%;`}

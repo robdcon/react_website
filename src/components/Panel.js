@@ -3,6 +3,7 @@ import StyledPanel from '../styled/StyledPanel'
 
 
 
+
 export default class Panel extends Component
 {
     render()

@@ -4,15 +4,16 @@ const filter =
 {
     where:
     {
-        name:{like: 'Sean'}
-    },
-    order:'id DESC',
-    limit:3
+        email:{like:"tom"}
+    }
 }
 
-models.Profile.find(filter, (err, found) =>
+models.Profile.destroyById("5dea5fdfeb80ab4254961cc8", (err, found) =>
 {
     console.log('Found', err, found)
+   
+    
+    
 })
 
 
