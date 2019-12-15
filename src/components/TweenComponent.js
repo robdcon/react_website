@@ -43,7 +43,7 @@ const TweenComponent = () => (
               width: '200px',
               height: '200px',
             }}       
-            ease="Strong.easeOut"
+            ease="Strong.elstic"
             totalProgress={progress}
             paused
           >
@@ -53,7 +53,7 @@ const TweenComponent = () => (
       </Scene>
       <Scene
         triggerElement="#trigger"
-        duration={600}
+        duration={200}
         pin={false}
       >
       {(progress) => (
@@ -84,7 +84,7 @@ const TweenComponent = () => (
       )}        
       </Scene>
       <Scene
-        duration={500}
+        duration={100}
       >
         {(progress) => (
           <div>

@@ -3,6 +3,9 @@ import SingleService from '../SingleService'
 import Header from '../Header'
 import image from '../../assets/web-background-dark-med-compression-1200.jpg'
 import TweenComponent from '../TweenComponent'
+import SectionReveal from '../SectionReveal'
+import ServiceTween from '../ServiceTween'
+import PrismaScreen from '../PrismaScreen'
 
 
 const serviceList = 
@@ -37,33 +40,22 @@ class Services extends Component
             showBtn={true}
             image={image}
           />
+          <PrismaScreen />
           <section className="page-section" id="services">
             <div className="container">
               <div className="row">
                 <div className="col-lg-12 text-center">
                   <h2 className="section-heading text-uppercase">Services</h2>
-                  <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  <h3 className="section-subheading text-muted">So what can I do for you?</h3>
                 </div>
               </div>
-              <div className="row text-center">
-               
-               { 
-                 serviceList.map((service) =>
-                  {
-                    return <SingleService
-                    key={service.title}
-                    title={service.title}
-                    description={service.caption}
-                    icon={service.icon}
-                    
-                    />
-                  })
-                }
-              
-              </div>
+              <ServiceTween>
+             
+              </ServiceTween>
             </div>
           </section>
-          <TweenComponent></TweenComponent>
+          <SectionReveal></SectionReveal>
+         
         </div>
       );
     }
