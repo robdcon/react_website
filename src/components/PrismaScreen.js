@@ -59,7 +59,7 @@ const Screen = (props) =>
                 {
                 stripCount.map((key) =>
                 { 
-                    return <Strip key={key} width={props.width} image={props.image} position={`${(props.width*key) - (key-1)}`} />
+                    return <Strip ref={} key={key} width={props.width} image={props.image} position={`${(props.width*key) - (key-1)}`} />
                 })
                 }
               

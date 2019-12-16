@@ -1,0 +1,81 @@
+{
+    "questions":
+    [
+        {
+            "question":"What kind of site do you need?",
+            "options":
+            [ 
+                 "Blog/Personal",
+                 "E-Commerce",
+                 "Restaurant",
+                 "Salon",
+                 "Lifestyle",
+                 "Corporate/B2B",
+                 "Charity",
+                 "Group/Society",
+                 "Other"
+
+            ],
+            "inputType":"select",
+            "required":true
+        },
+        {
+            "question":"What do you hope to achieve with your new site?",
+            "options":
+            [ 
+                 "Provide information",
+                 "Gain followers",
+                 "Promote your business",
+                 "Increase sales",
+                 "Gain subscribers to a mailing list",
+                 "Present your products or services",
+                 "Sell to other businesses",
+                 "List events",
+                 "Other"
+
+            ],
+            "inputType":"checkbox",
+            "required":true
+        },
+        {
+            "question":"What would you like the tone of the site to be?",
+            "options":
+            [ 
+                 "Simple",
+                 "Elegant",
+                 "Corporate",
+                 "Serious",
+                 "Contemporary",
+                 "Modern",
+                 "Old-fashioned",
+                 "Neutral",
+                 "Fun",
+                 "Playful",
+                 "Quirky",
+                 "Futuristic",
+                 "Other"
+
+            ],
+            "inputType":"checkbox",
+            "required":true
+        },
+        {
+            "question":"What pages do you need for your site?",
+            "options":
+            [ 
+                 "Home/Landing",
+                 "About",
+                 "Services",
+                 "Contact",
+                 "Testimonials",
+                 "Social Feeds",
+                 "Blog",
+                 "Menu",
+                 "Portfolio"
+
+            ],
+            "inputType":"checkbox",
+            "required":true
+        }
+    ]
+}
