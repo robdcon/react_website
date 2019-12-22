@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Header from '../Header'
 import image from '../../assets/web-background-dark-med-compression-1200.jpg'
 import Sectionwipe from '../Sectionwipe'
-
+import ParallaxSection from '../ParallaxSection'
+import foreground from '../../assets/mountains/header-foreground.png'
+import midground from '../../assets/mountains/header-midground.png'
+import background from '../../assets/mountains/header-background.png'
 
 class Home extends Component {
     render() {
@@ -15,6 +18,15 @@ class Home extends Component {
             showBtn={true}
             image={image}
            />
+
+            <ParallaxSection
+              foreground={foreground}
+              midground={midground}
+              background={background}
+            >
+           
+            </ParallaxSection>
+            
            <Sectionwipe>
             
            </Sectionwipe>

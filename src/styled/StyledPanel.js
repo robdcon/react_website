@@ -9,6 +9,7 @@ const StyledPanel = styled.div`
     width: 100vw;
     text-align: center;
     background-color: ${(props) => props.bgColor}
+    background-image: ${(props) => props.bgImage}
 
 
 `

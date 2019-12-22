@@ -4,7 +4,15 @@ export const media =
 {
 	handheld: (...args) => css`
 
-		@media (max-width:800px)
+		@media (min-width:px)
+		{
+			${css(...args)}
+		}
+
+	`,
+	tablet: (...args) => css`
+
+		@media (min-width:768px)
 		{
 			${css(...args)}
 		}
@@ -12,12 +20,22 @@ export const media =
 	`,
 	desktop: (...args) => css`
 
-		@media (min-width:800px)
+		@media (min-width:960px)
 		{
 			${css(...args)}
 		}
 
+	`,
+	retina: (...args) => css`
+	
+		@media (min-width:1980px)
+		{
+			${css(...args)}
+		}
+	
 	`
 }
+
+//USAGE:
 //import {media} from '../utils/media
 //${media.handheld`width:100%;`}

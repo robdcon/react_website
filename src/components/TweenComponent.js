@@ -2,6 +2,37 @@ import React from 'react';
 import styled from 'styled-components';
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
+import StyledFlexBox from '../styled/StyledflexBox'
+
+const StyledSection = styled.section`
+
+  width:100%;
+  height:100vh;
+  padding:3em;
+  color:#f00;
+
+`
+
+const Stage = (props) =>
+{
+  return(
+    <Controller>
+      <Scene
+       duration={300}
+       triggerHook="onLeave"
+      >
+        <Timeline wrapper={<StyledFlexBox />}>
+          <Tween
+           from={{opacity:0}}
+           to={{opacity:1}}
+          >
+            <div className="section"></div>
+          </Tween>
+        </Timeline>
+      </Scene>
+    </Controller>
+  )
+}
 
 const TweenStyled = styled.div`
   .section {

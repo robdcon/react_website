@@ -30,7 +30,7 @@ class Nav extends Component
       return (
        
             <div className="nav">
-                <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+                <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
                     <div className="container">
                         
                         <Link className="navbar-brand js-scroll-trigger" to="/">CREATIVE WEB SOLUTIONS</Link>

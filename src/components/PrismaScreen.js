@@ -9,14 +9,26 @@ const img01 = "https://irp-cdn.multiscreensite.com/8c7b9935/dms3rep/multi/slide+
 
 const images = [img03, img02, img01]
 
+// Declare image to get width and height properties
+const img = new Image();
+img.src = img01
+const imgWidth = img.width
+const imgHeight = img.height
+const imgRatio = imgWidth/imgHeight
+const viewportWidth = window.innerWidth
+const newImgHeight = viewportWidth/imgRatio
+
+//console.log(imgRatio)
+
 const stripCount = [1,2,3,4,5,6,7,8,9,10]
 
 const StyledStrip = styled.div`
 
     width:${(props) => props.width}%;
-    height:100%;
+    height:${props => props.height}px;
     background-image: url(${(props) => props.image});
     background-position: ${(props) => props.position}% 0;
+    background-size:auto 100%;
     background-color:#ff000050;
     display: inline-block;
 
@@ -35,7 +47,7 @@ const Strip = (props) =>
     return(
 
         
-        <StyledStrip  className="Strip" width={props.width} position={props.position}  image={props.image}>
+        <StyledStrip  className="Strip" height={props.height} width={props.width} position={props.position}  image={props.image}>
         </StyledStrip>
     )
 }
@@ -59,7 +71,7 @@ const Screen = (props) =>
                 {
                 stripCount.map((key) =>
                 { 
-                    return <Strip ref={} key={key} width={props.width} image={props.image} position={`${(props.width*key) - (key-1)}`} />
+                    return <Strip  key={key} height={props.height} width={props.width} image={props.image} position={`${(props.width*key)}`} />
                 })
                 }
               
@@ -74,12 +86,13 @@ class PrismaScreen extends Component
     {
         super(props)
         this.state = {
-            stripWidth:10
+            stripWidth:10,
+            stripHeight:newImgHeight
         }
     }
     componentDidMount()
     {
-       Tween.to('.Strip', {opacity:0.5}, 0.15)
+      // Tween.to('.Strip', {opacity:0.5}, 0.15)
     }
     render()
     {
@@ -88,26 +101,13 @@ class PrismaScreen extends Component
             {
                 images.map((image, i) =>
                 {
-                    return  <Screen className="Screen" key={i} image={image} width={this.state.stripWidth}></Screen>
+                    return  <Screen className="Screen" key={i} image={image} height={this.state.stripHeight} width={this.state.stripWidth}></Screen>
                 })
             }
             </ScreenContainer>
         )
     }
 }
-	
-
-	
-
-	// timeline = new TimelineMax()
-
-	// timeline.staggerFromTo($('.board:nth-of-type(3) .screen-container'), .5, {opacity:1, rotationY: 0}, {opacity:0, rotationY: 360, delay:1}, .01, 5, null);
-	// timeline.staggerFromTo($('.board:nth-of-type(2) .screen-container'), .5, {opacity:0, rotationY: 0}, {opacity:1, rotationY: 360, delay:1}, .01, 5, null);
-	// timeline.staggerFromTo($('.board:nth-of-type(2) .screen-container'), .5, {opacity:1, rotationY: 0}, {opacity:0, rotationY: 360, delay:1}, .01, 10, null);
-	// timeline.staggerFromTo($('.board:nth-of-type(1) .screen-container'), .5, {opacity:0, rotationY: 0}, {opacity:1, rotationY: 360, delay:1}, .01, 10, null);
-
-	// timeline.staggerFromTo($('.board:nth-of-type(3) .screen-container'), .5, {opacity:1, rotationY: 0}, {opacity:1, rotationY: 360, delay:1}, .1, 9, null);
-	// timeline.staggerFromTo($('.board:nth-of-type(1) .screen-container'), .5, {rotationY: 0}, {opacity:0, rotationY: 360, delay:1}, .1, 9, null);
 
 
 export default PrismaScreen

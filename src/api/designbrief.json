@@ -2,7 +2,7 @@
     "questions":
     [
         {
-            "question":"What kind of site do you need?",
+            "label":"What kind of site do you need?",
             "options":
             [ 
                  "Blog/Personal",
@@ -16,11 +16,12 @@
                  "Other"
 
             ],
+            "name":"site-type",
             "inputType":"select",
             "required":true
         },
         {
-            "question":"What do you hope to achieve with your new site?",
+            "label":"What do you hope to achieve with your new site?",
             "options":
             [ 
                  "Provide information",
@@ -34,11 +35,12 @@
                  "Other"
 
             ],
+            "name":"site-goals",
             "inputType":"checkbox",
             "required":true
         },
         {
-            "question":"What would you like the tone of the site to be?",
+            "label":"What would you like the tone of the site to be?",
             "options":
             [ 
                  "Simple",
@@ -56,11 +58,12 @@
                  "Other"
 
             ],
+            "name":"site-tone",
             "inputType":"checkbox",
             "required":true
         },
         {
-            "question":"What pages do you need for your site?",
+            "label":"What pages do you need for your site?",
             "options":
             [ 
                  "Home/Landing",
@@ -75,6 +78,7 @@
 
             ],
             "inputType":"checkbox",
+            "name":"site-pages",
             "required":true
         }
     ]

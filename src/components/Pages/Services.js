@@ -1,38 +1,43 @@
 import React, { Component } from 'react';
-import SingleService from '../SingleService'
+import { render } from 'react-dom';
 import Header from '../Header'
 import image from '../../assets/web-background-dark-med-compression-1200.jpg'
-import TweenComponent from '../TweenComponent'
-import SectionReveal from '../SectionReveal'
-import ServiceTween from '../ServiceTween'
-import PrismaScreen from '../PrismaScreen'
-
-
-const serviceList = 
-[
-  {
-    title:"E-Commerce",
-    description: "This is the first description",
-    icon: "fa-shopping-cart"
-  },
-  {
-    title:"Responsive Design",
-    description: "This is the first description",
-    icon: "fa-laptop"
-  },
-  {
-    title:"Web Security",
-    description: "This is the first description",
-    icon: "fa-lock"
-  }
-]
+// import TimelineLite from "gsap/all";
+import { gsap} from 'gsap/dist/gsap';
+import {CSSRulePlugin} from 'gsap/dist/CSSRulePlugin'
+import {TimelineLite} from 'gsap/dist/gsap'
+gsap.registerPlugin(CSSRulePlugin); 
+import ServiceList from '../ServiceList'
+import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
+import {StyledFlexBox, StyledFlexSection} from '../../styled/FlexContainers'
+import Stage from '../Stage'
 
 class Services extends Component 
 {
+  constructor(props)
+  {
+    super(props)
+    this.serviceList = React.createRef()
+    this.serviceTween = new TimelineLite({paused:true}) 
+  }
+
+  animateServices()
+  {
+    const tweenedServices = this.serviceList.current.getServices()
+    console.log("Services: ", tweenedServices )
+    this.serviceTween.staggerFrom(tweenedServices, 1, {opacity:'0', y:'100', onComplete:function(){console.log('Animation Complete: ', tweenedServices)} } , 0.25 )
+  }
+
+  componentDidMount()
+  {
+   //this.animateServices()
+  }
     render() 
     {
       return (
         <div>
+         
           <Header
             title="What can I do for you?"
             subtitle="Take a look at the services I offer..."
@@ -40,21 +45,18 @@ class Services extends Component
             showBtn={true}
             image={image}
           />
-          <PrismaScreen />
-          <section className="page-section" id="services">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12 text-center">
-                  <h2 className="section-heading text-uppercase">Services</h2>
-                  <h3 className="section-subheading text-muted">So what can I do for you?</h3>
-                </div>
-              </div>
-              <ServiceTween>
-             
-              </ServiceTween>
-            </div>
-          </section>
-          <SectionReveal></SectionReveal>
+          <StyledFlexSection direction="column" className="StyledFlexSection">
+
+            <StyledFlexBox className="StyledFlexBox" direction="column">
+              <h2>SERVICES</h2>
+              <p>How can I be of service...</p>
+            </StyledFlexBox>
+            
+            <StyledFlexBox className="StyledFlexBox">
+              <Stage className="Stage" />
+            </StyledFlexBox>
+
+          </StyledFlexSection>
          
         </div>
       );

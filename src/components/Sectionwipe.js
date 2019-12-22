@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Controller, Scene } from 'react-scrollmagic';
 import Panel from './Panel'
+import TypeForm from './TypeForm'
 
 const SectionWipesStyled = styled.div`
   overflow: hidden;
@@ -12,7 +13,13 @@ const SectionWipes = () => (
   <SectionWipesStyled>
     <Controller globalSceneOptions={{ triggerHook: 'onLeave' }}>
       <Scene pin>
-       <div><Panel bgColor={'blue'} heading="Web Design" /></div>
+       <div>
+         <Panel bgColor={'blue'} heading="Web Design">
+       
+         </Panel>
+         
+       
+       </div>
       </Scene>
       <Scene pin>
         <div><Panel bgColor={'green'} heading="Graphic Design" /></div>

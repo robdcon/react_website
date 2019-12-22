@@ -10,7 +10,7 @@ export default class Panel extends Component
     {
         return(
 
-            <StyledPanel bgColor={this.props.bgColor}>
+            <StyledPanel bgColor={this.props.bgColor} bgImage={this.props.bgImage}>
                 <h2>{this.props.heading}</h2>
                  {this.props.children}
             </StyledPanel>

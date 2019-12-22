@@ -47,7 +47,7 @@ class CollapsableNav extends Component
        
             <div className="nav">
 
-                <StyledCollapsableNav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+                <StyledCollapsableNav className="navbar navbar-expand-lg navbar-dark fixed-top">
    
                         <Logo text="ROB CONNOLLY DESIGN" />
 
