@@ -31,7 +31,9 @@ class App extends Component {
       exact={true}
       path="/admin"
       render={props => (
-       <Login/>
+        <AdminWrapper>
+           <Login/>
+        </AdminWrapper>
      )}
 
      />
@@ -46,7 +48,7 @@ class App extends Component {
           path='/'
           render={props =>(
             <PageWrapper>
-              <Home/>
+              <Home {...props} />
             </PageWrapper>
           )}
         /> 
@@ -56,7 +58,7 @@ class App extends Component {
           path='/about'
           render={props =>(
             <PageWrapper>
-              <About/>
+              <About  {...props} />
             </PageWrapper>
           )}
         /> 
@@ -66,7 +68,7 @@ class App extends Component {
           path='/services'
           render={props =>(
             <PageWrapper>
-              <Services/>
+              <Services  {...props} />
             </PageWrapper>
           )}
         /> 
@@ -76,7 +78,7 @@ class App extends Component {
           path='/portfolio'
           render={props =>(
             <PageWrapper>
-              <Portfolio/>
+              <Portfolio  {...props} />
             </PageWrapper>
           )}
         /> 
@@ -86,7 +88,7 @@ class App extends Component {
           path='/contact'
           render={props =>(
             <PageWrapper>
-              <Contact/>
+              <Contact  {...props} />
             </PageWrapper>
           )}
         /> 
