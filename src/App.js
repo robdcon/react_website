@@ -36,7 +36,7 @@ class App extends Component {
 
      />
 
-     <PageWrapper> 
+    
 
         <ExpandableSidebar />
          
@@ -44,34 +44,53 @@ class App extends Component {
          <Route 
           exact={true}
           path='/'
-          component={Home}
+          render={props =>(
+            <PageWrapper>
+              <Home/>
+            </PageWrapper>
+          )}
         /> 
 
         <Route 
           exact={true}
           path='/about'
-          component={About}
+          render={props =>(
+            <PageWrapper>
+              <About/>
+            </PageWrapper>
+          )}
         /> 
 
         <Route 
           exact={true}
           path='/services'
-          component={Services}
+          render={props =>(
+            <PageWrapper>
+              <Services/>
+            </PageWrapper>
+          )}
         /> 
 
         <Route 
           exact={true}
           path='/portfolio'
-          component={Portfolio}
+          render={props =>(
+            <PageWrapper>
+              <Portfolio/>
+            </PageWrapper>
+          )}
         /> 
 
         <Route 
           exact={true}
           path='/contact'
-          component={Contact}
+          render={props =>(
+            <PageWrapper>
+              <Contact/>
+            </PageWrapper>
+          )}
         /> 
 
-     </PageWrapper>
     </Router>
 
     );
