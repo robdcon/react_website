@@ -1,43 +1,31 @@
 {
-  "name": "Profile",
+  "name": "Category",
+  "plural": "Categories",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "first_name": {
-      "type": "string"
-    },
-    "last_name": {
-      "type": "string"
-    },
-    "dob": {
-      "type": "date"
+    "title": {
+      "type": "string",
+      "required": false
     },
     "created_at": {
-      "type": "date"
+      "type": "date",
+      "required": false
     },
-    "age": {
-      "type": "number"
-    },
-    "history": {
-      "type": [
-        "object"
-      ]
+    "slug": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],
   "relations": {
-    "user": {
-      "type": "belongsTo",
-      "model": "user",
-      "foreignKey": "userId"
-    },
     "Post": {
       "type": "hasMany",
       "model": "Post",
-      "foreignKey": ""
+      "foreignKey": "postId"
     }
   },
   "acls": [
@@ -51,12 +39,6 @@
       "accessType": "WRITE",
       "principalType": "ROLE",
       "principalId": "admin",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "WRITE",
-      "principalType": "ROLE",
-      "principalId": "$owner",
       "permission": "ALLOW"
     }
   ],

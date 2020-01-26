@@ -1,31 +1,48 @@
 
 
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import {media} from '../utils/media'
 
 
 
 const StyledLabel = styled.label`
 
-    font-size: 2em;
+    font-size: 1em;
     color: #ffffff70;
 
 `
 
 const StyledInput = styled.input`
 
-    width: 100%;
-    padding: 1.5em;
-    font-size: 1.5rem;
+    width: 90%;
+    padding: 0.5em;
+    font-size: 0.8rem;
+
+    ${media.desktop`
+
+        width: 100%;
+        padding: 1.5em;
+        font-size: 1.5rem;
+    
+    `}
 
 
 `
 
 const StyledTextArea = styled.textarea`
 
+    width: 90%;
+    padding: 0.5em;
+    font-size: 0.8rem;
+
+    ${media.desktop`
+    
     width: 100%;
     padding: 1.5em;
     font-size: 1.5rem;
+
+`}
 
 
 `
@@ -42,7 +59,7 @@ class FormGroup extends Component
     {
       return (
        
-            <StyledField className="form-group">
+            <StyledField className="StyledField form-group">
                 <StyledLabel htmlFor={this.props.name}>{this.props.label}</StyledLabel>
                 {  
                 ( this.props.type === "text" ) ? 

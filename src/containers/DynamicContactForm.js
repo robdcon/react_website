@@ -5,20 +5,28 @@ import FormGroup from '../components/FormGroup'
 import {withFormik, Field} from 'formik'
 import TweenLite from 'gsap'
 import styled from 'styled-components'
+import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
+import {StyledFlexBox} from '../styled/StyledFlexBox'
+import Theme from '../themes/Theme'
+
+console.log("Theme:",Theme)
 
 const StyledForm = styled.div` 
 
     width:100%;
-    &h2{text-align:center;}
+    &h2
+    {
+      text-align:center;
+      color:#fff;
+    }
     
 
 `
-
-const Confirmation = styled.div`
+const ConfirmationStyles = styled.div`
 
     width:100%;
     height:100%;
-    disply:flex;
+    display:flex;
     align-items:center;
     justify-content:center;
     h2, p
@@ -122,24 +130,33 @@ class DynamicContactForm extends Component
         })
     }
 
-    animateFields()
-	{
-		
-		console.log(this.myElements)
-		TweenLite.staggerFrom('[data-animate]', .5, {y:'100px', opacity:0}, .05)
-		// this.setState({
+    animateFields = () =>
+    {
+      
+      console.log(this.myElements)
+      TweenLite.staggerFrom('[data-animate]', .5, {y:'100px', opacity:0}, .05)
+      // this.setState({
 
-		// 	animateOptions:false
-		// })
+      // 	animateOptions:false
+      // })
 
-		
-	}
+      
+    }
+  
+  resetForm = () => 
+  {
+    this.setState({
+      fieldIndex:0
+
+    })
+    this.props.toggle()
+  }
 
     render() 
     {
       return (
        
-            <StyledForm className="dynamic-contact-form">
+            <StyledForm className="StyledForm dynamic-contact-form">
 
                {
                    (this.state.fieldIndex < this.state.formFields.length) ?
@@ -167,10 +184,11 @@ class DynamicContactForm extends Component
                    ) : 
 
                    (
-                     <Confirmation message={"Thanks for the information!"} >
+                     <StyledFlexBox direction="column" message={"Thanks for the information!"} >
                          <h2>Thanks for getting in touch!</h2>
                          <p>Ill get back to you as soon as possible.</p>
-                    </Confirmation>
+                         <CancelPresentationIcon style={{color: `${Theme.primaryColor}`}} onClick={this.resetForm}/>
+                      </StyledFlexBox>
                    )
                } 
                

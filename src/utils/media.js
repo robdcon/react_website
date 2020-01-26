@@ -4,7 +4,7 @@ export const media =
 {
 	handheld: (...args) => css`
 
-		@media (min-width:px)
+		@media (min-width:600px)
 		{
 			${css(...args)}
 		}
@@ -12,7 +12,7 @@ export const media =
 	`,
 	tablet: (...args) => css`
 
-		@media (min-width:768px)
+		@media (min-width:800px)
 		{
 			${css(...args)}
 		}

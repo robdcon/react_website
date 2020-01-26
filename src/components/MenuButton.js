@@ -6,8 +6,9 @@ import {media} from '../utils/media'
 const StyledMenuButton = styled.div`
 
     cursor:pointer;
-    ${media.desktop`display:none;`}
-    ${media.handheld`display:inline-block;`}
+    display:inline-block;
+    ${media.tablet`display:none;`}
+   
 
 `
 const MenuButton = (props) => 

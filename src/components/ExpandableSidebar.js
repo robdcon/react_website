@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import ContactMailIcon from '@material-ui/icons/ContactMail';
+const fields = ['name', 'email', 'message']
+import DynamicContactForm from '../containers/DynamicContactForm'
 
 const StyledSidebar = styled.div`
 
@@ -118,7 +120,7 @@ class ExpandableSidebar extends Component
                         <SidebarHeader>
                             <NavButton handler={this.toggle} btnWidth="50" open={this.state.open}/>
                         </SidebarHeader>
-                        {this.props.children}
+                        <DynamicContactForm toggle={this.toggle} fields={fields}/>
                     </StyledSection>
                 </StyledSidebar>
                 

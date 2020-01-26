@@ -14,10 +14,10 @@ import Services from './components/Pages/Services'
 import Contact from './components/Pages/Contact'
 import Portfolio from './components/Pages/Portfolio'
 import ExpandableSidebar from './components/ExpandableSidebar'
-import DynamicContactForm from './containers/DynamicContactForm'
 
 
-const fields = ['name', 'email', 'message']
+
+
 
 class App extends Component {
   render() {
@@ -26,9 +26,8 @@ class App extends Component {
     <Router>
      <PageWrapper> 
 
-        <ExpandableSidebar>
-          <DynamicContactForm fields={fields}/>
-        </ExpandableSidebar> 
+        <ExpandableSidebar />
+         
 
          <Route 
           exact={true}

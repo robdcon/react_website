@@ -41,14 +41,6 @@ const ParallaxSection = (props) =>
       
 
             <StyledParallaxSection>
-            
-
-           
-
-                
-                <StyledParallaxPanel className="parallax-panel"  bgImage={props.background} />   
-
-                <StyledParallaxPanel className="parallax-panel"  bgImage={props.midground} />
                     
                 <Controller>
                 <Scene
@@ -94,7 +86,8 @@ const ParallaxSection = (props) =>
                     triggerHook="onLeave"
                     duration='100%'
                     indicators={true}
-                    reverse={true}
+                    reverse={true}y
+
                     >
                         <Tween
                          from={{

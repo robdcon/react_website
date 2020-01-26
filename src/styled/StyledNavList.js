@@ -15,6 +15,8 @@ const StyledNavList = styled.ul`
         }
 
     }
+    font-size:.75em;
+    ${media.desktop`font-size:1em;`}
     margin:0;
 
 `

@@ -6,25 +6,7 @@ import { Tween, Timeline } from 'react-gsap';
 import {Link} from 'react-router-dom'
 import StyledListItem from '../styled/StyledListItem'
 
-
-const StyledCollapsableNavMenu = styled.div`
-
-    height:100%;
-    width:100%;
-    height:100vh;
-    width:100vw;
-    position:absolute;
-    top:${(props) => (props.open) ? '0' : '-100%'};
-    left:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background-color:#000000;
-    transition: top .5s ease-in-out;
-
-`
-
+// List of pages with respective paths to pass to Link
 const pages = 
 [
     {
@@ -44,6 +26,26 @@ const pages =
         path:"/contact"
     }
 ]
+
+const StyledCollapsableNavMenu = styled.div`
+
+    height:100%;
+    width:100%;
+    height:100vh;
+    width:100vw;
+    position:absolute;
+    top:${(props) => (props.open) ? '0' : '-100%'};
+    left:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background-color:#000000;
+    transition: top .5s ease-in-out;
+
+`
+
+
 
 class CollapsableNavMenu extends Component 
 {
