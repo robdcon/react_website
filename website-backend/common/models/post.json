@@ -42,11 +42,6 @@
       "type": "belongsTo",
       "model": "Category",
       "foreignKey": "categoryId"
-    },
-    "PostImage": {
-      "type": "hasOne",
-      "model": "PostImage",
-      "foreignKey": "postImageId"
     }
   },
   "acls": [
