@@ -21,11 +21,11 @@ module.exports = function(Postimage) {
 
             if(err)
             {
-                cb(err)
+                cb(err);
             } 
             else
             {
-                var fileInfo = file.files.file[0]
+                var fileInfo = file.files.file[0];
                 
                 sharp('./server/storage/' + ctx.req.params.container + '/' + fileInfo.name)
                 .resize(100)
@@ -63,8 +63,9 @@ module.exports = function(Postimage) {
             accepts: [
                 {arg: 'ctx', type: 'object', http:{source: 'context'}},
                 {arg: 'options', type: 'object', http:{source: 'query'}},
-                {agr: 'access_token', type: 'string'},
-                {arg: 'post_id', type: 'string'}
+                {arg: 'access_token', type: 'string'},
+                {arg: 'post_id', type: 'string'},
+                {arg: 'user_id', type: 'string'}
             ],
             returns: { arg:'fileObject', type: 'object', root: 'true'},
             http:{ verb: 'post'}
