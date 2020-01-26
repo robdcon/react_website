@@ -15,7 +15,39 @@ class Login extends Component
     render()
     {
         return(
-            <h1>Login</h1>
+            <div id="login-page">
+                <div className="container">
+                    <div className="login-form">
+                    <div className="row"><h1>LOGIN</h1></div>
+                        <div className="row">
+                            <form onSubmit={this.props.handleSubmit}>
+                            {
+                                fields.map((field, i) => {
+
+                                    return ( 
+                                    <div className="col-md-12" key={i}>
+                                        <FormGroup 
+                                            
+                                            {...field}
+                                            name={field.name}
+                                            elementName={field.elementName}
+                                            type={field.type}
+                                            placeholder={field.placeholder}
+                                            value={this.props.values[field.name]}
+                                            onChange={this.props.handleChange}
+                                            onBlur={this.props.handleBlur}
+                                            touched={(this.props.touched[field.name])}
+                                            errors={this.props.errors[field.name]}
+                                        />
+                                    </div>)
+                                })
+                            }
+                            <button className="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
