@@ -1,8 +1,23 @@
 import React, {Component} from 'react';
+import styled from 'styled-components';
 import {withFormik} from 'formik';
+import {connect} from 'react-redux';
 import FormGroup from '../FormGroup';
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import * as AuthActions from '../../store/actions/authActions';
+import StyledFlexBox from '../../styled/FlexContainers'
 
+
+const StyledLoginForm = styled.form`
+
+    width: 60%;
+    height:100%;
+    margin: 0 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;   
+
+`
 const fields = [
 
     {name:'email', elementName:'input', type:'email', placeholder: 'Your Email'},
@@ -20,7 +35,7 @@ class Login extends Component
                     <div className="login-form">
                     <div className="row"><h1>LOGIN</h1></div>
                         <div className="row">
-                            <form onSubmit={this.props.handleSubmit}>
+                            <StyledLoginForm onSubmit={this.props.handleSubmit}>
                             {
                                 fields.map((field, i) => {
 
@@ -43,7 +58,7 @@ class Login extends Component
                                 })
                             }
                             <button className="btn btn-primary">Login</button>
-                            </form>
+                            </StyledLoginForm>
                         </div>
                     </div>
                 </div>
@@ -52,7 +67,24 @@ class Login extends Component
     }
 }
 
-export default withFormik({
+const mapStateToProps = (state) =>
+{
+    return {
+        auth: state.auth
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>
+{
+    return {
+        login: (email, pass) => 
+        {
+            dispatch(AuthActions.login(email, pass))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withFormik({
     mapPropsToValues: () => ({
 
         email:'',
@@ -67,4 +99,4 @@ export default withFormik({
     }
 
 
-})(Login);
+})(Login));
