@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
 import PageWrapper from './components/PageWrapper'
 import {
   BrowserRouter as Router,
@@ -6,6 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 
 // PAGES
 import Home from './components/Pages/Home';
@@ -16,6 +19,7 @@ import Portfolio from './components/Pages/Portfolio';
 import ExpandableSidebar from './components/ExpandableSidebar';
 import AdminWrapper from  './components/AdminWrapper';
 import Login from  './components/Pages/Login';
+import Dashboard from './components/Pages/Dashboard';
 
 
 
@@ -30,11 +34,15 @@ class App extends Component {
      <Route
       exact={true}
       path="/admin"
-      render={props => (
-        <AdminWrapper>
-           <Login/>
-        </AdminWrapper>
-     )}
+      render={props => {
+       console.log(props);
+       return( <AdminWrapper>
+          {this.props.auth.token ? 
+           (<Dashboard />) :
+           (<Login />)
+          }
+        </AdminWrapper> )
+      }}
 
      />
 
@@ -99,4 +107,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  }
+
+}
+const mapDispatchToProps = dispatch => {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

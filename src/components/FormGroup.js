@@ -62,12 +62,12 @@ class FormGroup extends Component
             <StyledField className="StyledField form-group">
                 <StyledLabel htmlFor={this.props.name}>{this.props.label}</StyledLabel>
                 {  
-                ( this.props.type === "text" ) ? 
+                ( this.props.type ) ? 
                 ( 
                     <StyledInput 
                             className="form-control" 
                             id={this.props.name} 
-                            type="text"
+                            type={this.props.type}
                             placeholder={this.props.placeholder}
                             required={this.props.required} 
                             name={this.props.name}

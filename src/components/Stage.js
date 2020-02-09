@@ -4,7 +4,15 @@ import { Tween, Timeline } from 'react-gsap';
 import {StyledFlexBox, StyledFlexWrapper} from '../styled/FlexContainers'
 import {StyledDividerSection} from '../styled/StyledDividers'
 import SingleService from './SingleService'
+import styled from 'styled-components';
 
+const FlySection = styled.div`
+  display:flex;
+  height:100vh;
+  width:100%;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+
+`
 const services = 
 [
   {
@@ -38,12 +46,12 @@ class Stage extends Component
       <Controller className="Controller">
         <Scene
         className="Stage"
-          indicators={false} 
-          duration={100}
-          pin={false}
-          offset={100}
+          indicators={true} 
+          duration={'300%'}
+          pin={true}
+          triggerHook={0} 
         >
-          <Timeline wrapper={<StyledFlexBox id="trigger" justify="space-around"  />}>
+          <Timeline wrapper={<FlySection id="trigger" justify="space-around"  />}>
               
             <Tween
             
@@ -56,6 +64,7 @@ class Stage extends Component
               y:0
             }}
             stagger={0.15}
+            
             
             >
             {
@@ -79,6 +88,21 @@ class Stage extends Component
                 })
             }
             </Tween>
+          </Timeline >
+         
+        </Scene>
+        <Scene>
+        <Timeline  wrapper={<FlySection justify="space-around" />}>
+            <Tween
+
+            >
+             <StyledFlexBox>
+             <h1>hello</h1>
+             </StyledFlexBox>
+
+              
+            </Tween>
+
           </Timeline>
         </Scene>
       </Controller>

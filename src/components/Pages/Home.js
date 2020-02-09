@@ -6,6 +6,7 @@ import ParallaxSection from '../ParallaxSection'
 import foreground from '../../assets/mountains/header-foreground.png'
 import midground from '../../assets/mountains/header-midground.png'
 import background from '../../assets/mountains/header-background.png'
+import Stage from '../Stage';
 
 class Home extends Component {
     render() {
@@ -26,7 +27,7 @@ class Home extends Component {
             >
            
             </ParallaxSection>
-            
+            <Stage />
            <Sectionwipe>
             
            </Sectionwipe>

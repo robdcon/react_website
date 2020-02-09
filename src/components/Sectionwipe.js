@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
 import Panel from './Panel'
 import TypeForm from './TypeForm'
 
@@ -15,10 +16,7 @@ const SectionWipes = () => (
       <Scene pin>
        <div>
          <Panel bgColor={'blue'} heading="Web Design">
-       
          </Panel>
-         
-       
        </div>
       </Scene>
       <Scene pin>

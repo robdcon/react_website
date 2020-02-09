@@ -35,14 +35,16 @@ class Login extends Component
                     <div className="login-form">
                     <div className="row"><h1>LOGIN</h1></div>
                         <div className="row">
-                            <StyledLoginForm onSubmit={this.props.handleSubmit}>
+                            <StyledLoginForm onSubmit={e => {
+                                e.preventDefault();
+                                this.props.login(this.props.values.email, this.props.values.password);
+                            }}>
                             {
                                 fields.map((field, i) => {
 
                                     return ( 
                                     <div className="col-md-12" key={i}>
                                         <FormGroup 
-                                            
                                             {...field}
                                             name={field.name}
                                             elementName={field.elementName}
@@ -57,7 +59,7 @@ class Login extends Component
                                     </div>)
                                 })
                             }
-                            <button className="btn btn-primary">Login</button>
+                            <button type="submit" className="btn btn-primary">Login</button>
                             </StyledLoginForm>
                         </div>
                     </div>

@@ -1,3 +1,5 @@
+
+
 (function($) {
  
     // Init ScrollMagic
@@ -6,15 +8,16 @@
             triggerHook: 'onLeave'
         }
     });
+
+    $("section").each(function() {
+ 
+        new ScrollMagic.Scene({
+            triggerElement: this
+        })
+        .setPin(this)
+        .addTo(ctrl);
+     
+    });
  
 })(jQuery);
 
-$("section").each(function() {
- 
-    new ScrollMagic.Scene({
-        triggerElement: this
-    })
-    .setPin(this)
-    .addTo(ctrl);
- 
-});

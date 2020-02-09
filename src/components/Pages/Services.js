@@ -52,11 +52,11 @@ class Services extends Component
               <p>How can I be of service...</p>
             </StyledFlexBox>
             
-            <StyledFlexBox className="StyledFlexBox">
-              <Stage className="Stage" />
-            </StyledFlexBox>
-
+            
+              
+           
           </StyledFlexSection>
+          <Stage className="Stage" />
          
         </div>
       );
