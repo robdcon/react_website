@@ -35,9 +35,11 @@ class App extends Component {
       exact={true}
       path="/admin"
       render={props => {
-       console.log(props);
+       console.log(`PROPS:`, this.props);
        return( <AdminWrapper>
-          {this.props.auth.token ? 
+          {
+            
+            this.props.auth.token ? 
            (<Dashboard />) :
            (<Login />)
           }
