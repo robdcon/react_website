@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ButtonAppBar from './AppBar';
-import { IconButton } from '@material-ui/core';
+import Sidebar from './Sidebar';
 
 
 
@@ -11,7 +11,7 @@ class AdminWrapper extends Component
         return(
             <div id="admin-wrapper">
 
-                
+                <Sidebar />
                 <ButtonAppBar />
 
               

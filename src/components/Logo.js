@@ -17,10 +17,10 @@ export default class Logo extends Component
                     (this.props.image) ?
                     (
                         <img src={this.props.src} alt={this.props.alt} />
-                    ) : (null)
+                    ) :  <div>{this.props.text}</div>
                 }
 
-                <div>{this.props.text}</div>
+               
                 </Link>
             </StyledLogo>
                

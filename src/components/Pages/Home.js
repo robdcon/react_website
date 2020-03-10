@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header'
-import image from '../../assets/web-background-dark-med-compression-1200.jpg'
+// import image from '../../assets/web-background-dark-med-compression-1200.jpg'
+import image from '../../assets/space-background.jpg';
 import Sectionwipe from '../Sectionwipe'
 import ParallaxSection from '../ParallaxSection'
 import foreground from '../../assets/mountains/header-foreground.png'
@@ -13,24 +14,14 @@ class Home extends Component {
       return (
         <div>
            <Header
-            title="Welcome To Our Studio!"
-            subtitle="It's Nice To Meet You"
-            btnText="Tell Me More" 
+            title="LAUNCH YOUR ONLINE PRESENCE!"
+            subtitle="PREPARE FOR TAKE OFF HERE"
+            btnText="CONTACT HQ" 
             showBtn={true}
             image={image}
            />
-
-            <ParallaxSection
-              foreground={foreground}
-              midground={midground}
-              background={background}
-            >
-           
-            </ParallaxSection>
             <Stage />
-           <Sectionwipe>
-            
-           </Sectionwipe>
+         
         </div>
       );
     }
