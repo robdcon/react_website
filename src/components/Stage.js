@@ -10,7 +10,7 @@ const FlySection = styled.div`
   display:flex;
   height:100vh;
   width:100%;
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  background-image: linear-gradient(120deg, #6564a0 0%, #6e4470 100%);
 
 `
 const services = 
@@ -51,7 +51,7 @@ class Stage extends Component
           pin={true}
           triggerHook={0} 
         >
-          <Timeline wrapper={<FlySection id="trigger" justify="space-around"  />}>
+          <Timeline wrapper={<FlySection id="trigger" justify="space-around" className="FlySection" />}>
               
             <Tween
             
@@ -90,20 +90,6 @@ class Stage extends Component
             </Tween>
           </Timeline >
          
-        </Scene>
-        <Scene>
-        <Timeline  wrapper={<FlySection justify="space-around" />}>
-            <Tween
-
-            >
-             <StyledFlexBox>
-             <h1>hello</h1>
-             </StyledFlexBox>
-
-              
-            </Tween>
-
-          </Timeline>
         </Scene>
       </Controller>
     )   

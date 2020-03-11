@@ -9,7 +9,7 @@ const StyledCollapsableNav = styled.nav`
     align-items:center;
     height:100px;
     background-color: transparent;
-
+    z-index: 999;
     position: fixed;
     top: 0;
     right: 0;
