@@ -6,7 +6,6 @@ import { Tween, Timeline } from 'react-gsap';
 
 const ShowcaseSection = (props) => (
   <StyledShowcaseSection className="ShowcaseSectionWrapper">
-
     <Controller>
       <Scene
         duration="50%"
@@ -22,44 +21,37 @@ const ShowcaseSection = (props) => (
           </Tween>
         </Timeline>
       </Scene>
-   
-   
-    <div className="contentContainer">
-      <Scene
-      
-        duration="50%"
-        triggerHook="onEnter"
-        indicators={true}
-      
-      >
-          <Timeline wrapper={<div className="infoContainer col" />}>
-          <Tween
-            from={{ opacity: .5 }}
-            to={{ opacity: 1 }}
-          >
-              <h3>{props.title}</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt mollitia magnam ea magni itaque maxime. Cupiditate odio possimus laboriosam eaque, eum voluptas dolorem sunt quaerat ratione voluptatibus ut doloribus voluptatem.</p>
-              <button>{props.buttonText}</button>
-          </Tween>
-        </Timeline>
-      </Scene>
-
-      <Scene
-        duration="50%"
-        triggerHook="onEnter"
-        indicators={true}
-      >
-          <Timeline wrapper={<div className="imgContainer col" />}>
-          <Tween
-          from={{opacity:.5}}
-          to={{opacity:1}}
-          >
-              <img src={props.image} alt="showcase image" />
-          </Tween>
-        </Timeline>
-      </Scene>
-    </div>
     </Controller>
+    <Controller>
+        <Scene
+          duration="50%"
+          triggerElement=".infoContainer"
+          indicators={true}
+        >
+        <Timeline wrapper={<div className="contentContainer" />}>
+            <Tween
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+            >
+              <div className="infoContainer col">
+                <h3>{props.title}</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt mollitia magnam ea magni itaque maxime. Cupiditate odio possimus laboriosam eaque, eum voluptas dolorem sunt quaerat ratione voluptatibus ut doloribus voluptatem.</p>
+                <button>{props.buttonText}</button>
+              </div>
+            </Tween>
+
+            <Tween
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+            >
+              <div className="imgContainer col">
+                <img src={props.image} alt="showcase image" />
+              </div>
+            </Tween>
+
+          </Timeline>
+        </Scene>
+      </Controller>
   </StyledShowcaseSection>
 );
 
