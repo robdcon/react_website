@@ -33,6 +33,7 @@ const StyledCollapsableNavMenu = styled.div`
     width:100%;
     height:100vh;
     width:100vw;
+    z-index: 999;
     position:absolute;
     top:${(props) => (props.open) ? '0' : '-100%'};
     left:0;

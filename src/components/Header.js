@@ -14,8 +14,6 @@ class Header extends Component
     }
     render() {
       return (
-
-          <ParallaxContainer>
             <StyledHeader className="StyledHeader masthead" style={{backgroundImage:"url(" + this.props.image +")"}}>
               <StyledFlexBox className="StyledFlexBox outer">
                 <StyledFlexBox className="StyledFlexBox inner" direction="column">
@@ -26,9 +24,6 @@ class Header extends Component
                 </StyledFlexBox>
               </StyledFlexBox>
             </StyledHeader>
-          </ParallaxContainer>
-        
-         
       );
     }
   }

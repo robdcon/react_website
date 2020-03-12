@@ -19,7 +19,7 @@ const ShowcaseSection = (props) => (
           <Tween
           from={{x:1000, opacity:0}}
           to={{x:0, opacity:0.025}}
-          wrapper={<div class="h2-wrapper"></div>}
+          wrapper={<div className="h2-wrapper"></div>}
           >
             <h2>{props.title}</h2>
           </Tween>
