@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const SpacerSection = styled.section`
+
+height:100vh;
+
+`;
+
 export const StyledShowcaseSection = styled.div`
  .contentContainer {
      display: flex;
