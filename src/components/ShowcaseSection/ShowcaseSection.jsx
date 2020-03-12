@@ -9,10 +9,10 @@ const ShowcaseSection = (props) => (
   <StyledShowcaseSection className="ShowcaseSectionWrapper">
     <Controller>
       <Scene
-        duration="100%"
-        triggerElement=".contentContainer"
+        duration="200%"
+        // triggerElement=".contentContainer"
         indicators={true}
-        pin={".contentContainer"}
+        pin={true}
         triggerHook={0}
       >
         <Timeline wrapper={<div className="contentContainer" />}>
@@ -20,6 +20,7 @@ const ShowcaseSection = (props) => (
           from={{x:1000, opacity:0}}
           to={{x:0, opacity:0.025}}
           wrapper={<div className="h2-wrapper"></div>}
+          duration={3}
           >
             <h2>{props.title}</h2>
           </Tween>
