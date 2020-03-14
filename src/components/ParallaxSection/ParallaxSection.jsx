@@ -15,7 +15,7 @@ const ParallaxSection = (props) => (
     >
       <Timeline wrapper={<StyledParallaxSection className="ParallaxSection"></StyledParallaxSection>}>
         <Tween
-          to={{y:"-20%"}} 
+          to={{y:"-20%", opacity:0}} 
         >
           <StyledParallaxImage image={props.image} className="ParallaxImage"></StyledParallaxImage>
        

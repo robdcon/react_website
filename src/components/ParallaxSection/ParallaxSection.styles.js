@@ -4,7 +4,7 @@ export const StyledParallaxSection = styled.section `
  height:100vh;
  width:100vw;
  padding: 10vh 0;
- background-color:rgba(255,0,0,0.5);
+ background-color:#000;
  position:relative;
  overflow:hidden;
 `;
@@ -23,6 +23,7 @@ top:0;
 height:200%;
 width:100%;
 z-index:1;
+background-color:#000;
 background-image: url(${props => props.image});
 background-size:100%;
 `;

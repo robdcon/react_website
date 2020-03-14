@@ -31,14 +31,16 @@ const ServicesSection = (props) => (
     duration="50%"
     triggerHook="onCenter"
     indicators={true}
+    classToggle="show"
     >
       <Timeline wrapper={<StyledServicesSection className="ServicesSectionWrapper" />}>
           <Tween 
             from={{opacity:0, y:100}}
-            wrapper={<StyledServiceSectionHeading/>}
+            wrapper={<StyledServiceSectionHeading className="SectionHeading" />}
           >
             <h2>Services</h2>
           </Tween>
+          
           <Tween
             staggerFrom={{
               opacity: 0,
@@ -49,24 +51,29 @@ const ServicesSection = (props) => (
               y: 0
             }}
             stagger={0.15}
-            wrapper={<StyledFlexBox className="ServicesSectionWrapper" />}
+            wrapper={<StyledFlexBox className="ServiceContainer"/>}
           >
         {
           services.map((service, i) => {
             return (
-
-              <StyledFlexBox key={i} className="ServiceContainer">
-                <ServiceItem
-                  className="ServiceItem"
-                  column
-                  title={service.title}
-                  icon={service.icon}
-                  caption={service.caption}
-                />
-              </StyledFlexBox>
+              <div key={i}  >
+              <ServiceItem 
+                className="ServiceItem"
+                column
+                title={service.title}
+                icon={service.icon}
+                caption={service.caption}
+              />
+              </div>
             )
           })
         }
+        </Tween>
+        <Tween
+         
+          wrapper={<StyledFlexBox className="testH2Wrapper" />}
+        >
+          <h2 className="test-h2" >CLASS TEST</h2>
         </Tween>
       </Timeline>
     </Scene>
