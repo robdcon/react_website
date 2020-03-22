@@ -18,7 +18,7 @@ import Contact from './components/Pages/Contact';
 import Portfolio from './components/Pages/Portfolio';
 import ExpandableSidebar from './components/ExpandableSidebar';
 import AdminWrapper from  './components/AdminWrapper';
-import {Dashboard as AdminDashboard} from './components/Admin/Dashboard';
+import AdminDashboard from './components/Admin/Dashboard';
 import Users from './components/Admin/Users';
 import Posts from './components/Admin/Posts';
 import Login from  './components/Pages/Login';
@@ -63,8 +63,10 @@ class App extends Component {
        console.log(`PROPS:`, this.props);
        return( <div>
           {
-            !this.props.auth.token ? 
-           (<AdminWrapper />) :
+          this.props.auth.token ? 
+           (<AdminWrapper>
+             <AdminDashboard />
+           </AdminWrapper>) :
            (<Login />)
           }
         </div> )

@@ -5,7 +5,10 @@ import {connect} from 'react-redux';
 class Dashboard extends Component {
     render(){
         return(
-            <h1>LOGGED IN</h1>
+            <div>
+                 <h1>LOGGED IN</h1>
+                 {this.props.auth.token}
+            </div>
         )
     }
 }
@@ -22,4 +25,4 @@ const mapDispatchToProps = dispatch =>  {
     }
 }
 
-  export default connect(mapStateToProps ,mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
