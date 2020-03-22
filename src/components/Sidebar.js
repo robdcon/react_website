@@ -15,6 +15,10 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import Dashboard from '@material-ui/icons/Dashboard';
 import Subject from '@material-ui/icons/Subject';
 import { Link } from '@material-ui/core';
+import {Dashboard as AdminDashboard} from './Admin/Dashboard';
+import Users from './Admin/Users';
+import Posts from './Admin/Posts';
+
 
 const ListItemLink = (props) => (
     <ListItem button component={RouterLink} {...props} />
@@ -33,14 +37,14 @@ const SideBar = () => {
                 <ListItemText primary="Dashboard"></ListItemText>
             </ListItemLink>
         
-            <ListItemLink to="/admin/posts">
+            <ListItemLink to="/admin/posts" >
                 <ListItemIcon>
                     <Subject />
                 </ListItemIcon>
                 <ListItemText primary="Posts"></ListItemText>
             </ListItemLink>
             
-            <ListItemLink  to="/admin/users">
+            <ListItemLink  to="/admin/users" >
                 <ListItemIcon>
                     <AccountCircle />
                 </ListItemIcon>

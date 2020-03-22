@@ -14,7 +14,9 @@ import SideBar from './Sidebar';
 const drawerWidth = 240;
 
 const styles = theme => ({
-
+    root: {
+        display: 'flex'
+    },
     toolbar: {
         paddingRight: 24
     },
@@ -32,11 +34,20 @@ const styles = theme => ({
         })
     },
     appBar: {
-        marginLeft:0
+        marginLeft: 0,
+        zIndex: 9999999,
+         transition: theme.transitions.create('width', {
+             easing: theme.transitions.easing.sharp,
+             duration: theme.transitions.duration.enteringScreen
+         })
     },
     appBarShift: {
         marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth})`
+        width: `calc(100% - ${drawerWidth}px)`,
+        
+    },
+    appBarSpacer: {
+        height: theme.spacing(7)
     },
     toolbarIcon: {
         display: 'flex',
@@ -44,6 +55,12 @@ const styles = theme => ({
         justifyContent: 'flex-end',
         padding: '0 8px',
         ...theme.mixins.toolbar
+    },
+    mainContent: {
+        height:'100vh',
+        overflow:'auto',
+        padding: theme.spacing(3),
+        flexGrow: 1
     }
 });
 
@@ -68,10 +85,10 @@ class AdminWrapper extends Component
     {
         const {classes} = this.props;
         return(
-            <div id="admin-wrapper">
+            <div id="admin-wrapper" className={classes.root}>
 
                 <AppBar
-                  className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
+                  className={classNames('AppBar', classes.appBar, this.state.open && classes.appBarShift)}
                 >
                     <Toolbar
                      className={classes.toolbar}
@@ -104,8 +121,12 @@ class AdminWrapper extends Component
                     <Divider />
                    <SideBar />
                 </Drawer>
-               
-                {this.props.children}
+
+               <main className={classes.mainContent}>
+                   <div className={classes.appBarSpacer} />
+                    {this.props.children}
+               </main>
+                
             </div>
             
 

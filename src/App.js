@@ -18,8 +18,11 @@ import Contact from './components/Pages/Contact';
 import Portfolio from './components/Pages/Portfolio';
 import ExpandableSidebar from './components/ExpandableSidebar';
 import AdminWrapper from  './components/AdminWrapper';
+import {Dashboard as AdminDashboard} from './components/Admin/Dashboard';
+import Users from './components/Admin/Users';
+import Posts from './components/Admin/Posts';
 import Login from  './components/Pages/Login';
-import Dashboard from './components/Pages/Dashboard';
+
 
 
 
@@ -31,19 +34,40 @@ class App extends Component {
 
     <Router>
 
+      <Route
+      exact={true}
+      path="/admin/users"
+      render={props => {
+       return( 
+        <AdminWrapper>
+          <Users />
+        </AdminWrapper>)
+      }}
+      />
+
+      <Route
+      exact={true} 
+      path="/admin/posts"
+      render={props => {
+       return( 
+        <AdminWrapper>
+          <Posts />
+        </AdminWrapper>)
+      }}
+      />
+
      <Route
       exact={true}
       path="/admin"
       render={props => {
        console.log(`PROPS:`, this.props);
-       return( <AdminWrapper>
+       return( <div>
           {
-            
-            this.props.auth.token ? 
-           (<Dashboard />) :
+            !this.props.auth.token ? 
+           (<AdminWrapper />) :
            (<Login />)
           }
-        </AdminWrapper> )
+        </div> )
       }}
 
      />
