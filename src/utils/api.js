@@ -10,6 +10,20 @@ const Api = {
              console.log("LOGIN RESPONSE: ", res);
             success(res);
         });
+    },
+    getUsers: (token, success) => {
+        axios.get(`${host}/api/users?access_token=${token}`)
+        .then((res) => {
+            console.log(res);
+            success(res);
+        })
+    },
+    getPosts: (token, success) => {
+        axios.get( `${host}/api/posts`)
+        .then((res) => {
+            console.log("Posts Res: ", res);
+            success(res);
+        })
     }
 };
 

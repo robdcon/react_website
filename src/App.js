@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
 import PageWrapper from './components/PageWrapper'
 import {
   BrowserRouter as Router,
@@ -8,8 +7,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
-
 // PAGES
 import Home from './components/Pages/Home';
 import About from './components/Pages/About';
@@ -22,16 +19,13 @@ import AdminDashboard from './components/Admin/Dashboard';
 import Users from './components/Admin/Users';
 import Posts from './components/Admin/Posts';
 import Login from  './components/Pages/Login';
-
-
-
-
+import AddPost from './components/Admin/AddPost';
 
 
 class App extends Component {
+
   render() {
     return (
-
     <Router>
 
       <Route
@@ -56,11 +50,28 @@ class App extends Component {
       }}
       />
 
+       <Route
+      exact={true}
+      path="/admin/posts/add"
+      render={props => {
+       return( <div>
+          {
+          this.props.auth.token ? 
+           (<AdminWrapper>
+             <AddPost></AddPost>
+           </AdminWrapper>) :
+           (<Login />)
+          }
+        </div> )
+      }}
+
+     />
+
      <Route
       exact={true}
       path="/admin"
       render={props => {
-       console.log(`PROPS:`, this.props);
+       console.log(`App.js Props:`, this.props);
        return( <div>
           {
           this.props.auth.token ? 
@@ -73,13 +84,9 @@ class App extends Component {
       }}
 
      />
-
-    
-
         <ExpandableSidebar />
-         
 
-         <Route 
+        <Route 
           exact={true}
           path='/'
           render={props =>(
