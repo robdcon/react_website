@@ -17,6 +17,11 @@ const admin = (state = defaultState, action) => {
                 ...state,
                 posts: action.payload
             }
+        case 'ADD_POST':
+            return {
+                ...state,
+                posts: action.payload
+            }
         default: 
         return state;
     }

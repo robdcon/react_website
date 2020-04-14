@@ -6,7 +6,7 @@ import { Tween, Timeline } from 'react-gsap';
 
 const ShowcaseSection = (props) => (
   <div>
-  <StyledShowcaseSection className="ShowcaseSectionWrapper">
+  <StyledShowcaseSection {...props} className="ShowcaseSectionWrapper">
     <Controller>
       <Scene
         duration="200%"
@@ -45,7 +45,7 @@ const ShowcaseSection = (props) => (
             wrapper={<div className="imgContainer col" />}
           >
 
-            <img src={props.image} alt="showcase image" />
+            <img src={props.image.image3} alt="showcase image" />
 
           </Tween>
         </Timeline>

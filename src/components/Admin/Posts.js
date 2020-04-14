@@ -19,8 +19,6 @@ const styles = theme => {
     }
 }
 
-
-
 const columns = [
    { label: 'Title', name: 'title' },
    { label: 'Author', name: 'author' },
@@ -29,34 +27,13 @@ const columns = [
 
 class Posts extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            posts: []
-        }
-    }
-
-    componentDidMount() {
-       
-      console.log(this.props.admin.posts);
-      this.setPosts(this.props.admin.posts);
-
-    }
-
-    setPosts(posts) {
-        this.setState({
-            posts
-        })
-    }
-
     render() {
         const {classes} = this.props;
-        console.log(classes);
         
         return (
             <div>
                 <h1>Posts</h1>
-                <TableView columns={columns} rows={this.state.posts}></TableView>
+                <TableView columns={columns} rows={this.props.admin.posts}></TableView>
                 <Fab component={RouterLink} to="/admin/posts/add" color="secondary" aria-label="add" className={classes.fab}>
                     <Pencil />
                 </Fab>

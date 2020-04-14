@@ -25,3 +25,16 @@ export const getPosts = (token) => {
         })
     }
 }
+
+export const addPost = (post, token) => {
+
+    return (dispatch) => {
+
+        Api.addPost(post, token, (res) => {
+            dispatch({
+                type: 'ADD_POST',
+                payload: res.data
+            })
+        })
+    }
+}

@@ -21,7 +21,7 @@ export const StyledShowcaseSection = styled.div`
          padding:2em;
      }
      .imgContainer {
-         background-image: url(${(props) => {props.image}});
+         background-image: transparent;
          overflow:hidden;
      }
  }
