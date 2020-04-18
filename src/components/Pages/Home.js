@@ -7,10 +7,11 @@ import ShowcaseSection from '../ShowcaseSection/ShowcaseSection';
 import ServicesSection from '../ServicesSection/ServicesSection';
 import ParallaxSection from '../ParallaxSection/ParallaxSection';
 import StyledPanel from '../../styled/StyledPanel';
-import image1 from '../../assets/portfolio/house_of_hair_logo_black_on_white_background.png';
-import image2 from '../../assets/portfolio/poster_hendrix.jpg';
-import image3 from '../../assets/portfolio/live_music_poster_1.png';
+import image1 from '../../assets/sites/site-01/desktop.jpg';
+import image2 from '../../assets/sites/site-02/desktop.jpg';
+import image3 from '../../assets/sites/site-03/desktop.jpg';
 import TestComponent from '../TestComponent/TestComponent';
+
 const showcases = [
  {
    title:"Showcase One",
@@ -33,10 +34,8 @@ class Home extends Component {
     render() {
       return (
         <div>
-  
           <ParallaxSection image={image} >
                <Header
-             
                 title="LAUNCH YOUR ONLINE PRESENCE!"
                 subtitle="PREPARE FOR TAKE OFF HERE"
                 btnText="CONTACT HQ" 
@@ -45,6 +44,7 @@ class Home extends Component {
           </ParallaxSection>
     
           <ServicesSection />
+          
           {
             showcases.map((showcase, i) => {
               return  <ShowcaseSection 
@@ -53,9 +53,7 @@ class Home extends Component {
                         buttonText={showcase.buttonText} 
                         image={showcase.image} />
             })
-          }
-         
-         
+          } 
         </div>
       );
     }

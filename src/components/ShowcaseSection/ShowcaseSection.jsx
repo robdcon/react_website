@@ -38,14 +38,14 @@ const ShowcaseSection = (props) => (
 
           </Tween>
           <Tween
-            from={{ rotation: 1000, opacity: 0 }}
-            to={{ rotation: 0, opacity: 1 }}
+            from={{ y: 1000, opacity: 0 }}
+            to={{ y: 0, opacity: 1 }}
             ease="Power2.easeInOut"
             duration={5}
             wrapper={<div className="imgContainer col" />}
           >
 
-            <img src={props.image.image3} alt="showcase image" />
+            <img src={props.image} alt="showcase image" />
 
           </Tween>
         </Timeline>

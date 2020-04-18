@@ -1,16 +1,8 @@
 import styled from 'styled-components';
 import {media} from '../../utils/media';
 
-export const StyledSection = styled.section`
 
-height:100vh;
-width:100vw;
-padding: 2em;
-display: inline-block;
-
-`;
-
-export const StyledServicesSection = styled.div`
+export const StyledServicesSection = styled.section`
 height:100vh;
 width:100%;
 display:flex;
@@ -25,20 +17,12 @@ width:100%;
 text-align:center;
 `;
 
-export const StyledServiceItem = styled.div `
+export const StyledFlexColumn = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-around;
 align-items:center;
 flex: 33%;
-.service-heading {
-    font-size: 1.25em;
-}
-${media.handheld`
-    .service-heading {
-        font-size: 1.6em;
-    }
-`}
 `;
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
-import { StyledServicesSection, StyledFlexBox } from './ServicesSection.styles';
+import { StyledServicesSection, StyledFlexBox, StyledSection } from './ServicesSection.styles';
 import ServiceItem from './ServiceItem';
 import { StyledServiceSectionHeading } from './ServicesSection.styles';
 
@@ -26,12 +26,12 @@ const services =
   ]
 
 const ServicesSection = (props) => (
+  <StyledSection>
   <Controller>
     <Scene
-    duration="50%"
     triggerHook="onCenter"
     indicators={true}
-    classToggle="show"
+    duration={"50%"}
     >
       <Timeline wrapper={<StyledServicesSection className="ServicesSectionWrapper" />}>
           <Tween 
@@ -51,7 +51,7 @@ const ServicesSection = (props) => (
               y: 0
             }}
             stagger={0.15}
-            wrapper={<StyledFlexBox className="ServiceContainer"/>}
+            wrapper={<StyledFlexBox column className="ServiceContainer"/>}
           >
         {
           services.map((service, i) => {
@@ -69,15 +69,10 @@ const ServicesSection = (props) => (
           })
         }
         </Tween>
-        <Tween
-         
-          wrapper={<StyledFlexBox className="testH2Wrapper" />}
-        >
-          <h2 className="test-h2" >CLASS TEST</h2>
-        </Tween>
       </Timeline>
     </Scene>
   </Controller>
+  </StyledSection>
 );
 
 ServicesSection.propTypes = {
