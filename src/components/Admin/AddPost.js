@@ -1,41 +1,26 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as AdminActions from '../../store/actions/adminActions';
-import FormGroup from '../FormGroup';
 import Paper from '@material-ui/core/Paper';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import {withFormik, Field, Form} from 'formik';
 import * as Yup from 'yup';
 import {withStyles} from '@material-ui/core/styles';
+import {FormikTextField} from 'formik-material-fields';
 
 const styles = theme => ({
     container: {
-        margin: theme.spacing.unit * 3
+        margin: theme.spacing(3)
     },
     formControl: {
-        margin: theme.spacing.unit
+        margin: theme.spacing()
     }
 });
 
-const post = {
-    "title": "new post 02",
-    "slug": "test post 02",
-    "content": "this is another brand new post!!!",
-    "created_at": "2020-04-11T09:58:25.733Z",
-    "author": "string",
-    "userId": "string",
-    "profileId": "string",
-    "postId": "string",
-    "categoryId": "string"
-}
 class AddPost extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.addPost(post, this.props.auth.token);
+       // this.props.addPost(post, this.props.auth.token);
     }
 
     render(){
@@ -44,13 +29,26 @@ class AddPost extends Component {
             <div className={classes.container}>
                 <h1>Add Post</h1>
                 <Form>
-                    <FormControl className={classes.formControl}>
-                        <InputLabel htmlFor="title">Title</InputLabel>
-                        <Input 
-                            id="title"
-                            component={Field}
-                        />
-                    </FormControl>
+                    <FormikTextField 
+                        name="title"
+                        label="Title"
+                        margin="normal"
+                        value={this.props.values.title}
+                        fullWidth
+                    />
+                    <FormikTextField 
+                        name="slug"
+                        label="Slug"
+                        margin="normal"
+                        fullWidth
+                        value={this.props.values.title}
+                    />
+                     <FormikTextField 
+                        name="content"
+                        label="Content"
+                        margin="normal"
+                        fullWidth
+                    />
                </Form>
             </div>
         )
@@ -72,17 +70,20 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withFormik({
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withFormik({
     mapPropsToValues: () => ({
         title: '',
         slug: '',
         createdAt: '',
         status: false
     }), 
-    validationScheme: Yup.object().shape({
-
+    validationSchema: Yup.object().shape({
+        title: Yup.string().required('Hey, not so fucking fast!!'),
+        slug: Yup.string().required('Not happeneing dickhead!!'),
+        content: Yup.string().required('What, nothing to say?!')
     }),
     handleSubmit: (values, {setSubmitting}) => {
 
     }
-})((withStyles(styles)(AddPost))));
+})(withStyles(styles)(AddPost)));

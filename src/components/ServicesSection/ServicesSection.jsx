@@ -5,6 +5,8 @@ import { Tween, Timeline } from 'react-gsap';
 import { StyledServicesSection, StyledFlexBox, StyledSection } from './ServicesSection.styles';
 import ServiceItem from './ServiceItem';
 import { StyledServiceSectionHeading } from './ServicesSection.styles';
+import * as animations from '../../utils/animations';
+
 
 const services =
   [
@@ -31,7 +33,7 @@ const ServicesSection = (props) => (
     <Scene
     triggerHook="onCenter"
     indicators={true}
-    duration={"50%"}
+    duration={0}
     >
       <Timeline wrapper={<StyledServicesSection className="ServicesSectionWrapper" />}>
           <Tween 

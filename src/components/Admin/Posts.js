@@ -27,6 +27,10 @@ const columns = [
 
 class Posts extends Component {
 
+    componentDidMount() {
+        this.props.getPosts();
+    }
+
     render() {
         const {classes} = this.props;
         

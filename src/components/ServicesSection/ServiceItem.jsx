@@ -9,7 +9,7 @@ const ServiceItem = (props) => (
             <i className={`fas ${props.icon} fa-stack-1x fa-inverse`}></i>
         </span>
         <h3 className="service-heading">{props.title}</h3>
-        <p className="text-muted">{props.span}</p>
+        <p className="text-muted">{props.caption}</p>
     </StyledServiceItem>
 );
 
