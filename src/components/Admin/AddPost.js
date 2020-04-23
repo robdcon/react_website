@@ -33,7 +33,7 @@ class AddPost extends Component {
                         name="title"
                         label="Title"
                         margin="normal"
-                        value={this.props.values.title}
+                        onChange={(e) => {this.props.setFieldValue('slug', e.target.value.toLowerCase().replace(/ /g, '_'))}}
                         fullWidth
                     />
                     <FormikTextField 
@@ -41,7 +41,6 @@ class AddPost extends Component {
                         label="Slug"
                         margin="normal"
                         fullWidth
-                        value={this.props.values.title}
                     />
                      <FormikTextField 
                         name="content"
