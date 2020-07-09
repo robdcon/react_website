@@ -42,6 +42,8 @@ class Home extends Component {
                 showBtn={true}
               />
           </ParallaxSection>
+
+          <TestComponent />
     
           <ServicesSection />
           

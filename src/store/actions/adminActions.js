@@ -38,3 +38,15 @@ export const addPost = (post, token) => {
         })
     }
 }
+
+export const getSinglePost = (id, token) => {
+
+    return dispatch => {
+        Api.getSinglePost(id, token, res => {
+            dispatch({
+                type: 'GOT_SINGLE_POST',
+                payload: res.data
+            })
+        })
+    }
+}

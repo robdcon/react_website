@@ -31,6 +31,12 @@ const Api = {
                 console.log("Add Posts Res: ", res);
                 success(res);
             })
+        },
+    getSinglePost: (id, token, success) => {
+        axioa.get(`${host}/api/Posts/${id}?access_token=${token}`)
+        .then(res => {
+            success(res);
+        })
     }
 };
 

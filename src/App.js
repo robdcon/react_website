@@ -52,7 +52,7 @@ class App extends Component {
 
        <Route
       exact={true}
-      path="/admin/posts/add"
+      path="/admin/posts/:view"
       render={props => {
        return( <div>
           {

@@ -20,7 +20,12 @@ const admin = (state = defaultState, action) => {
         case 'ADD_POST':
             return {
                 ...state,
-                posts: action.payload
+                posts: state.posts.concat(action.payload)
+            }
+        case 'GOT_SINGLE_POST':
+            return {
+                ...state,
+                post: action.payload
             }
         default: 
         return state;
