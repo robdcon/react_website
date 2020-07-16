@@ -2,7 +2,8 @@ import SwitchBase from "@material-ui/core/internal/SwitchBase"
 
 const defaultState = {
     users: [],
-    posts: []
+    posts: [],
+    post: {}
 }
 
 const admin = (state = defaultState, action) => {

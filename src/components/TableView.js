@@ -6,6 +6,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {Link as RouterLink} from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 
 
 const useStyles = makeStyles({
@@ -36,7 +38,13 @@ const TableView = (props) => {
                                 <TableRow key={i}>
                                     {
                                         columns.map((col, colIndex) => {
-                                        return <TableCell key={colIndex}>{row[col.name]}</TableCell>
+                                        return <TableCell key={colIndex}>
+                                            {col.name === 'id' ?
+                                            <Link to={`/admin/posts/edit/${row[col.name]}`}
+                                                   component={RouterLink}>{row[col.name]}</Link> : 
+                                            
+                                            row[col.name] }
+                                            </TableCell>
                                         })
                                     }
                                 </TableRow>

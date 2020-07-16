@@ -1,18 +1,27 @@
-import ScrollMagic from 'scrollmagic';
-import {gsap, TweenMax} from 'gsap';
-const controller = new ScrollMagic.Controller();
-const scene = new ScrollMagic.Scene();
-controller.addScene(scene);
-scene.setTween(testTween);
+import { gsap } from "gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 
 const options = {
     x:100,
-    y:100
+    y:100,
+    duration: 2
 }
 
 export const testTween = (el) => {
 
-    TweenMax.to(el, 2, options);
-    
-}
+    gsap.to(el, {
+        scrollTrigger: {
+            markers: true,
+            trigger: el,
+            start: "0 center",
+            end: "100% 100%",
+            toggleActions: "restart none reverse none",
+            srcub: 1
+        },
+        x: "100%",
+        y: "100%",
+        duration: 2
+    })
+}   

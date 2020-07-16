@@ -11,7 +11,7 @@ const ParallaxSection = (props) => (
     duration={"200%"}
     triggerHook="onLeave"
     // triggerElement="ParallaxSection"
-    indicators={true}
+    indicators={false}
     >
       <Timeline wrapper={<StyledParallaxSection className="ParallaxSection"></StyledParallaxSection>}>
         <Tween

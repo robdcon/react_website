@@ -50,9 +50,9 @@ class App extends Component {
       }}
       />
 
-       <Route
+      <Route
       exact={true}
-      path="/admin/posts/:view"
+      path="/admin/posts/:view/:id"
       render={props => {
        return( <div>
           {

@@ -9,7 +9,7 @@ import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 import {StyledFlexBox} from '../styled/StyledFlexBox'
 import Theme from '../themes/Theme'
 
-console.log("Theme:",Theme)
+// console.log("Theme:",Theme)
 
 const StyledForm = styled.div` 
 

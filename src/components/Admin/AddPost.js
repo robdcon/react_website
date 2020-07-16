@@ -40,10 +40,16 @@ class AddPost extends Component {
 
     componentDidUpdate(props, state) {
         console.log("AddPost Props: ", this.props)
-            if(this.props.match.params.view === 'add' && this.props.admin.posts.filter(p => p.title == this.props.values.title).length > 0) {
-                const post = this.props.admin.posts.filter(p => p.title = this.props.values.title);
-                this.props.history.push('/admin/posts/edit/' + post.id)
-            }
+        if(this.props.match.params.view === 'add' && this.props.admin.posts.filter(p => p.title === this.props.values.title).length > 0) {
+            const post = this.props.admin.posts.filter(p => p.title = this.props.values.title);
+            this.props.history.push('/admin/posts/edit/' + post.id)
+        }
+    }
+
+    componentDidMount(props, state) {
+        if (this.props.match.params.view === 'edit' && this.props.match.params.id) {
+            this.props.getSinglePost(this.props.match.params.id, this.props.auth.token);
+        }
     }
 
     render(){
@@ -105,19 +111,22 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addPost: (post, token) => {
-        dispatch(AdminActions.addPost(post, token))
+             dispatch(AdminActions.addPost(post, token))
+        },
+        getSinglePost: (id, token) => {
+            dispatch(AdminActions.getSinglePost(id, token))
         }
     }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
     withFormik({
-    mapPropsToValues: () => ({
-        title: '',
-        slug: '',
+    mapPropsToValues: (props) => ({
+        title: props.admin.post.title || '',
+        slug: props.admin.post.slug || '',
         created_at: '',
         status: false,
-        content: ''
+        content: props.admin.post.content || ''
     }), 
     validationSchema: Yup.object().shape({
         title: Yup.string().required('Hey, not so fucking fast!!'),

@@ -33,7 +33,7 @@ const Api = {
             })
         },
     getSinglePost: (id, token, success) => {
-        axioa.get(`${host}/api/Posts/${id}?access_token=${token}`)
+        axios.get(`${host}/api/Posts/${id}?access_token=${token}`)
         .then(res => {
             success(res);
         })
