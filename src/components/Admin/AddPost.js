@@ -39,7 +39,7 @@ const styles = theme => ({
 class AddPost extends Component {
 
     componentDidUpdate(props, state) {
-        console.log("AddPost Props: ", this.props)
+        // console.log("AddPost Props: ", this.props)
         if(this.props.match.params.view === 'add' && this.props.admin.posts.filter(p => p.title === this.props.values.title).length > 0) {
             const post = this.props.admin.posts.filter(p => p.title = this.props.values.title);
             this.props.history.push('/admin/posts/edit/' + post.id)
@@ -115,10 +115,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addPost: (post, token) => {
-             dispatch(AdminActions.addPost(post, token))
+             dispatch(AdminActions.addPost(post, token));
         },
         getSinglePost: (id, token) => {
-            dispatch(AdminActions.getSinglePost(id, token))
+            dispatch(AdminActions.getSinglePost(id, token));
+        },
+        updatePost: (post, token) => {
+            dispatch(AdminActions.updatePost(post, token));
         }
     }
 }
@@ -138,10 +141,18 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
         content: Yup.string().required('What, nothing to say?!')
     }),
     handleSubmit: (values, {setSubmitting, props}) => {
-         console.log('Saving: ', props.addPost)
-         values.created_at = new Date();
-        //  values = JSON.stringify(values);
-         console.log('Values: ', values)
-         props.addPost(values, props.auth.token)
+        values.created_at = new Date();
+
+        if(props.match.params.view === 'edit') {
+            const post = {
+                ...values,
+                id: props.match.params.id
+            }
+            console.log(post)
+            props.updatePost(post, props.auth.token)
+        } else {
+            props.addPost(values, props.auth.token);
+        }
+         
     }
 })(withStyles(styles)(AddPost))));
