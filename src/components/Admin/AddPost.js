@@ -44,6 +44,10 @@ class AddPost extends Component {
             const post = this.props.admin.posts.filter(p => p.title = this.props.values.title);
             this.props.history.push('/admin/posts/edit/' + post.id)
         }
+
+        if (this.props.admin.post.id !== props.admin.post.id) {
+            this.props.setValues(this.props.admin.post);
+        }
     }
 
     componentDidMount(props, state) {
@@ -124,8 +128,8 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
     mapPropsToValues: (props) => ({
         title: props.admin.post.title || '',
         slug: props.admin.post.slug || '',
-        created_at: '',
-        status: false,
+        created_at: props.admin.post.created_at  || '',
+        status: props.admin.post.status || false,
         content: props.admin.post.content || ''
     }), 
     validationSchema: Yup.object().shape({

@@ -29,6 +29,7 @@ const ServicesSection = (props) => (
     <StyledServiceSectionHeading className="SectionHeading" >
       <h2>Services</h2>
     </StyledServiceSectionHeading>
+    
     {/* <ServiceItemWrapper className="ServiceItemWrapper" > */}
       {
         services.map((service, i) => {
