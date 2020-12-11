@@ -9,7 +9,7 @@ export const StyledSection = styled.section`
     flex-direction: column;
 
        ${media.desktop`
-            display: grid
+            // display: grid
             grid-template-rows: 20vh 30vh;
             grid-template-columns: repeat(3, 1fr);
        `}
@@ -28,7 +28,13 @@ export const StyledServiceSectionHeading = styled.div`
 `;
 
 export const ServiceItemWrapper = styled.div`
-
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    ${media.desktop`
+    flex-direction: row;
+    `}
+    
     grid-column-start: span 3;
     grid-row-start: 2;
     .service-heading {
@@ -37,33 +43,33 @@ export const ServiceItemWrapper = styled.div`
 `;
 
 export const ServiceIcon = styled.div`
-    grid-area: serviceIcon;
-    justify-self: center;
+    // grid-area: serviceIcon;
+    // justify-self: center;
 `;
 
 export const ServiceHeading = styled.div`
-    grid-area: serviceHeading;
+    // grid-area: serviceHeading;
 
-    ${media.handheld`
-        align-self: self-end;
-        justify-self: self-start;
-    `}
-     ${media.desktop`
-        align-self: self-start;
-        justify-self: center;
-    `}
+    // ${media.handheld`
+    //     align-self: self-end;
+    //     justify-self: self-start;
+    // `}
+    //  ${media.desktop`
+    //     align-self: self-start;
+    //     justify-self: center;
+    // `}
 `;
 
 export const ServiceDescription = styled.div`
-    grid-area: serviceDescription;
-    ${media.handheld`
-        align-self: self-start;
-        justify-self: self-start;
-    `}
-     ${media.desktop`
-        align-self: self-start;
-        justify-self: center;
-    `}
+    // grid-area: serviceDescription;
+    // ${media.handheld`
+    //     align-self: self-start;
+    //     justify-self: self-start;
+    // `}
+    //  ${media.desktop`
+    //     align-self: self-start;
+    //     justify-self: center;
+    // `}
 
 `;
 
@@ -78,25 +84,30 @@ const stackedLayout = `
     "serviceDescription";
 `;
 export const StyledServiceItem = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    flex-basis: 33.333%;
+    transistion: all 1s ease-in;
+    // display: grid;
+    // grid-gap: 16px;
+    // ${stackedLayout}
 
-    display: grid;
-    grid-gap: 16px;
-    ${stackedLayout}
+    // ${media.handheld`
+    //     grid-template-rows: repeat(2, 1fr);
+    //     grid-template-columns: 20% 80%;
+    //     align-items: center;
+    //     grid-template-areas: 
+    //     "serviceIcon serviceHeading"
+    //     "serviceIcon serviceDescription";
+    // `};
 
-    ${media.handheld`
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: 20% 80%;
-        align-items: center;
-        grid-template-areas: 
-        "serviceIcon serviceHeading"
-        "serviceIcon serviceDescription";
-    `};
+    // ${media.desktop`
+    //    ${stackedLayout}
+    // `};
 
-    ${media.desktop`
-       ${stackedLayout}
-    `};
-
-    margin-bottom: 2em;
+    // margin-bottom: 2em;
 
     .fa-stack {
         max-width: 100%;

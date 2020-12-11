@@ -14,10 +14,10 @@ const Navigation = (props) => {
 
      if(props.open === true) {
       TweenMax.to(navWrapper.current, .5, {top:0});
-      TweenMax.staggerFromTo(navItems.current, .5, { opacity:0, y:100 }, { opacity:1, y:0, delay:.35 }, .125);
+      TweenMax.staggerFromTo(navItems.current, .5, { opacity:0, y:100 }, { opacity:1, y:0, delay:.25 }, .125);
     } else {
       TweenMax.staggerFromTo(navItems.current, .35, { opacity:1, y:0 }, { opacity:0, y:-100 }, .125);
-      TweenMax.to(navWrapper.current, .5, {top:"-100%", delay:.5});
+      TweenMax.to(navWrapper.current, .5, {top:"-100%", delay:.35});
     }
 
   }, [props.open])
@@ -28,7 +28,11 @@ const Navigation = (props) => {
         props.pages.map((page, i) => 
         {
           return(
-            <NavigationListItem key={page.title} ref={(element) => {navItems.current[i] = element}} className="NavigationListItem">
+            <NavigationListItem 
+              key={page.title} 
+              ref={(element) => {navItems.current[i] = element}} 
+              className="NavigationListItem"
+            >
               <Link className="NavigationLink" to={page.path}>{page.title}</Link>
             </NavigationListItem>
           )
