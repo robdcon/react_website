@@ -4,11 +4,18 @@ import {media} from '../../utils/media';
 
 export const SpacerSection = styled.section`
 
-height:100vh;
+    height:100vh;
+
+`;
+
+export const StyledButton = styled.button`
+
+    ${props => props.theme.buttonStyles}
 
 `;
 
 export const StyledShowcaseSection = styled.div`
+    scroll-snap-align: start;
  .contentContainer {
      display: flex;
      flex-direction: column;

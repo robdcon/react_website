@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
+import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
+import {gsap} from 'gsap';
+gsap.registerPlugin(ScrollTrigger);
 import PropTypes from 'prop-types';
 import { Test, TestWrapper, StyledHeadingClone } from './TestComponent.styles';
-import {testTween} from './animations';
-
-
+// import {testTween} from './animations';
 
 const TestComponent = (props) => {
   const [x, setX] = useState(0);
@@ -15,8 +16,6 @@ const TestComponent = (props) => {
     '--maskY':y
   }
 
-  
-
   const onMouseMove = (e) => {
 
     const width = wrapper.current.clientWidth;
@@ -24,25 +23,28 @@ const TestComponent = (props) => {
     const offsetX = e.nativeEvent.offsetX;
     const offsetY = e.nativeEvent.offsetY;
     const xPercent = Math.floor((offsetX/width) * 200);
-    const yPercent =Math.floor((offsetY/height) * 100);
+    const yPercent = Math.floor((offsetY/height) * 100);
     setX(xPercent);
     setY(yPercent);
-    console.log(x, y)
-    
+
   }
 
-  useEffect(() => {
+  // useEffect(() => {
    
-    testTween(testTweenRef.current)
+  //   testTween(testTweenRef.current)
     
-  }, []);
+  // }, []);
   
 
-  return (<TestWrapper className="TestComponentWrapper" onMouseMove={(e) => { onMouseMove(e) }} ref={wrapper}>
-    <h1 className="header" ref={testTweenRef} >Tween Me!!!</h1>
-    {/* <h1 className="test-tween">Test content</h1>
-    <StyledHeadingClone style={maskStyle} className="heading-clone">Test content</StyledHeadingClone> */}
-  </TestWrapper>);
+  return (
+  <div>
+    <TestWrapper className="TestComponentWrapper" onMouseMove={(e) => { onMouseMove(e) }} ref={wrapper}>
+      <h1 className="header" ref={testTweenRef} >Welcome</h1>
+      <StyledHeadingClone style={maskStyle} className="heading-clone">Welcome</StyledHeadingClone>
+    </TestWrapper>
+  </div>
+  );
+   
 };
 
 TestComponent.propTypes = {

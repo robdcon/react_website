@@ -3,7 +3,7 @@ import {gsap, TweenMax, TimelineMax} from "gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 import PropTypes from 'prop-types';
-import { StyledShowcaseSection } from './ShowcaseSection.styles';
+import { StyledShowcaseSection, StyledButton } from './ShowcaseSection.styles';
 
 
 const ShowcaseSection = (props) => {
@@ -13,22 +13,20 @@ const ShowcaseSection = (props) => {
 
   useEffect(() => {
     let anim = new TimelineMax();
-    anim.fromTo(imageRef.current, .5, {opacity:0}, {opacity:1})
-    anim.fromTo(infoRef.current, .5, {opacity:0, x:-500}, {opacity:1, x:0})
+    anim.fromTo(imageRef.current, 1, {opacity:0}, {opacity:1}, {ease: "power1.inOut"})
+    anim.fromTo(infoRef.current, 1, {opacity:0, y:100}, {opacity:1, y:0}, {ease: "power1.inOut"} )
+
+    // gsap.utils.snap(5, 50);
 
     ScrollTrigger.create({
       trigger: showcaseSectionRef.current,
       animation: anim,
-      start: "top top",
-      // end: "bottom bottom",
-      pin:showcaseSectionRef.current,
-      duration:0,
-      markers: true,
-      scrub: true
+      start: "top 100px",
+      end: "bottom bottom"
     })
   }, []);
 
- return( <div>
+ return( 
     <StyledShowcaseSection ref={showcaseSectionRef} {...props} className="ShowcaseSectionWrapper">
       <div className="contentContainer" >
         <div className="h2-wrapper">
@@ -37,14 +35,14 @@ const ShowcaseSection = (props) => {
         <div ref={infoRef} className="infoContainer col" >
           <h3>{props.title}</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt mollitia magnam ea magni itaque maxime. Cupiditate odio possimus laboriosam eaque, eum voluptas dolorem sunt quaerat ratione voluptatibus ut doloribus voluptatem.</p>
-          <button>{props.buttonText}</button>
+          <StyledButton>{props.buttonText}</StyledButton>
         </div>
         <div ref={imageRef} className="imgContainer col" >
           <img src={props.image} alt="showcase image" />
         </div>
       </div>
     </StyledShowcaseSection>
-  </div>)
+  )
 };
 
 ShowcaseSection.propTypes = {

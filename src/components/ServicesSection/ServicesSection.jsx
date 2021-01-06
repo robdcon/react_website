@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import {gsap, TweenMax, TimelineMax} from "gsap";
-
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,37 +28,41 @@ const services =
     }
   ]
 
-const ServicesSection = (props) => {
+ const ServicesSection = (props) => {
+   const sectionRef = useRef(null);
   const serviceContainer = useRef(null);
-  // const [anim, setAnim] = useState(null);
   
   useEffect(() => {
-   
-  // import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  // gsap.registerPlugin(ScrollTrigger);
-    const anim = TweenMax.staggerFromTo(serviceContainer.current.children, .5, 
-    { opacity: 0, y:-100 }, 
-    { opacity: 1 , y: 0}, .125)
+   let anim = new TimelineMax();
+   anim.staggerFromTo(
+      serviceContainer.current.children, 
+      .5,
+      { 
+        opacity: 0, 
+        y:-100
+      }, 
+      { 
+        opacity: 1 , 
+        y: 0
+      }, 
+      .125
+      
+    )
 
     ScrollTrigger.create({
-      trigger: "#servicesHeading",
+      trigger: sectionRef.current,
       animation: anim,
-      start: "top 80%",
-      end: "bottom bottom",
-      duration: "1000px",
-      pin:true,
-      // reverse:true,
-      // markers: true,
-      onToggle: self => console.log("toggled, isActive:", self.isActive),
-  onUpdate: self => {
-    console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
-  }
+      start: "top center",
+      end: "top top",
+      // pin: serviceContainer.current,
+      scrub:true
+      // markers: {startColor: "orange", endColor: "purple", fontSize: "18px", fontWeight: "bold", indent: 20}
     })
     
   }, []);
 
   return(
-    <StyledSection className="StyledSection">
+    <StyledSection ref={sectionRef} className="StyledSection">
 
       <StyledServiceSectionHeading id="servicesHeading" className="SectionHeading" >
         <h2>Services</h2>

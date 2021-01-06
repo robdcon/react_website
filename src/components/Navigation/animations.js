@@ -1,7 +1,7 @@
 import {gsap, TweenMax, TimelineMax} from "gsap";
 
 export const animateIn = (array) => {
-    TweenMax.staggerFromTo(array, .5, { opacity:0, y:"-100%" }, { opacity:1, y:0 }, .125);
+    TweenMax.staggerFromTo([...array], .5, { opacity:0, y:"-100%" }, { opacity:1, y:0 }, .125);
 }
 
 export const animateOut = (array, callback, nav) => {

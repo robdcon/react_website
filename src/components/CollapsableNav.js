@@ -19,10 +19,10 @@ const pages =
         title:"About",
         path:"/about"
     },
-    {
-        title:"Portfolio",
-        path:"/portfolio"
-    },
+    // {
+    //     title:"Portfolio",
+    //     path:"/portfolio"
+    // },
     {
         title:"Contact",
         path:"/contact"
