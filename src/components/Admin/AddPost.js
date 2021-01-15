@@ -7,10 +7,11 @@ import * as Yup from 'yup';
 import {withStyles} from '@material-ui/core/styles';
 import {FormikTextField, FormikSelectField} from 'formik-material-fields';
 import Button from '@material-ui/core/Button';
-import Save from '@material-ui/icons/Save';
+import SaveIcon from '@material-ui/icons/Save';
+import ImageIcon from '@material-ui/icons/Image';
 import {withRouter} from 'react-router-dom';
 
-
+/*  global $ */ 
 const styles = theme => ({
     container: {
         margin: theme.spacing(3),
@@ -18,6 +19,9 @@ const styles = theme => ({
         display:'flex',
         flexDirection: 'row wrap',
         width:'100%'
+    },
+    Save: {
+        marginBotton: theme.spacing(3)
     },
     formControl: {
         margin: theme.spacing(1)
@@ -54,6 +58,12 @@ class AddPost extends Component {
         if (this.props.match.params.view === 'edit' && this.props.match.params.id) {
             this.props.getSinglePost(this.props.match.params.id, this.props.auth.token);
         }
+    }
+
+    uploadImageFile = (e) => {
+        const data = new FormData();
+        data.append('file', e.target.files[0], new Date().getTime().toString() + e.target.files.name);
+        this.props.uploadImage(data, this.props.auth.token, this.props.admin.post.id, this.props.auth.user.id);
     }
 
     render(){
@@ -98,7 +108,15 @@ class AddPost extends Component {
                             onClick={e => {
                                 this.props.handleSubmit()
                             }}
-                        >SAVE</Button>
+                        ><SaveIcon /> SAVE</Button>
+                        <Button 
+                            variant="contained" 
+                            color="primary"
+                            onClick={e => {
+                                $('.MyFile').trigger('click');
+                            }}
+                        ><ImageIcon /> UPLOAD</Button>
+                        <input type="file" style={{display: 'none'}} className="MyFile" onChange={this.uploadImageFile} />
                     </Paper>
                </Form>
         )
@@ -122,6 +140,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         updatePost: (post, token) => {
             dispatch(AdminActions.updatePost(post, token));
+        },
+        uploadImage: (data, token, postId, userId) => {
+            dispatch(AdminActions.uploadImage(data, token, postId, userId))
         }
     }
 }

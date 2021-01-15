@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState, useRef } from 'react';
 import {Link} from 'react-router-dom'
 import StyledCollapsableNav from '../styled/StyledCollapsableNav'
 import CollapsableNavMenu from './CollapsableNavMenu'
@@ -11,10 +11,10 @@ import StyledResponsiveDiv from '../styled/StyledResponsiveDiv'
 
 const pages = 
 [
-    {
-        title:"Services",
-        path:"/services"
-    },
+    // {
+    //     title:"Services",
+    //     path:"/services"
+    // },
     {
         title:"About",
         path:"/about"
@@ -30,22 +30,12 @@ const pages =
 ]
 
 
-class CollapsableNav extends Component 
-{
-    constructor(props)
-    {
-        super(props)
-        this.state = 
-        {
-            collapsed:true
-        }
-    }
-
-    render() 
-    {
+const CollapsableNav = (props) => {
+    const [collapsed, setCollapsed] = useState(true);
+    const nav = useRef();
       return (
        
-            <div className="nav">
+            <div className="nav" ref={nav}>
 
                 <StyledCollapsableNav className="StyledCollapsableNav navbar navbar-expand-lg navbar-dark fixed-top">
    
@@ -68,15 +58,11 @@ class CollapsableNav extends Component
 
                         </StyledResponsiveDiv>
 
-                    <MenuButton toggleMenu={this.props.toggleMenu} />
+                    <MenuButton toggleMenu={props.toggleMenu} />
 
                 </StyledCollapsableNav>
-
-
-             
             </div>       
       )
-    }
   }
   
   export default CollapsableNav;

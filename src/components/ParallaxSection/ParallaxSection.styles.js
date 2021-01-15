@@ -1,19 +1,19 @@
 import styled from 'styled-components';
+import customCursor from '../../assets/cursors/custom-cursor.png';
 
 export const StyledParallaxSection = styled.section `
- height:100vh;
+ min-height:100vh;
  width:100vw;
  padding: 10vh 0;
  background-color:#000;
  position:relative;
  overflow:hidden;
+ cursor: url(${customCursor}), auto;
 `;
 
 export const StyledParallaxContent = styled.div`
 position: relative;
 height:100%;
-width:90%;
-max-width:1080px;
 z-index:2;
 `;
 
@@ -33,4 +33,11 @@ display:flex;
 flex-direction: ${props => props.column ? 'column' : 'row'};
 justify-content: space-around;
 align-items:center;
+`;
+
+export const Overlay = styled.div`
+width:100%;
+height:100%;
+background-color: ${props => props.color}
+opacity: 0.5;
 `;

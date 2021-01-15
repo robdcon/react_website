@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header'
 // import image from '../../assets/web-background-dark-med-compression-1200.jpg'
 import image from '../../assets/space-background.jpg';
+import earthBackground from '../../assets/earch-from-space-desktop.jpg';
 import Stage from '../Stage';
 import ShowcaseSection from '../ShowcaseSection/ShowcaseSection';
 import ServicesSection from '../ServicesSection/ServicesSection';
@@ -13,6 +14,8 @@ import image3 from '../../assets/sites/site-03/desktop.jpg';
 import TestComponent from '../TestComponent/TestComponent';
 import PinSection from '../PinSection/PinSection';
 import CtaSection from '../CtaSection/CtaSection';
+import { ThemeProvider } from "styled-components";
+import Theme, {invertTheme} from '../../themes/Theme';
 
 const showcases = [
  {
@@ -46,11 +49,22 @@ class Home extends Component {
           </ParallaxSection>
 
           <CtaSection 
-            heading="About Innerspace Digital"
-            subheading="Innerspace is a web design and development company which provides a one-stop-shop for all things web."
-            description="Let's have a chat about what you need for your business and we will provide you with a budget friendly solution."
+            heading="Welcome to Innerspace Digital"
+            subheading="A one-stop-shop for all things web."
+            description="Web Design | Web Development | SEO & Marketing"
             buttonText="GET A FREE QUOTE"
-          ></CtaSection>
+          />
+
+          <ThemeProvider theme={invertTheme}>
+            <CtaSection
+              heading="Web Design & Development"
+              description={`Web design is not just about making something that looks nice. 
+                        A good website is one that achieves it's purpose.
+                        Boosting your business.`}
+              darkTheme={true}
+            />
+          </ThemeProvider>
+          
          
           <div id="sectionWrapper">
           {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
-import { StyledParallaxSection, StyledParallaxImage, StyledParallaxContent } from './ParallaxSection.styles';
+import { StyledParallaxSection, StyledParallaxImage, StyledParallaxContent, Overlay } from './ParallaxSection.styles';
 import { StyledFlexBox } from '../ServicesSection/ServicesSection.styles';
 
 const ParallaxSection = (props) => (
@@ -17,7 +17,9 @@ const ParallaxSection = (props) => (
         <Tween
           to={{y:"-20%", opacity:0}} 
         >
-          <StyledParallaxImage image={props.image} className="ParallaxImage"></StyledParallaxImage>
+          <StyledParallaxImage image={props.image} className="ParallaxImage">
+            { props.overlay && <Overlay color={`#000`} /> }
+          </StyledParallaxImage>
        
         </Tween>
         <Tween wrapper={<StyledParallaxContent className="ParallaxContent" />}>
