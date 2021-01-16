@@ -5,7 +5,7 @@ export const StyledSection = styled.section`
     min-height: 100vh;
     flex-direction: column;
     align-items:center;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 60px 100px;
     background-color: ${props => props.theme.colors.backgroundColor};
 
@@ -17,8 +17,8 @@ export const StyledSection = styled.section`
 export const StyledHeading = styled.h2`
     display: block;
     text-align: center;
-    font-family: ${props => props.theme.primaryFont};
-    font-size: ${props => props.theme.h2FontSize};
+    font-family: ${props => props.theme.global.primaryFont};
+    font-size: ${props => props.theme.global.h2FontSize};
     font-weight: 600;
     color: ${props => props.theme.colors.primaryColor};
 `;
@@ -26,23 +26,23 @@ export const StyledHeading = styled.h2`
 export const StyledSubheading = styled.p`
     display: inline-block;
     text-align: center;
-    font-family: ${props => props.theme.primaryFont};
-    font-size: ${props => props.theme.h4FontSize};
+    font-family: ${props => props.theme.global.primaryFont};
+    font-size: ${props => props.theme.global.h4FontSize};
     font-weight: 300;
-    max-width: ${props => props.theme.maxTextWidth};
-    line-height: ${props => props.theme.subheadingLineHeight}
+    max-width: ${props => props.theme.global.maxTextWidth};
+    line-height: ${props => props.theme.global.subheadingLineHeight}
     color: ${props => props.theme.colors.secondaryColor};
 `;
 
 export const StyledDescription = styled.p`
     display: inline-block;
     text-align:center;
-    font-family: ${props => props.theme.secondaryFont};
-    font-size: ${props => props.theme.h5FontSize};
-    max-width: ${props => props.theme.maxTextWidth};
+    font-family: ${props => props.theme.global.secondaryFont};
+    font-size: ${props => props.theme.global.h5FontSize};
+    max-width: ${props => props.theme.global.maxTextWidth};
     color: ${props => props.theme.colors.secondaryColor};
 `;
 
 export const StyledButton = styled.button`
-    ${props => props.theme.buttonStyles}
+    ${props => props.theme.global.buttonStyles}
 `;

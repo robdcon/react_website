@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import CollapsableNav from './CollapsableNav';
 import CollapsableNavMenu from './CollapsableNavMenu';
 import Navigation from './Navigation';
+import NavBar from './NavBar';
 import {pages} from '../utils/nav-config.js';
 import Footer from './Footer';
 
@@ -31,7 +32,7 @@ export default class PageWrapper extends Component
 
             <div>
                 <Navigation pages={pages} open={this.state.menuOpen} toggleMenu={() => {this.toggleMenu()}}></Navigation>
-                <CollapsableNav toggleMenu={() => {this.toggleMenu()}} collapsed={this.state.menuOpen}/>
+                <NavBar toggleMenu={() => {this.toggleMenu()}} collapsed={this.state.menuOpen}/>
                 
                     {this.props.children}
               
