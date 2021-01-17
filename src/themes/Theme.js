@@ -19,12 +19,17 @@ const Theme = {
     colors: {
         primaryColor: colors.primary,
         secondaryColor: colors.secondary,
-        backgroundColor: colors.lightBackground
+        backgroundColor: colors.lightBackground,
+        lightText: colors.lightText,
+        darkText: colors.darkText
     },
     colorsInvert: {
         primaryColor: colors.primary,
         secondaryColor: colors.lightText,
-        backgroundColor: colors.darkBackground
+        backgroundColor: colors.darkBackground,
+        lightText: colors.darkText,
+        darkText: colors.lightText
+        
     },
     global: {
         fontFamily: 'Montserrat, Verdana, sans-serif',
@@ -40,66 +45,67 @@ const Theme = {
         subheadingLineHeight: "1.3",
         primaryFont: "Montserrat, Roboto, sans-serif",
         secondaryFont: "Open Sans, Roboto, sans-serif",
-          buttonStyles: 
-            `display: inline-block;
-            line-height: 35px;
-            margin: 8px;
-            padding: 15px 25px;
-            font-size: 18px;
-            position: relative;
-            opacity: .999;
+        buttonStyles: 
+        `display: inline-block;
+        line-height: 35px;
+        margin: 8px;
+        padding: 15px 25px;
+        font-size: 18px;
+        position: relative;
+        opacity: .999;
+        border-radius: 3px;
+        transition: 0.5s;
+
+        background-color: transparent;
+        border: 2px solid #dddddd;
+        color: ${colors.primary};
+
+        &:before, &:after {
+            content: '';
+            border-style: solid;
+            border-color: ${colors.primary};
+            position: absolute;
+            z-index: 999;
             border-radius: 3px;
+            box-sizing: content-box;
             transition: 0.5s;
+        }
 
-            background-color: transparent;
-            border: 2px solid #dddddd;
+        &:before {
+            width: 0;
+            height: 100%;
+            border-width: 2px 0 2px 0;
+            top: -2px;
+            left: 0;
+            transition-delay: 0.05s;
+        }
+
+        &:after {
+            width: 100%;
+            height: 0;
+            border-width: 0 2px 0 2px;
+            top: 0;
+            left: -2px;
+        }
+
+        &:hover {
             color: ${colors.primary};
+        }
 
-            &:before, &:after {
-              content: '';
-              border-style: solid;
-              border-color: ${colors.primary};
-              position: absolute;
-              z-index: 999;
-              border-radius: 3px;
-              box-sizing: content-box;
-              transition: 0.5s;
-            }
+        &:active {
+            border-color: transparent;
+        }
 
-            &:before {
-              width: 0;
-              height: 100%;
-              border-width: 2px 0 2px 0;
-              top: -2px;
-              left: 0;
-              transition-delay: 0.05s;
-            }
+        &:hover:before {
+            width: 100%;
+        }
 
-            &:after {
-              width: 100%;
-              height: 0;
-              border-width: 0 2px 0 2px;
-              top: 0;
-              left: -2px;
-            }
-
-            &:hover {
-              color: ${colors.primary};
-            }
-
-            &:active {
-              border-color: transparent;
-            }
-
-            &:hover:before {
-              width: 100%;
-            }
-
-            &:hover:after {
-              height: 100%;
-            }
-            `,
+        &:hover:after {
+            height: 100%;
+        }
+    `,
     }
 }
+
 
 export default Theme

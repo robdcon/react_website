@@ -1,10 +1,23 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.footer `
+export const StyledFooter = styled.footer`
     display: flex;
     flex-direction: column;
     padding: 24px;
     background-color: #000;
+    span {
+        color: ${props => props.theme.colors.primaryColor};
+    }
+    a {
+        text-decoration:none;
+        cursor:pointer;
+        color: ${props => props.theme.colors.primaryColor};
+        transition: all .35s linear; 
+        &:hover {
+            color: ${props => props.theme.colors.lightText};
+            transform: translateY(-5px);
+        }
+    }
 `;
 
 export const StyledLinkList = styled.div`

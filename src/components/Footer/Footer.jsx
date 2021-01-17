@@ -8,8 +8,10 @@ const Footer = (props) => {
     <StyledFooterRow justifyContent={"space-between"} className="FooterRow">
       <div><a href="mailto:info@innerspace.digital">info@innerspace.digital</a></div>
       <StyledLinkList>
-        <a href="#">Web Design&nbsp;|&nbsp;</a>
-        <a href="#">Web Development&nbsp;|&nbsp;</a>
+        <a href="#">Web Design</a>
+        <span>&nbsp;|&nbsp;</span>
+        <a href="#">Web Development</a>
+        <span>&nbsp;|&nbsp;</span>
         <a href="#">SEO</a>
       </StyledLinkList>
       <div><a href="tel:+447512345678">+447512345678</a></div>

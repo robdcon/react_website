@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { media } from '../../utils/media';
 
 export const StyledCollapsableNav = styled.nav`
-
     display:flex;
     justify-content: space-between;
     align-items:center;
@@ -15,7 +14,6 @@ export const StyledCollapsableNav = styled.nav`
     left: 0;
     z-index: 1030;
     padding-left: 60px;
-
 `;
 
 export const StyledNavList = styled.ul`
@@ -26,6 +24,12 @@ export const StyledNavList = styled.ul`
         a {
             text-decoration:none;
             cursor:pointer;
+            color: ${props => props.theme.colors.primaryColor};
+            transition: all .35s linear; 
+            &:hover {
+                color: ${props => props.theme.colors.lightText};
+                transform: translateY(-5px);
+            }
         }
     }
     font-size:.75em;

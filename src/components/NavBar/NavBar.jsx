@@ -1,5 +1,8 @@
 import React, { Component, useEffect, useState, useRef } from 'react';
 import { StyledCollapsableNav, StyledNavList, StyledResponsiveDiv } from './NavBar.styles';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+import {gsap, TweenMax, TimelineMax} from "gsap";
 import {Link} from 'react-router-dom'
 import CollapsableNavMenu from '../CollapsableNavMenu'
 import Logo from '../Logo'
@@ -28,7 +31,9 @@ const pages =
 
 const NavBar = (props) => {
     const [collapsed, setCollapsed] = useState(true);
+
     const nav = useRef();
+   
       return (
        
             <div className="nav" ref={nav}>

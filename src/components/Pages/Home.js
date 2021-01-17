@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import Header from '../Header'
-// import image from '../../assets/web-background-dark-med-compression-1200.jpg'
 import image from '../../assets/space-background.jpg';
-import earthBackground from '../../assets/earch-from-space-desktop.jpg';
-import Stage from '../Stage';
+import earthImage from '../../assets/earth-from-space-desktop.jpg';
+import earthImageMobile from '../../assets/earth-from-space-mobile.jpg';
 import ShowcaseSection from '../ShowcaseSection/ShowcaseSection';
-import ServicesSection from '../ServicesSection/ServicesSection';
-import ParallaxSection from '../ParallaxSection/ParallaxSection';
-import StyledPanel from '../../styled/StyledPanel';
 import image1 from '../../assets/sites/site-01/desktop.jpg';
 import image2 from '../../assets/sites/site-02/desktop.jpg';
 import image3 from '../../assets/sites/site-03/desktop.jpg';
-import TestComponent from '../TestComponent/TestComponent';
-import PinSection from '../PinSection/PinSection';
 import CtaSection from '../CtaSection/CtaSection';
 import { ThemeProvider } from "styled-components";
 import Theme, {invertTheme} from '../../themes/Theme';
+import HeroSection from '../HeroSection/HeroSection';
+import FeatureSection from '../../FeatureSection/FeatureSection';
 
 const showcases = [
  {
@@ -39,14 +35,32 @@ class Home extends Component {
     render() {
       return (
         <div>
-          <ParallaxSection image={image} >
+        <ThemeProvider theme={invertTheme}>
+          <HeroSection bgImage={earthImage}>
+            <CtaSection 
+              heading="Launch your online presence"
+              subheading="Watch your business take off!"
+              description="Web Design | Web Development | SEO & Marketing"
+              buttonText="Let's Get Started"
+            />
+          </HeroSection>
+        </ThemeProvider>
+
+        <FeatureSection 
+          heading={`Heading`}
+          tagline={`Lorem Ipsum is simply dummy text of the printing and typesetting industry`}
+          description={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
+          image={image1}
+        />
+
+          {/* <ParallaxSection image={image} >
                <Header
                 title="LAUNCH YOUR ONLINE PRESENCE!"
                 subtitle="PREPARE FOR TAKE OFF HERE"
                 btnText="CONTACT HQ" 
                 showBtn={true}
               />
-          </ParallaxSection>
+          </ParallaxSection> */}
 
           <CtaSection 
             heading="Welcome to Innerspace Digital"
