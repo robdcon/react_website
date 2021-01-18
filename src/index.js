@@ -8,6 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from "styled-components";
 import Theme, {invertTheme} from './themes/Theme';
 
+
 const {store, persistor} = configureStore();
 
 ReactDOM.render(

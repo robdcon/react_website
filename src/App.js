@@ -20,12 +20,17 @@ import Users from './components/Admin/Users';
 import Posts from './components/Admin/Posts';
 import Login from  './components/Pages/Login';
 import AddPost from './components/Admin/AddPost';
+import { GlobalStyles } from './themes/globalStyles';
 
 
 class App extends Component {
 
   render() {
     return (
+      <div>
+        <GlobalStyles />
+      
+      
     <Router>
 
       <Route
@@ -95,6 +100,7 @@ class App extends Component {
       }}
 
      />
+    
         <ExpandableSidebar />
 
         <Route 
@@ -148,6 +154,7 @@ class App extends Component {
         /> 
 
     </Router>
+    </div>
 
     );
   }

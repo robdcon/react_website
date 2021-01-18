@@ -7,6 +7,7 @@ import {pages} from '../utils/nav-config.js';
 import Footer from './Footer';
 
 
+
 export default class PageWrapper extends Component
 {
     constructor(props)
@@ -33,9 +34,9 @@ export default class PageWrapper extends Component
             <div>
                 <Navigation pages={pages} open={this.state.menuOpen} toggleMenu={() => {this.toggleMenu()}}></Navigation>
                 <NavBar toggleMenu={() => {this.toggleMenu()}} collapsed={this.state.menuOpen}/>
-                
-                    {this.props.children}
-              
+                    <main>
+                        {this.props.children}
+                    </main>
                 <Footer />
             </div>
         )

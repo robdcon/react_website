@@ -19,7 +19,7 @@ const Logo = (props) => {
                 (props.image) ?
                 (
                     <img src={props.src} alt={props.alt} />
-                ) : <div>{props.text}</div>
+                ) : props.text
             }
             </Link>
         </StyledLogo>     
