@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 const fields = ['name', 'email', 'message']
 import DynamicContactForm from '../containers/DynamicContactForm'
+import ContactForm from './ContactForm/ContactForm';
 
 const StyledSidebar = styled.div`
 
@@ -113,19 +114,18 @@ class ExpandableSidebar extends Component
     {
       return (
             
-            <div className="expandable-sidebar">
-               
-                <StyledSidebar open={this.state.open} width={this.state.width}>
-                    <StyledSection>
-                        <SidebarHeader>
-                            <NavButton handler={this.toggle} btnWidth="50" open={this.state.open}/>
-                        </SidebarHeader>
-                        <DynamicContactForm toggle={this.toggle} fields={fields}/>
-                    </StyledSection>
-                </StyledSidebar>
-                
-            </div>  
-             
+        <div className="expandable-sidebar">
+            
+            <StyledSidebar open={this.state.open} width={this.state.width}>
+                <StyledSection>
+                    <SidebarHeader>
+                        <NavButton handler={this.toggle} btnWidth="50" open={this.state.open}/>
+                    </SidebarHeader>
+                    <ContactForm />
+                </StyledSection>
+            </StyledSidebar>
+            
+        </div>
       )
     }
   }

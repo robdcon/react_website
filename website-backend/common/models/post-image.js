@@ -1,7 +1,7 @@
 'use strict';
 const sharp = require('sharp');
 const fs = require('fs');
-const CONTAINER_URL = '/api/containers/';
+const CONTAINER_URL = '/api/ImageFiles/';
 
 
 module.exports = function(Postimage) {

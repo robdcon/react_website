@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import ImageIcon from '@material-ui/icons/Image';
 import {withRouter} from 'react-router-dom';
+import API from '../../utils/api';
 
 /*  global $ */ 
 const styles = theme => ({
@@ -43,12 +44,10 @@ const styles = theme => ({
 class AddPost extends Component {
 
     componentDidUpdate(props, state) {
-        // console.log("AddPost Props: ", this.props)
         if(this.props.match.params.view === 'add' && this.props.admin.posts.filter(p => p.title === this.props.values.title).length > 0) {
-            const post = this.props.admin.posts.filter(p => p.title = this.props.values.title);
-            this.props.history.push('/admin/posts/edit/' + post.id)
+            const post = this.props.admin.posts.filter(p => p.title === this.props.values.title);
+            this.props.history.push('/admin/posts/edit/' + post[0].id)
         }
-
         if (this.props.admin.post.id !== props.admin.post.id) {
             this.props.setValues(this.props.admin.post);
         }
@@ -62,8 +61,11 @@ class AddPost extends Component {
 
     uploadImageFile = (e) => {
         const data = new FormData();
-        data.append('file', e.target.files[0], new Date().getTime().toString() + e.target.files.name);
-        this.props.uploadImage(data, this.props.auth.token, this.props.admin.post.id, this.props.auth.user.id);
+        const file = e.target.files[0];
+       
+        data.append('file', e.target.files[0], new Date().getTime().toString() + (e.target.files[0].name).replaceAll(' ', '_'));
+       
+        this.props.uploadImage(data, this.props.auth.token, this.props.admin.post.id, '60074f1d59ce51462836faf9');
     }
 
     render(){
@@ -102,6 +104,9 @@ class AddPost extends Component {
                             ]}
                             fullWidth
                         />
+                        {this.props.admin.post.PostImage ? 
+                        <img src={API.createFileUrl(this.props.admin.post.PostImage[0].url, this.props.auth.token)} className="post-image" />
+                        : 'no content'}
                         <Button 
                             variant="contained" 
                             color="secondary"
@@ -169,9 +174,11 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
                 ...values,
                 id: props.match.params.id
             }
-            console.log(post)
+            console.log("Updated: ", post.id);
             props.updatePost(post, props.auth.token)
         } else {
+            // console.log("New Post: ", values)
+            // console.log(props.auth.token)
             props.addPost(values, props.auth.token);
         }
          

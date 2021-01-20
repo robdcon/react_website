@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import Header from '../Header'
 import image from '../../assets/space-background.jpg';
 import earthImage from '../../assets/earth-from-space-desktop.jpg';
@@ -11,7 +11,7 @@ import CtaSection from '../CtaSection/CtaSection';
 import { ThemeProvider } from "styled-components";
 import Theme, {invertTheme} from '../../themes/Theme';
 import HeroSection from '../HeroSection/HeroSection';
-import FeatureSection from '../../FeatureSection/FeatureSection';
+import FeatureSection from '../FeatureSection/FeatureSection';
 
 const showcases = [
  {
@@ -34,16 +34,15 @@ const showcases = [
 class Home extends Component {
     render() {
       return (
-        <div>
+        <Fragment>
         <ThemeProvider theme={invertTheme}>
-          <HeroSection bgImage={earthImage}>
-            <CtaSection 
+          <HeroSection 
+              bgImage={earthImage}
               heading="Launch your online presence"
               subheading="Watch your business take off!"
               description="Web Design | Web Development | SEO & Marketing"
-              buttonText="Let's Get Started"
-            />
-          </HeroSection>
+              buttonText="Let's Get Started" 
+          />
         </ThemeProvider>
 
         <FeatureSection 
@@ -91,7 +90,7 @@ class Home extends Component {
             })
           } 
           </div>
-        </div>
+        </Fragment>
       );
     }
   }

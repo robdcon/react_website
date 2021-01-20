@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {gsap} from "gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
+
 import { 
   FeatureSectionWrapper, 
   FeatureDetailsWrapper, 

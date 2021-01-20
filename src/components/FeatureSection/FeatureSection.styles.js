@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FeatureSectionWrapper = styled.div`
+export const FeatureSectionWrapper = styled.section`
     display: flex;
     height:100vh;
 `;

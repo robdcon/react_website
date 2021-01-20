@@ -19,3 +19,36 @@ export const StyledHeroBanner = styled.section`
     align-items: center;
     padding: 0;
 `;
+
+export const StyledHeading = styled.h2`
+    display: block;
+    text-align: center;
+    font-family: ${props => props.theme.global.primaryFont};
+    font-size: ${props => props.theme.global.h2FontSize};
+    font-weight: 600;
+    color: ${props => props.theme.colors.primaryColor};
+`;
+
+export const StyledSubheading = styled.p`
+    display: inline-block;
+    text-align: center;
+    font-family: ${props => props.theme.global.primaryFont};
+    font-size: ${props => props.theme.global.h4FontSize};
+    font-weight: 300;
+    max-width: ${props => props.theme.global.maxTextWidth};
+    line-height: ${props => props.theme.global.subheadingLineHeight}
+    color: ${props => props.theme.colors.secondaryColor};
+`;
+
+export const StyledDescription = styled.p`
+    display: inline-block;
+    text-align:center;
+    font-family: ${props => props.theme.global.secondaryFont};
+    font-size: ${props => props.theme.global.h5FontSize};
+    max-width: ${props => props.theme.global.maxTextWidth};
+    color: ${props => props.theme.colors.secondaryColor};
+`;
+
+export const StyledButton = styled.button`
+    ${props => props.theme.global.buttonStyles}
+`;

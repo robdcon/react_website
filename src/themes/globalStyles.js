@@ -3,7 +3,6 @@ import {createGlobalStyle} from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
     body {
         background-color: ${({theme}) => theme.body};
-        
     }
     a {
         color: ${({theme}) => theme.colors.primaryColor};
@@ -13,5 +12,14 @@ export const GlobalStyles = createGlobalStyle`
             transform: translateY(-5px);
             text-decoration:none;
         }
+    }
+
+    main {
+        scroll-snap-type: y mandatory;
+    }
+
+    section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always
     }
 `; 

@@ -6,24 +6,35 @@ gsap.registerPlugin(ScrollTrigger);
 import {gsap, TweenMax, TimelineMax} from "gsap";
 
 const CtaSection = (props) => {
-const container = useRef(null);
+  const sectionContainer = useRef(null);
+  const sectionHeading = useRef(null);
+  const sectionSubheading = useRef(null);
+  const sectionDescription = useRef(null);
+  const sectionButton = useRef(null);
 
   useEffect(() => {
 
-    const anim = TweenMax.staggerFromTo(container.current.children, .35, {y: 20, autoAlpha: 0}, {y: 0, autoAlpha: 1}, .125);
+    const anim = gsap.timeline({defaults:{ ease: 'Power2.back'}});
+    anim.fromTo(sectionHeading.current, {autoAlpha: 0, y: 100}, {autoAlpha: 1, y: 0});
+    anim.fromTo(sectionSubheading.current, {autoAlpha: 0, y: 100}, {autoAlpha: 1, y: 0}, 0.25);
+    anim.fromTo(sectionDescription.current, {autoAlpha: 0, y: 100}, {autoAlpha: 1, y: 0}, 0.5);
+    anim.fromTo(sectionButton.current, {autoAlpha: 0, y: 100}, {autoAlpha: 1, y: 0}, 0.35);
 
     ScrollTrigger.create({
       animation: anim,
-      trigger: container.current,
-      start: 'top 100px'
+      trigger: sectionContainer.current,
+      start: 'top 300px',
+      end: 'top top',
+      markers: true,
+      scrub: 1
     });
   }, []);
   return (
-  <StyledSection ref={container} className="CtaSectionWrapper">
-    <StyledHeading>{props.heading}</StyledHeading>
-    {props.subheading && <StyledSubheading>{props.subheading}</StyledSubheading>}
-    <StyledDescription>{props.description}</StyledDescription>
-    {props.buttonText && <StyledButton>{props.buttonText}</StyledButton>}
+  <StyledSection ref={sectionContainer} className="CtaSectionWrapper">
+    <StyledHeading ref={sectionHeading}>{props.heading}</StyledHeading>
+    {props.subheading && <StyledSubheading ref={sectionSubheading}>{props.subheading}</StyledSubheading>}
+    <StyledDescription ref={sectionDescription}>{props.description}</StyledDescription>
+    {props.buttonText && <StyledButton ref={sectionButton}>{props.buttonText}</StyledButton>}
   </StyledSection>
 )};
 
