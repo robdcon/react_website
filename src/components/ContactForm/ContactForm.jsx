@@ -37,7 +37,7 @@ const CustomSelect = ({...props}) => {
     <Fragment>
       <Select {...field} {...props} className={props.value.length > 0 ? '' : 'untouched'}>
       {
-          options.map( (option, i) => {
+          options.map((option, i) => {
           return(
             <Option key={i} value={option.value}>{option.name}</Option>
           )
@@ -135,7 +135,7 @@ const ContactForm = ({children, ...props}) => {
                 <Fragment key={i}>
                     <label htmlFor={field.name}></label>
                     <Field as={Input} name={field.name} type={field.type} placeholder={field.placeholder} />
-                    <ErrorMessage name={field.name} className="error-message" />
+                    <ErrorMessage name={field.name} />
                 </Fragment>
               )          
           })
