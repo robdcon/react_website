@@ -127,8 +127,8 @@ const ContactForm = ({children, ...props}) => {
     }}
   >
   {formik => (
-    <StyledForm className="StyledForm dynamic-contact-form">
-      <Form>
+    <StyledForm className="form-wrapper">
+      <Form className="contact-form">
         {
           fields.sections[0].map((field, i) => {
               return (
@@ -141,14 +141,17 @@ const ContactForm = ({children, ...props}) => {
           })
         }
 
-        <Field as={CustomSelect} name="dropdown" />
-        <ErrorMessage name="dropdown" />
-
-        <Field as={Checkbox} name="option-1" label="Option 1" />
-        <Field as={Checkbox} name="option-2" label="Option 2" />
-        <Field as={Checkbox} name="option-3" label="Option 3" />
-        
-        <FormInput type="submit" value="Submit" touched={formik.touched['dropdown']} />
+          <Field as={CustomSelect} name="dropdown" />
+          <ErrorMessage name="dropdown" />
+          
+          <fieldset>
+            <legend>What services do you need?</legend>
+            <Field as={Checkbox} name="option-1" label="Option 1" />
+            <Field as={Checkbox} name="option-2" label="Option 2" />
+            <Field as={Checkbox} name="option-3" label="Option 3" />
+          </fieldset>
+          
+          <FormInput type="submit" value="Submit" touched={formik.touched['dropdown']} />
         </Form>
     </StyledForm>
   )}

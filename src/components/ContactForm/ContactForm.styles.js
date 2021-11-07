@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const StyledForm = styled.div` 
     width:100%;
+    max-width: 800px;
     h2 {
       text-align:center;
       color:#fff;

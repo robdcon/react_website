@@ -27,7 +27,6 @@ export const GlobalStyles = createGlobalStyle`
         @media(min-width: 600px) {
             padding: 50px 100px;
         }
-
     }
 
     ::placeholder {

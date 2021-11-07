@@ -18,7 +18,7 @@ export const StyledFooter = styled.footer`
             transform: translateY(-5px);
         }
     }
-    .footer-info {
+    .footer__info {
         color: ${props => props.theme.colors.greyLightText}
     }
 `;
