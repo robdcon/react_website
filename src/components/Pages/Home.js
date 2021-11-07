@@ -43,29 +43,21 @@ class Home extends Component {
     render() {
       return (
         <Fragment>
-        <ThemeProvider theme={invertTheme}>
-          <HeroSection 
-              bgImage={earthImage}
-              heading="Launch your online presence"
-              subheading="Watch your business take off!"
-              description="Web Design | Web Development | Seo & Marketing"
-              buttonText="Let's Get Started" 
-          />
-        </ThemeProvider>
 
-          {/* <ParallaxSection image={image} >
-               <Header
-                title="LAUNCH YOUR ONLINE PRESENCE!"
-                subtitle="PREPARE FOR TAKE OFF HERE"
-                btnText="CONTACT HQ" 
-                showBtn={true}
-              />
-          </ParallaxSection> */}
+          <ThemeProvider theme={invertTheme}>
+            <HeroSection 
+                bgImage={earthImage}
+                heading="Launch your online presence"
+                subheading="Watch your business take off!"
+                description="Web Design | Web Development | SEO"
+                buttonText="Let's Get Started" 
+            />
+          </ThemeProvider>
 
           <CtaSection 
             heading="Welcome to Innerspace Digital"
             subheading="A one-stop-shop for all things web."
-            description="Web Design | Web Development | Seo & Marketing"
+            description="Web Design | Web Development | SEO"
             buttonText="GET A FREE QUOTE"
           />
 

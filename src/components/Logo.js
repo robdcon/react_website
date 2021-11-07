@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import {media} from '../utils/media';
 
 const StyledLogo = styled.div`
-
     font-family:${props => props.theme.global.fontFamily};
     letter-spacing:3px;
     display:none;
@@ -13,7 +12,7 @@ const StyledLogo = styled.div`
 
 const Logo = (props) => {
     return(
-        <StyledLogo>
+        <StyledLogo className="Logo">
             <Link to="/">
             {
                 (props.image) ?

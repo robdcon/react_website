@@ -13,7 +13,6 @@ export const StyledCollapsableNav = styled.nav`
     right: 0;
     left: 0;
     z-index: 1030;
-    padding-left: 60px;
 `;
 
 export const StyledNavList = styled.ul`

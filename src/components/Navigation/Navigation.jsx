@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 import { NavigationWrapper, NavigationListItem } from './Navigation.styles';
 import { TweenMax } from "gsap";
 
-
-
 const Navigation = (props) => {
-
   const navWrapper = useRef();
   const navItems = useRef([]);
   useEffect(() => {
@@ -39,14 +36,6 @@ const Navigation = (props) => {
       }
     </NavigationWrapper>
   )
-};
-
-Navigation.propTypes = {
-  // bla: PropTypes.string,
-};
-
-Navigation.defaultProps = {
-  // bla: 'test',
 };
 
 export default Navigation;

@@ -1,46 +1,23 @@
-import React, {Component} from 'react';
-import CollapsableNav from './CollapsableNav';
-import CollapsableNavMenu from './CollapsableNavMenu';
-import Navigation from './Navigation';
-import NavBar from './NavBar';
-import {pages} from '../utils/nav-config.js';
+import React, {useState} from 'react';
 import Footer from './Footer';
 
-
-
-export default class PageWrapper extends Component
-{
-    constructor(props)
-    {
-        super(props)
-        this.state=
-        {
-            menuOpen:false
-        }
+const PageWrapper = ({children}) => {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
     }
 
-    toggleMenu = () =>
-    {
-        this.setState((prevState) =>
-        ({
-            menuOpen: !prevState.menuOpen
-        }))
-    }
-
-    render()
-    {
-        return(
-
-            <div>
-                <Navigation pages={pages} open={this.state.menuOpen} toggleMenu={() => {this.toggleMenu()}}></Navigation>
-                <NavBar toggleMenu={() => {this.toggleMenu()}} collapsed={this.state.menuOpen}/>
-                    <main>
-                        {this.props.children}
-                    </main>
-                <Footer />
-            </div>
-        )
-
-    }
+    return (
+        <div className="page-wrapper">
+            {/* <Navigation pages={pages} open={menuOpen} toggleMenu={() => {toggleMenu()}}></Navigation>
+            <NavBar toggleMenu={() => {toggleMenu()}} collapsed={menuOpen}/> */}
+                <main>
+                    {children}
+                </main>
+            <Footer />
+        </div>
+    )
 
 }
+
+export default PageWrapper;

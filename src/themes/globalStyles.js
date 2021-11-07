@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     section {
-        min-width: 100vh;
+        min-width: 100%;
         padding: 50px 16px;
         scroll-snap-align: start;
         scroll-snap-stop: always;

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, {useRef } from 'react';
 import { StyledCollapsableNav, StyledNavList, StyledResponsiveDiv } from './NavBar.styles';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import {gsap} from "gsap";
@@ -30,36 +30,36 @@ const pages =
 
 const NavBar = (props) => {
     const nav = useRef();
-   
-      return (   
-            <div className="nav" ref={nav}>
+    return (   
+        <div className="nav" ref={nav}>
 
-                <StyledCollapsableNav className="StyledCollapsableNav navbar navbar-expand-lg navbar-dark fixed-top">
-   
-                        <Logo text={`INNERSPACE`} />
+            <StyledCollapsableNav className="StyledCollapsableNav navbar navbar-expand-lg navbar-dark fixed-top">
 
-                        <StyledResponsiveDiv className="StyledResponsiveDiv">
-                            
-                            <StyledNavList className="StyledNavList text-uppercase" id="navbarResponsive">
+                <Logo text={`INNERSPACE`} />
 
-                                
-                                {
-                                    pages.map(page => 
-                                    {
-                                        return   <li key={page.title} className="nav-item"><Link className="nav-link js-scroll-trigger" to={page.path}>{page.title}</Link></li>
-                                    })
-                                }
-                               
+                <StyledResponsiveDiv className="StyledResponsiveDiv">
+                    
+                    <StyledNavList className="StyledNavList text-uppercase" id="navbarResponsive">
 
-                            </StyledNavList>
+                        
+                        {
+                            pages.map(page => 
+                            {
+                                return   <li key={page.title} className="nav-item"><Link className="nav-link js-scroll-trigger" to={page.path}>{page.title}</Link></li>
+                            })
+                        }
+                        
 
-                        </StyledResponsiveDiv>
+                    </StyledNavList>
 
-                    <MenuButton toggleMenu={props.toggleMenu} />
+                </StyledResponsiveDiv>
 
-                </StyledCollapsableNav>
-            </div>       
-      )
-  }
+                <MenuButton toggleMenu={props.toggleMenu} />
+
+            </StyledCollapsableNav>
+            
+        </div>       
+    )
+}
 
 export default NavBar;
