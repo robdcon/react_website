@@ -39,4 +39,9 @@ export const StyledFooterRow = styled.div`
     @media(max-width: 800px) {
         flex-direction: column;
     }
+
+    h2 {
+        margin-bottom: 24px;
+        color: #fff;
+    }
 `;

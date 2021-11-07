@@ -10,20 +10,20 @@ import Axios from 'axios';
 
 const options = [
   {
-    name: "Please select",
+    name: "Please select the service you need",
     value: ''
   },
   {
-    name: "Option 1",
-    value: 'option-1'
+    name: "Web Design",
+    value: 'Web Design'
   },
   {
-    name: "Option 2",
-    value: 'option-2'
+    name: "Web Development",
+    value: 'Web Development'
   },
   {
-    name: "Option 3",
-    value: 'option-3'
+    name: "SEO",
+    value: 'SEO'
   }
 ]
 
@@ -135,7 +135,7 @@ const ContactForm = ({children, ...props}) => {
                 <Fragment key={i}>
                     <label htmlFor={field.name}></label>
                     <Field as={Input} name={field.name} type={field.type} placeholder={field.placeholder} />
-                    <ErrorMessage name={field.name} />
+                    <ErrorMessage name={field.name} className="error-message" />
                 </Fragment>
               )          
           })
@@ -144,12 +144,12 @@ const ContactForm = ({children, ...props}) => {
           <Field as={CustomSelect} name="dropdown" />
           <ErrorMessage name="dropdown" />
           
-          <fieldset>
+          {/* <fieldset>
             <legend>What services do you need?</legend>
             <Field as={Checkbox} name="option-1" label="Option 1" />
             <Field as={Checkbox} name="option-2" label="Option 2" />
             <Field as={Checkbox} name="option-3" label="Option 3" />
-          </fieldset>
+          </fieldset> */}
           
           <FormInput type="submit" value="Submit" touched={formik.touched['dropdown']} />
         </Form>

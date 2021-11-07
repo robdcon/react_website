@@ -7,6 +7,7 @@ export const StyledForm = styled.div`
       text-align:center;
       color:#fff;
     }
+    margin-bottom: 48px;
 `;
 
 export const StyledCheckbox = styled.label`
