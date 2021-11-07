@@ -4,7 +4,6 @@ import { media } from '../../utils/media';
 export const StyledSection = styled.section`
 
     width:100vw;
-    padding: 1.25em;
     display: flex;
     flex-direction: column;
 
@@ -16,11 +15,15 @@ export const StyledSection = styled.section`
     }
 `;
 
+export const Column = styled.div`
+    padding: 8px;
+    flex-basis: 33.333%;
+`;
+
 export const StyledServiceSectionHeading = styled.div`
 
     width:100%;
     min-height: 100px;
-    margin-top: 5em;
     text-align:center;
     grid-column-start: span 3;
     grid-row-start: span 1;
@@ -43,8 +46,9 @@ export const ServiceItemWrapper = styled.div`
 `;
 
 export const ServiceIcon = styled.div`
-    // grid-area: serviceIcon;
-    // justify-self: center;
+    display: inline-block;
+    color: ${props => props.theme.global.primaryColor};
+    padding:  ${props => props.theme.global.cardPadding};
 `;
 
 export const ServiceHeading = styled.div`
@@ -61,6 +65,7 @@ export const ServiceHeading = styled.div`
 `;
 
 export const ServiceDescription = styled.div`
+   
     // grid-area: serviceDescription;
     // ${media.handheld`
     //     align-self: self-start;
@@ -73,41 +78,18 @@ export const ServiceDescription = styled.div`
 
 `;
 
-const stackedLayout = `
-    grid-template-rows: repeat(3, min-content);
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-items: center;
-    grid-template-areas: 
-    "serviceIcon"
-    "serviceHeading"
-    "serviceDescription";
-`;
 export const StyledServiceItem = styled.div`
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    flex-basis: 33.333%;
+    justify-content:flex-start;
+    align-items:left;
+    text-align:center;
     transistion: all 1s ease-in;
-    // display: grid;
-    // grid-gap: 16px;
-    // ${stackedLayout}
+    padding: ${props => props.theme.global.cardPadding};
+    box-shadow: ${props => props.theme.global.cardShadow};
+    margin-bottom: 24px;
+    border-radius: 3px;
 
-    // ${media.handheld`
-    //     grid-template-rows: repeat(2, 1fr);
-    //     grid-template-columns: 20% 80%;
-    //     align-items: center;
-    //     grid-template-areas: 
-    //     "serviceIcon serviceHeading"
-    //     "serviceIcon serviceDescription";
-    // `};
-
-    // ${media.desktop`
-    //    ${stackedLayout}
-    // `};
-
-    // margin-bottom: 2em;
 
     .fa-stack {
         max-width: 100%;

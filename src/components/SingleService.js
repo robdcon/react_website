@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
 import {StyledFlexBox} from '../styled/StyledFlexBox'
 
-const StyledSingleService = styled.div`
+// const StyledSingleService = styled.div`
 
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:space-between;
-  text-align: center;
+//   display:flex;
+//   flex-direction:column;
+//   align-items:center;
+//   justify-content:space-between;
+//   text-align: center;
   
 
-`
-const SingleServiceContainer = styled.div`
+// `
+// const SingleServiceContainer = styled.div`
 
-  flex: 33%;
+//   flex: 33%;
 
-`
+// `
 class SingleService extends Component 
 {
     render() 

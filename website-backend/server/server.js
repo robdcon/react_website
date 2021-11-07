@@ -50,10 +50,8 @@ app.models.user.find((err, result) => {
   }
 })
 
-// console.log(Object.keys(app.models))
-app.models.user.afterRemote('create', (ctx, user, next) => 
-{
-  console.log('New user is ', user)
+app.models.user.afterRemote('create', (ctx, user, next) => {
+ 
   app.models.Profile.create({
       "first_name": `${user.username}`,
       "userId":user.id,
@@ -74,8 +72,7 @@ app.models.user.afterRemote('create', (ctx, user, next) =>
   
 });
 
-app.models.Role.find({where:{name:'admin'}}, (err, role) => 
-{
+app.models.Role.find({where:{name:'admin'}}, (err, role) => {
   if(!err && role)
   {
     console.log('Found: ', role, 'Length: ', role.length)
@@ -119,7 +116,6 @@ app.models.Role.find({where:{name:'editor'}}, (err, role) =>
 {
   if (!err &&  role) 
   {
-    // console.log("found:", role)
     if (role.length === 0)
     {
       app.models.Role.create({

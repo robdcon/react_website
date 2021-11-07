@@ -12,8 +12,8 @@ import websiteThumb04 from '../../assets/portfolio/website-web-design-thumb-04.j
 import portfolio from '../../api/portfolio.js'
 import SectionWipe2 from '../SectionWipe2'
 import SplitText from '../SplitText'
-
-console.log(portfolio)
+import ShowcaseSection from '../ShowcaseSection/ShowcaseSection';
+import {showcases} from '../../utils/projects.config.js'
 
 const portfolioItems = 
 [
@@ -66,6 +66,18 @@ class Portfolio extends Component
             showBtn={true}
             image={image}
            />
+
+          <div id="sectionWrapper">
+          {
+            showcases.map((showcase, i) => {
+              return  <ShowcaseSection 
+                        key={i} 
+                        title={showcase.title} 
+                        buttonText={showcase.buttonText} 
+                        image={showcase.image} />
+            })
+          } 
+          </div>
 
           <section className="bg-light page-section" id="portfolio">
               <div className="container">

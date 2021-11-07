@@ -10,7 +10,7 @@ export const SpacerSection = styled.section`
 
 export const StyledButton = styled.button`
 
-    ${props => props.theme.buttonStyles}
+    ${props => props.theme.global.buttonStyles}
 
 `;
 

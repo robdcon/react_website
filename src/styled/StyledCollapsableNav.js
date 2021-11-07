@@ -1,9 +1,6 @@
 import styled from 'styled-components'
-import {media} from '../utils/media'
-
 
 const StyledCollapsableNav = styled.nav`
-
     display:flex;
     justify-content: space-between;
     align-items:center;
@@ -16,7 +13,6 @@ const StyledCollapsableNav = styled.nav`
     left: 0;
     z-index: 1030;
     padding-left: 60px;
+`;
 
-  
-`
 export default StyledCollapsableNav

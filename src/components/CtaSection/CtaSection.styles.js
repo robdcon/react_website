@@ -44,5 +44,5 @@ export const StyledDescription = styled.p`
 `;
 
 export const StyledButton = styled.button`
-    ${props => props.theme.global.buttonStyles}
+ ${props => props.theme.global.buttonStyles}
 `;

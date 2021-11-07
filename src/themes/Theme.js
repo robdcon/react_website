@@ -6,13 +6,15 @@ export const invertTheme = ({colors, colorsInvert, global}) => ({
 })
 
 const colors = {
-    primary: '#ff6500',
+    primary: '#f96200',
     secondary: '#000000',
     lightBackground: '#ffffff',
     darkBackground: '#000000',
     foreground: '#000000',
     lightText: '#ffffff',
-    darkText: '#000000'
+    darkText: '#000000',
+    greyLightText: '#aaaaaa',
+    greyDarkText: '#aaaaaa'
 }
 
 const Theme = {
@@ -21,7 +23,8 @@ const Theme = {
         secondaryColor: colors.secondary,
         backgroundColor: colors.lightBackground,
         lightText: colors.lightText,
-        darkText: colors.darkText
+        darkText: colors.darkText,
+        greyLightText: colors.greyLightText
     },
     colorsInvert: {
         primaryColor: colors.primary,
@@ -41,20 +44,25 @@ const Theme = {
         h5FontSize: "18px",
         bodyFontSize: "16px",
         // Content
+        cardPadding: "16px 16px 24px 16px",
+        cardBorder: "1px solid #dddddd",
+        cardShadow: "0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)",
         maxTextWidth: "800px",
         subheadingLineHeight: "1.3",
         primaryFont: "Montserrat, Roboto, sans-serif",
         secondaryFont: "Open Sans, Roboto, sans-serif",
         buttonStyles: 
+
         `display: inline-block;
         line-height: 35px;
         margin: 8px;
         padding: 15px 25px;
-        font-size: 18px;
+        font-size: 20px;
+        font-weight: bold;
         position: relative;
         opacity: .999;
         border-radius: 3px;
-        transition: 0.5s;
+        transition: border 0.5s ease-out 0.5s, color 0.5s ease-out;
 
         background-color: transparent;
         border: 2px solid #dddddd;
@@ -68,7 +76,7 @@ const Theme = {
             z-index: 999;
             border-radius: 3px;
             box-sizing: content-box;
-            transition: 0.5s;
+            transition: height 0.5s, width 0.5s;
         }
 
         &:before {
@@ -89,7 +97,7 @@ const Theme = {
         }
 
         &:hover {
-            color: ${colors.primary};
+            border-color: ${colors.primary}
         }
 
         &:active {

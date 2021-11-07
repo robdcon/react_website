@@ -1,91 +1,84 @@
-import React, { Component } from 'react';
-import styled from 'styled-components'
-
-
+import React from 'react';
+import styled from 'styled-components';
+import {media} from '../utils/media';
 
 const StyledLabel = styled.label`
-
-    font-size: 2em;
+    font-size: 1.5em;
     color: #ffffff70;
-
-`
+`;
 
 const StyledInput = styled.input`
+    width: 90%;
+    padding: 0.5em;
+    font-size: 0.8rem;
+    height: 50px;
 
-    width: 100%;
-    padding: 1.5em;
-    font-size: 1.5rem;
+    ${media.desktop`
+        width: 100%;
+        font-size: 1.15rem;
+    `}
+`;
 
-
-`
 const StyledTextArea = styled.textarea`
+    width: 90%;
+    padding: 0.5em;
+    font-size: 0.8rem;
+    min-height:100px;
 
-    width: 100%;
-    padding: 1.5em;
-    font-size: 1.5rem;
-
-
-`
+    ${media.desktop`
+        width: 100%;
+        font-size: 1.15rem;
+    `}
+`;
 
 const StyledField = styled.div`
 
     width: 100%;
     margin: 0 auto;
+`;
 
-`
-class FormGroup extends Component 
+const FormGroup = ({name, label, type, placeholder, onChange, onBlur, touched, errors}) =>
 {
-    render() 
-    {
-      return (
-       
-            <StyledField className="form-group">
-                <StyledLabel htmlFor={this.props.name}>{this.props.label}</StyledLabel>
-                {  
-                ( this.props.type === "text" ) ? 
-                ( 
-                    <StyledInput 
+
+    console.log(`Name: ${name} , Errors ${errors}`)
+    return (
+    
+        <StyledField className="StyledField form-group">
+            <StyledLabel htmlFor={name}>{label}</StyledLabel>
+            {  
+                ( type === 'textarea' ) ? ( 
+                    
+                    <StyledTextArea 
                             className="form-control" 
-                            id={this.props.name} 
-                            type="text"
-                            placeholder={this.props.placeholder}
-                            required={this.props.required} 
-                            name={this.props.name}
-                            onChange={this.props.onChange}
-                            onKeyPress={this.props.onKeyPress}
-                            onBlur={this.props.onBlur}
-                            
-                            
-                        />
-                    )
-                    :
-                    (
-                        <StyledTextArea 
-                            className="form-control" 
-                            id={this.props.name} 
+                            id={name} 
                             type="textarea"
-                            placeholder={this.props.placeholder}
-                            required={this.props.required} 
-                            name={this.props.name}
-                            onChange={this.props.onChange}
-                            onKeyPress={this.props.onKeyPress}
-                            onBlur={this.props.onBlur}
-                           
+                            placeholder={placeholder}
+                            name={name}
+                            onChange={onChange}
+                            onBlur={onBlur}
+                        />
+                    
+                    ) : (
+                        <StyledInput 
+                            className="form-control" 
+                            id={name} 
+                            type={type}
+                            placeholder={placeholder}
+                            name={name}
+                            onChange={onChange}
+                            onBlur={onBlur}  
                         />
                     )
-                    
                 }
-                <p className="help-block text-danger">
+            <p className="help-block text-danger">
 
-                    {(this.props.touched && this.props.errors) &&
-
-                        <span>This field is required</span>
-                    
-                    }
-                </p>
-            </StyledField>       
-      )
-    }
+                {(errors && touched) &&
+                    <span>{errors}</span>
+                }
+            </p>
+        </StyledField>       
+    );
   }
   
   export default FormGroup;
+

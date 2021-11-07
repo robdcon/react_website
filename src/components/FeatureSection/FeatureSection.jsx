@@ -32,7 +32,7 @@ const FeatureSection = (props) => {
       trigger: section.current,
       start: 'top 300px',
       end: 'top top',
-      markers: true,
+      markers: false,
       scrub: 1
     });
   }, [])

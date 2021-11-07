@@ -23,7 +23,7 @@ const SectionWipes = () => (
         <div><Panel bgColor={'green'} heading="Graphic Design" /></div>
       </Scene>
       <Scene pin>
-        <div><Panel bgColor={'red'} heading="SEO" /></div>
+        <div><Panel bgColor={'red'} heading="Seo" /></div>
       </Scene>
       <Scene pin>
        <div><Panel bgColor={'orange'} heading="Web Development" /></div>

@@ -101,9 +101,18 @@ class ExpandableSidebar extends Component
         }
     }
 
+    // useEffect(() => {
+    //     if(props.open === true) {
+    //       TweenMax.to(sidebar.current, .5, {top:0});
+    //       TweenMax.staggerFromTo(navItems.current, .5, { opacity:0, y:100 }, { opacity:1, y:0, delay:.25 }, .125);
+    //     } else {
+    //       TweenMax.staggerFromTo(navItems.current, .35, { opacity:1, y:0 }, { opacity:0, y:-100 }, .125);
+    //       TweenMax.to(sidebar.current, .5, {top:"-100%", delay:.35});
+    //     }
+    //   })
+
     toggle = () =>
     {
-        console.log("toggle")
         this.setState((prevState) =>
         {
            return { open:!prevState.open}

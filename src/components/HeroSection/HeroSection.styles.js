@@ -8,6 +8,17 @@ export const StyledBackgroundImage = styled.div`
     background-size: 100%;
     top: 0;
     left: 0;
+    z-index: -1;
+`;
+
+export const StyledOverlay = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: rgba(0,0,0,0.1);
 `;
 
 export const StyledHeroBanner = styled.section`
@@ -20,8 +31,9 @@ export const StyledHeroBanner = styled.section`
     padding: 0;
 `;
 
-export const StyledHeading = styled.h2`
+export const StyledHeading = styled.h1`
     display: block;
+    text-transform: uppercase;
     text-align: center;
     font-family: ${props => props.theme.global.primaryFont};
     font-size: ${props => props.theme.global.h2FontSize};

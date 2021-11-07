@@ -1,8 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { NavigationWrapper, NavigationListItem } from './Navigation.styles';
-import {TweenMax, TimelineMax} from "gsap";
+import { TweenMax } from "gsap";
 
 
 

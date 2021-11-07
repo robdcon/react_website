@@ -24,8 +24,7 @@ class Services extends Component
 
   animateServices()
   {
-    const tweenedServices = this.serviceList.current.getServices()
-    console.log("Services: ", tweenedServices )
+    const tweenedServices = this.serviceList.current.getServices();
     this.serviceTween.staggerFrom(tweenedServices, 1, {opacity:'0', y:'100', onComplete:function(){console.log('Animation Complete: ', tweenedServices)} } , 0.25 )
   }
 

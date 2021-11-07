@@ -97,7 +97,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(withFormik({
         password: Yup.string().required('Password is required')
     }),
     handleSubmit:  (values, {setSubmitting}) => {
-        console.log('Login Attemt: ', values)
+        console.log('Login Attempt: ', values)
     }
 
 

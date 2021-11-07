@@ -13,7 +13,7 @@ export const testTween = (el) => {
 
     gsap.to(el, {
         scrollTrigger: {
-            markers: true,
+            markers: false,
             trigger: el,
             start: "0 center",
             end: "100% 100%",

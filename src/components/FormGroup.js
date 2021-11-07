@@ -11,7 +11,7 @@ const StyledLabel = styled.label`
     font-size: 1em;
     color: #ffffff70;
 
-`
+`;
 
 const StyledInput = styled.input`
 
@@ -26,9 +26,7 @@ const StyledInput = styled.input`
         font-size: 1.5rem;
     
     `}
-
-
-`
+`;
 
 const StyledTextArea = styled.textarea`
 
@@ -42,17 +40,15 @@ const StyledTextArea = styled.textarea`
     padding: 1.5em;
     font-size: 1.5rem;
 
-`}
-
-
-`
+    `}
+`;
 
 const StyledField = styled.div`
 
     width: 100%;
     margin: 0 auto;
 
-`
+`;
 class FormGroup extends Component 
 {
     render() 
@@ -62,25 +58,10 @@ class FormGroup extends Component
             <StyledField className="StyledField form-group">
                 <StyledLabel htmlFor={this.props.name}>{this.props.label}</StyledLabel>
                 {  
-                ( this.props.type ) ? 
+                ( this.props.type === 'textarea' ) ? 
                 ( 
-                    <StyledInput 
-                            className="form-control" 
-                            id={this.props.name} 
-                            type={this.props.type}
-                            placeholder={this.props.placeholder}
-                            required={this.props.required} 
-                            name={this.props.name}
-                            onChange={this.props.onChange}
-                            onKeyPress={this.props.onKeyPress}
-                            onBlur={this.props.onBlur}
-                            
-                            
-                        />
-                    )
-                    :
-                    (
-                        <StyledTextArea 
+                    
+                    <StyledTextArea 
                             className="form-control" 
                             id={this.props.name} 
                             type="textarea"
@@ -90,16 +71,29 @@ class FormGroup extends Component
                             onChange={this.props.onChange}
                             onKeyPress={this.props.onKeyPress}
                             onBlur={this.props.onBlur}
-                           
+                        />
+                    
+                    ) :
+                    (
+                        <StyledInput 
+                            className="form-control" 
+                            id={this.props.name} 
+                            type={this.props.type}
+                            placeholder={this.props.placeholder}
+                            required={this.props.required} 
+                            name={this.props.name}
+                            onChange={this.props.onChange}
+                            onKeyPress={this.props.onKeyPress}
+                            onBlur={this.props.onBlur}  
                         />
                     )
                     
                 }
                 <p className="help-block text-danger">
 
-                    {(this.props.touched && this.props.errors) &&
+                    {(this.props.errors && this.props.touched) &&
 
-                        <span>This field is required</span>
+                        <span>{this.props.errors}</span>
                     
                     }
                 </p>

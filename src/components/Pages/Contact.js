@@ -156,7 +156,6 @@ class Contact extends Component
     handleSubmit: (values, {setSubmitting}) =>
     {
       const formValues = JSON.stringify(values)
-      console.log('Form Submitted: ', formValues )
     }
     
 

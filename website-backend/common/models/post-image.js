@@ -17,6 +17,14 @@ module.exports = function(Postimage) {
             fs.mkdirSync('./server/storage/' + ctx.req.params.container) 
         }
 
+        PostImage.find({where: {postId: post_id}}, (fer, files) => {
+            if(!fer && files) {
+                files.map(fil => {
+                    fil.updateAttributes({postId: null})
+                })
+            }
+        })
+
         Postimage.app.models.ImageFile.upload(ctx.req, ctx.result, options, (err, file) => {
 
             if(err)

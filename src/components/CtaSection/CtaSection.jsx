@@ -11,30 +11,39 @@ const CtaSection = (props) => {
   const sectionSubheading = useRef(null);
   const sectionDescription = useRef(null);
   const sectionButton = useRef(null);
+  const items = useRef([]);
 
   useEffect(() => {
-
-    const anim = gsap.timeline({defaults:{ ease: 'Power2.back'}});
-    anim.fromTo(sectionHeading.current, {autoAlpha: 0, y: 100}, {autoAlpha: 1, y: 0});
-    anim.fromTo(sectionSubheading.current, {autoAlpha: 0, y: 100}, {autoAlpha: 1, y: 0}, 0.25);
-    anim.fromTo(sectionDescription.current, {autoAlpha: 0, y: 100}, {autoAlpha: 1, y: 0}, 0.5);
-    anim.fromTo(sectionButton.current, {autoAlpha: 0, y: 100}, {autoAlpha: 1, y: 0}, 0.35);
+    const anim = new TimelineMax();
+    anim.staggerFromTo(
+      items.current, 
+      .5,
+      { 
+        opacity: 0, 
+        y: 100
+      }, 
+      { 
+        opacity: 1 , 
+        y: 0
+      }, 
+      .125
+      
+    )
 
     ScrollTrigger.create({
       animation: anim,
       trigger: sectionContainer.current,
-      start: 'top 300px',
+      start: 'top center',
       end: 'top top',
-      markers: true,
-      scrub: 1
+      markers: false
     });
   }, []);
   return (
   <StyledSection ref={sectionContainer} className="CtaSectionWrapper">
-    <StyledHeading ref={sectionHeading}>{props.heading}</StyledHeading>
-    {props.subheading && <StyledSubheading ref={sectionSubheading}>{props.subheading}</StyledSubheading>}
-    <StyledDescription ref={sectionDescription}>{props.description}</StyledDescription>
-    {props.buttonText && <StyledButton ref={sectionButton}>{props.buttonText}</StyledButton>}
+    <StyledHeading ref={sectionHeading => items.current.push(sectionHeading)}>{props.heading}</StyledHeading>
+    {props.subheading && <StyledSubheading ref={sectionSubheading  => items.current.push(sectionSubheading)}>{props.subheading}</StyledSubheading>}
+    <StyledDescription ref={sectionDescription => items.current.push(sectionDescription)}>{props.description}</StyledDescription>
+    {props.buttonText && <StyledButton ref={sectionButton => items.current.push(sectionButton)}>{props.buttonText}</StyledButton>}
   </StyledSection>
 )};
 

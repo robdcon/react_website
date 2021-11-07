@@ -1,20 +1,20 @@
 const models = require('./server.js').models;
 
-const filter = 
-{
-    where:
-    {
-        email:{like:"tom"}
-    }
-}
+// const filter = 
+// {
+//     where:
+//     {
+//         email:{like:"tom"}
+//     }
+// }
 
-models.Profile.destroyById("5dea5fdfeb80ab4254961cc8", (err, found) =>
-{
-    console.log('Found', err, found)
+// models.Profile.destroyById("5dea5fdfeb80ab4254961cc8", (err, found) =>
+// {
+//     console.log('Found', err, found)
    
     
     
-})
+// })
 
 
 // const sampleData = [

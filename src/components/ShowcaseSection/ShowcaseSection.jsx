@@ -1,8 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
-import {gsap, TweenMax, TimelineMax} from "gsap";
+import React, { useRef, useEffect } from 'react';
+import {gsap, TimelineMax} from "gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-import PropTypes from 'prop-types';
 import { StyledShowcaseSection, StyledButton } from './ShowcaseSection.styles';
 
 
@@ -38,7 +37,7 @@ const ShowcaseSection = (props) => {
           <StyledButton>{props.buttonText}</StyledButton>
         </div>
         <div ref={imageRef} className="imgContainer col" >
-          <img src={props.image} alt="showcase image" />
+          <img src={props.image} alt="showcase" />
         </div>
       </div>
     </StyledShowcaseSection>

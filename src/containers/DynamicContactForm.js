@@ -2,46 +2,23 @@
 
 import React, { Component } from 'react';
 import FormGroup from '../components/FormGroup'
-import {withFormik, Field} from 'formik'
 import TweenLite from 'gsap'
 import styled from 'styled-components'
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 import {StyledFlexBox} from '../styled/StyledFlexBox'
-import Theme from '../themes/Theme'
-
-// console.log("Theme:",Theme)
+import Theme from '../themes/Theme';
 
 const StyledForm = styled.div` 
-
     width:100%;
-    &h2
+    & h2
     {
       text-align:center;
       color:#fff;
     }
-    
+`;
 
-`
-const ConfirmationStyles = styled.div`
-
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    h2, p
-    {
-        text-align:center;
-        color:#fff;
-    }
-
-
-`
-
-const fields =
-{
-  sections:
-  [
+const fields = {
+  sections: [
     [ // col 1
       {
        
@@ -94,7 +71,6 @@ class DynamicContactForm extends Component
 
     handleChange = (e) =>
     {
-        console.log(e)
         let fieldName = e.target.name
         let value = e.target.value
         this.setState((prevState, props) => {
@@ -114,7 +90,6 @@ class DynamicContactForm extends Component
 
     handleKeypress = (e) =>
     {
-        console.log(e)
         const key = e.which || e.keyCode
         if (key === 13) 
         {
@@ -130,21 +105,11 @@ class DynamicContactForm extends Component
         })
     }
 
-    animateFields = () =>
-    {
-      
-      console.log(this.myElements)
+    animateFields = () => {
       TweenLite.staggerFrom('[data-animate]', .5, {y:'100px', opacity:0}, .05)
-      // this.setState({
-
-      // 	animateOptions:false
-      // })
-
-      
     }
   
-  resetForm = () => 
-  {
+  resetForm = () => {
     this.setState({
       fieldIndex:0
 
@@ -170,7 +135,7 @@ class DynamicContactForm extends Component
                         {...field}
                         name={field.name}
                         onChange={(e) => this.handleChange(e)}
-                        onKeyPress= { this.handleKeypress }
+                        onKeyPress={ this.handleKeypress }
                         id={field.name}
                         placeholder={field.placeholder}
                         value={field.value}
@@ -190,12 +155,7 @@ class DynamicContactForm extends Component
                          <CancelPresentationIcon style={{color: `${Theme.primaryColor}`}} onClick={this.resetForm}/>
                       </StyledFlexBox>
                    )
-               } 
-               
-             
-
-              
-              
+               }  
             </StyledForm>       
       )
     }

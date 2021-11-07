@@ -87,7 +87,6 @@ class App extends Component {
       exact={true}
       path="/admin"
       render={props => {
-      //  console.log(`App.js Props:`, this.props);
        return( <div>
           {
           this.props.auth.token ? 

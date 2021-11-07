@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import StyledPanel from './StyledPanel'
 
 const StyledListItem = styled.li`
 
@@ -9,16 +8,14 @@ font-size: 1.5em;
 text-transform: uppercase;
 
 @media(max-width: 800px)
-{
-    font-size:1.25em;
-}
+    {
+        font-size:1.25em;
+    }
 
-@media(max-width: 400px)
-{
-    font-size:1.15em;
-}
-
-
-`
+    @media(max-width: 400px)
+    {
+        font-size:1.15em;
+    }
+`;
 
 export default StyledListItem

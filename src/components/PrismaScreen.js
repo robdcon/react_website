@@ -66,15 +66,12 @@ const Screen = (props) =>
     return(
         <div className="screen">
             <StyledScreen>
-               
-                >
                 {
                 stripCount.map((key) =>
                 { 
                     return <Strip  key={key} height={props.height} width={props.width} image={props.image} position={`${(props.width*key)}`} />
                 })
                 }
-              
             </StyledScreen>
 		</div>
     )

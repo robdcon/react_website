@@ -9,14 +9,12 @@ const Api = {
        
         axios.post(`${host}/api/users/login`, {email:email, password:password} )
         .then(res => {
-             console.log("LOGIN RESPONSE: ", res);
             success(res);
         });
     },
     getUsers: (token, success) => {
         axios.get(`${host}/api/users?access_token=${token}`)
         .then((res) => {
-            console.log(res);
             success(res);
         })
     },
@@ -30,7 +28,6 @@ const Api = {
         console.log(post)
         axios.post(`${host}/api/Posts?access_token=${token}`, post)
         .then((res) => {
-            console.log("Res:",res)
             success(res);
         })
     },

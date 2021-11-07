@@ -21,6 +21,9 @@ const styles = theme => ({
         flexDirection: 'row wrap',
         width:'100%'
     },
+    postImage: {
+        width: '100%'
+    },
     Save: {
         marginBotton: theme.spacing(3)
     },
@@ -104,9 +107,10 @@ class AddPost extends Component {
                             ]}
                             fullWidth
                         />
-                        {this.props.admin.post.PostImage ? 
-                        <img src={API.createFileUrl(this.props.admin.post.PostImage[0].url, this.props.auth.token)} className="post-image" />
-                        : 'no content'}
+                        {
+                            this.props.admin.post.PostImage.length > 0 
+                            && <img src={API.createFileUrl(this.props.admin.post.PostImage[0].url, this.props.auth.token)} className={classes.postImage} />
+                        }
                         <Button 
                             variant="contained" 
                             color="secondary"
@@ -174,11 +178,8 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
                 ...values,
                 id: props.match.params.id
             }
-            console.log("Updated: ", post.id);
             props.updatePost(post, props.auth.token)
         } else {
-            // console.log("New Post: ", values)
-            // console.log(props.auth.token)
             props.addPost(values, props.auth.token);
         }
          

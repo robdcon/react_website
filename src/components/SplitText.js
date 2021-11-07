@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Controller, Scene } from 'react-scrollmagic';
-import { Tween, Timeline, SplitLetters } from 'react-gsap';
+import { Tween, SplitLetters } from 'react-gsap';
 
 const SplitTextStyled = styled.div`
   overflow: hidden;
@@ -37,7 +37,7 @@ const SplitText = () => (
           wrapper={
             <div className="textContainer" />
           }
-          staggerFrom= {{
+          staggerFrom={{
             top: -2000,
             rotation: -720,
             opacity: 0,
