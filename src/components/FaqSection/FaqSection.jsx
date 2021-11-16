@@ -5,7 +5,6 @@ const Faq = ({faqHeading, faqContent, collapsed, handleClick, uid}) => {
   const faqHeadingId = faqHeading.trim().replace(/ /g, '-').replace(/\?/g, '').toLowerCase();
   const faqContentId = faqHeadingId + '-content';
   const [ contentHeight, setContentHeight ] = useState(0);
-  // const [ collapsed, setCollapsed ] = useState(true);
   const contentBody = useRef(null);
 
   useEffect(() => {
@@ -36,14 +35,16 @@ const Faq = ({faqHeading, faqContent, collapsed, handleClick, uid}) => {
   )
 };
 
-const FaqSection = ({faqs}) => {
+const FaqSection = ({title, faqs}) => {
   const [activeFaq, setActiveFaq] = useState(0)
   return (
     <StyledFaqSection className="accordion">
+      {
+        title ? <h4>{title}</h4> : null
+      }
       <div className="faq-section_inner">
         {
           faqs.map(({faqHeading, faqContent}, i) => {
-            console.log(i)
             return <Faq key={i} uid={i} collapsed={!(i === activeFaq)} faqHeading={faqHeading} faqContent={faqContent} handleClick={setActiveFaq} />
           })
         }

@@ -58,7 +58,7 @@ const Home = () =>  {
             buttonText="Let's Get Started" 
         />
       </ThemeProvider>
-      <FaqSection faqs={faqs} />
+      <FaqSection faqs={faqs} title="FAQ Section" />
       <CtaSection 
         heading="Welcome to Innerspace Digital"
         subheading="A one-stop-shop for all things web."

@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const StyledFaqSection = styled.div`
     padding: 16px;
     .faq-section_inner {
-        border: ${props => props.theme.global.cardBorder}
+        border-radius: ${props => props.theme.global.cardRadius};
+        box-shadow: ${props => props.theme.global.cardShadow};
+        border: ${props => props.theme.global.cardBorder};
     }
 `;
 
@@ -28,8 +30,7 @@ export const StyledFaq = styled.div`
 `;
 
 export const StyledFaqHeader = styled.div`
-    h5 {
-        
+    h5 {   
         margin-bottom: 0;
     }
     button {
