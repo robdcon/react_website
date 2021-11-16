@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { media } from '../../utils/media';
 
 export const StyledSection = styled.section`
-
-    width:100vw;
+    width:100%;
     display: flex;
     flex-direction: column;
 

@@ -12,18 +12,18 @@ const Footer = (props) => {
     <StyledFooterRow justifyContent={"space-between"} className="footer__row">
       <div className="footer__info"><a href="mailto:info@innerspace.digital">info@innerspace.digital</a></div>
       <StyledLinkList>
-        <a href="#">Web Design</a>
+        Web Design
         <span>&nbsp;|&nbsp;</span>
-        <a href="#">Web Development</a>
+        Web Development
         <span>&nbsp;|&nbsp;</span>
-        <a href="#">Seo</a>
+        Seo
       </StyledLinkList>
       <div className="footer__info"><a href="tel:+447512345678">+447512345678</a></div>
     </StyledFooterRow>
 
     <StyledFooterRow justifyContent={"space-between"} className="footer__row">
-      <div className="footer__info"><p>Flat 1, Zenith Building, 590 Commercial ROAD, E14 7JR</p></div>
-      <div className="footer__info">© 2020 Innerspace Digital LTD</div>
+      <div className="footer__info"><p>Zenith Building, 590 Commercial ROAD, E14 7JR</p></div>
+      <div className="footer__info">© 2021 Innerspace Digital LTD</div>
     </StyledFooterRow>
 
   </StyledFooter>

@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef } from 'react';
 import { StyledSection, StyledHeading, StyledSubheading, StyledDescription, StyledButton } from './CtaSection.styles';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-import {gsap, TweenMax, TimelineMax} from "gsap";
+import {gsap, TimelineMax} from "gsap";
 
 const CtaSection = (props) => {
   const sectionContainer = useRef(null);
@@ -27,7 +26,6 @@ const CtaSection = (props) => {
         y: 0
       }, 
       .125
-      
     )
 
     ScrollTrigger.create({
@@ -38,21 +36,14 @@ const CtaSection = (props) => {
       markers: false
     });
   }, []);
+  
   return (
-  <StyledSection ref={sectionContainer} className="CtaSectionWrapper">
+  <StyledSection ref={sectionContainer} className="cta-section-wrapper">
     <StyledHeading ref={sectionHeading => items.current.push(sectionHeading)}>{props.heading}</StyledHeading>
     {props.subheading && <StyledSubheading ref={sectionSubheading  => items.current.push(sectionSubheading)}>{props.subheading}</StyledSubheading>}
     <StyledDescription ref={sectionDescription => items.current.push(sectionDescription)}>{props.description}</StyledDescription>
     {props.buttonText && <StyledButton ref={sectionButton => items.current.push(sectionButton)}>{props.buttonText}</StyledButton>}
   </StyledSection>
 )};
-
-CtaSection.propTypes = {
-  // bla: PropTypes.string,
-};
-
-CtaSection.defaultProps = {
-  // bla: 'test',
-};
 
 export default CtaSection;

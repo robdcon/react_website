@@ -26,22 +26,14 @@ const HeroSection = (props) => {
   }, []);
 
   return (
-  <StyledHeroBanner ref={sectionContainer} className="HeroSectionWrapper">
+  <StyledHeroBanner ref={sectionContainer} className="hero">
     <StyledOverlay bgImage={props.bgImage} className="bgImage" />
-    <StyledBackgroundImage bgImage={props.bgImage} className="bgImage" />
-    <StyledHeading ref={sectionHeading => items.current.push(sectionHeading)}>{props.heading}</StyledHeading>
-    {props.subheading && <StyledSubheading ref={sectionSubheading => items.current.push(sectionSubheading)}>{props.subheading}</StyledSubheading>}
-    <StyledDescription ref={sectionDescription => items.current.push(sectionDescription)}>{props.description}</StyledDescription>
+    <StyledBackgroundImage smallBgImage={props.smallImage} largeBgImage={props.largeImage} className="bgImage" />
+    <StyledHeading className="hero__heading" ref={sectionHeading => items.current.push(sectionHeading)}>{props.heading}</StyledHeading>
+    {props.subheading && <StyledSubheading className="hero__subheading" ref={sectionSubheading => items.current.push(sectionSubheading)}>{props.subheading}</StyledSubheading>}
+    <StyledDescription className="hero__desccription" ref={sectionDescription => items.current.push(sectionDescription)}>{props.description}</StyledDescription>
     {props.buttonText && <StyledButton ref={sectionButton => items.current.push(sectionButton)}>{props.buttonText}</StyledButton>}
   </StyledHeroBanner>
 )}
-
-HeroSection.propTypes = {
-  // bla: PropTypes.string,
-};
-
-HeroSection.defaultProps = {
-  // bla: 'test',
-};
 
 export default HeroSection;

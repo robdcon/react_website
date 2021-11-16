@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import {gsap} from "gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-import FormInput from '../../components/FormInput';
 import { Formik, Field, Form, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
-import {StyledForm, Input, Option, Select, StyledCheckbox} from './ContactForm.styles';
+import {StyledForm, Input, Option, Select, StyledCheckbox, SubmitButton} from './ContactForm.styles';
 import Axios from 'axios';
+import { useEffect } from 'react';
 
 const options = [
   {
-    name: "Please select the service you need",
+    name: "Please select a service",
     value: ''
   },
   {
@@ -27,8 +27,11 @@ const options = [
   }
 ]
 
-const sendFormData = (data) => {
-  Axios.post('https://robdcon.co.uk/mailer/sendmail.php', data);
+async function sendFormData(data, callback) {
+  Axios.post('https://robdcon.co.uk/mailer/sendmail.php', data).then(res => {
+    console.log(res);
+    callback(res.data);
+  });
 }
 
 const CustomSelect = ({...props}) => {
@@ -64,7 +67,6 @@ const fields =
   [
     [ // col 1
       {
-       
         name:"name",
         label:"So, what should we call you?",
         placeholder:"Name",
@@ -74,7 +76,6 @@ const fields =
         type:"text"
       },
       {
-       
         name:"email",
         label:"Whats your email address?",
         placeholder:"Email",
@@ -84,7 +85,6 @@ const fields =
         type:"text"
       },
       {
-       
         name:"message",
         label:"How can we help?",
         placeholder:"Message",
@@ -97,52 +97,65 @@ const fields =
   ]
 }
 
-const ContactForm = ({children, ...props}) => {
-  return(
-  <Formik
-    initialValues={{ 
-      name: '',
-      email: '',
-      message: '',
-      dropdown: ''
-    }}
-    validationSchema={Yup.object({
-      name: Yup.string()
-      .max(15, "Name must be less than 15 characters in length")
-      .required("This field is required"),
-      email: Yup.string()
-      .email("Please enter a valid email")
-      .required("This field is required"),
-      message: Yup.string()
-      .required("Please let me know how I can assist"),
-      dropdown: Yup.string().required("This fields is required")
+const ConfirmationMessage = ({children}) => {
+  return (
+    <div>{children}</div>
+  )
+}
 
-    })}
-    onSubmit={(values, {setSubmitting}) => {
-      setTimeout(() => {
-        const data = JSON.stringify(values, null, 2);
-        sendFormData(data);
-        console.log('Submitting Data:', data);
-      }, 400);
-    }}
-  >
-  {formik => (
-    <StyledForm className="form-wrapper">
-      <Form className="contact-form">
-        {
-          fields.sections[0].map((field, i) => {
-              return (
-                <Fragment key={i}>
-                    <label htmlFor={field.name}></label>
-                    <Field as={Input} name={field.name} type={field.type} placeholder={field.placeholder} />
-                    <ErrorMessage name={field.name} />
-                </Fragment>
-              )          
-          })
-        }
+const ContactForm = ({children, ...props}) => {
+  const [confirmed, setConfirmed] = useState(false);
+
+  return (
+    confirmed === false ? 
+    <Formik
+      initialValues={{ 
+        name: '',
+        email: '',
+        message: '',
+        dropdown: ''
+      }}
+      isSubmitting
+      validationSchema={Yup.object({
+        name: Yup.string()
+        .min(2, 'Please enter a valid first name')
+        .max(15, "Name must be less than 15 characters in length")
+        .required("This field is required"),
+        email: Yup.string()
+        .email("Please enter a valid email")
+        .required("This field is required"),
+        message: Yup.string()
+        .required("Please let me know how I can assist"),
+        dropdown: Yup.string().required("This fields is required")
+
+      })}
+      onSubmit={(values, {setSubmitting}) => {
+        setTimeout(() => {
+          const data = JSON.stringify(values, null, 2);
+          sendFormData(data, setConfirmed);
+          console.log('Submitting Data:', data);
+          // setSubmitting(false);
+        }, 3000);
+      }}
+    >
+    {formik => (
+      !formik.isSubmitting ? (
+      <StyledForm className="form-wrapper">
+        <Form className="contact-form">
+          {
+            fields.sections[0].map((field, i) => {
+                return (
+                  <Fragment key={i}>
+                      <label htmlFor={field.name}></label>
+                      <Field as={Input} name={field.name} type={field.type} placeholder={field.placeholder} />
+                      <ErrorMessage name={field.name}>{msg => <p className="error">{msg}</p>}</ErrorMessage>
+                  </Fragment>
+                )          
+            })
+          }
 
           <Field as={CustomSelect} name="dropdown" />
-          <ErrorMessage name="dropdown" />
+          <ErrorMessage name='dropdown'>{msg => <p className="error">{msg}</p>}</ErrorMessage>
           
           {/* <fieldset>
             <legend>What services do you need?</legend>
@@ -151,11 +164,15 @@ const ContactForm = ({children, ...props}) => {
             <Field as={Checkbox} name="option-3" label="Option 3" />
           </fieldset> */}
           
-          <FormInput type="submit" value="Submit" touched={formik.touched['dropdown']} />
+          <Field as={SubmitButton} type="submit" value="Submit" touched={formik.touched['dropdown']} submitting={formik.isSubmitting} />
         </Form>
-    </StyledForm>
-  )}
-  </Formik>
+      </StyledForm>
+      ) : (
+        <ConfirmationMessage>Sending message...</ConfirmationMessage>
+      )
+    )}
+    </Formik> :
+    <ConfirmationMessage>{confirmed}</ConfirmationMessage>
   )
 }
   

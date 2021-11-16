@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, lazy } from 'react';
 import {connect} from 'react-redux';
 import PageWrapper from './components/PageWrapper'
 import {
@@ -7,21 +7,20 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
+import { GlobalStyles } from './themes/globalStyles';
 // PAGES
 import Home from './components/Pages/Home';
-import About from './components/Pages/About';
-import Services from './components/Pages/Services';
-import Contact from './components/Pages/Contact';
-import Portfolio from './components/Pages/Portfolio';
-import AdminWrapper from  './components/AdminWrapper';
-import AdminDashboard from './components/Admin/Dashboard';
-import Users from './components/Admin/Users';
-import Posts from './components/Admin/Posts';
-import Login from  './components/Pages/Login';
-import AddPost from './components/Admin/AddPost';
-import { GlobalStyles } from './themes/globalStyles';
-
-
+// import About from './components/Pages/About';
+// import Services from './components/Pages/Services';
+// import Contact from './components/Pages/Contact';
+// import Portfolio from './components/Pages/Portfolio';
+// import AdminWrapper from  './components/AdminWrapper';
+// import AdminDashboard from './components/Admin/Dashboard';
+// import Users from './components/Admin/Users';
+// import Posts from './components/Admin/Posts';
+// import Login from  './components/Pages/Login';
+// import AddPost from './components/Admin/AddPost';
 class App extends Component {
 
   render() {
@@ -30,7 +29,7 @@ class App extends Component {
           <GlobalStyles />
           <Router>
 
-            <Route
+            {/* <Route
             exact={true}
             path="/admin/users"
             render={props => {
@@ -39,9 +38,9 @@ class App extends Component {
                 <Users />
               </AdminWrapper>)
             }}
-            />
+            /> */}
 
-            <Route
+            {/* <Route
             exact={true} 
             path="/admin/posts"
             render={props => {
@@ -50,9 +49,9 @@ class App extends Component {
                 <Posts />
               </AdminWrapper>)
             }}
-            />
+            /> */}
 
-            <Route
+            {/* <Route
             exact={true} 
             path="/admin/posts/:view"
             render={props => {
@@ -61,9 +60,9 @@ class App extends Component {
                 <AddPost />
               </AdminWrapper>)
             }}
-            />
+            /> */}
 
-            <Route
+          {/* <Route
             exact={true}
             path="/admin/posts/:view/:id"
             render={props => {
@@ -78,9 +77,9 @@ class App extends Component {
               </div> )
             }}
 
-          />
+          /> */}
 
-          <Route
+          {/* <Route
             exact={true}
             path="/admin"
             render={props => {
@@ -95,7 +94,7 @@ class App extends Component {
               </div> )
             }}
 
-          />
+          /> */}
 
           <Route 
             exact={true}
@@ -107,7 +106,7 @@ class App extends Component {
             )}
           /> 
 
-          <Route 
+          {/* <Route 
             exact={true}
             path='/about'
             render={props =>(
@@ -115,9 +114,9 @@ class App extends Component {
                 <About  {...props} />
               </PageWrapper>
             )}
-          /> 
+          />  */}
 
-          <Route 
+          {/* <Route 
             exact={true}
             path='/services'
             render={props =>(
@@ -125,9 +124,9 @@ class App extends Component {
                 <Services  {...props} />
               </PageWrapper>
             )}
-          /> 
+          />  */}
 
-          <Route 
+          {/* <Route 
             exact={true}
             path='/portfolio'
             render={props =>(
@@ -135,9 +134,9 @@ class App extends Component {
                 <Portfolio  {...props} />
               </PageWrapper>
             )}
-          /> 
+          />  */}
 
-          <Route 
+          {/* <Route 
             exact={true}
             path='/contact'
             render={props =>(
@@ -145,7 +144,7 @@ class App extends Component {
                 <Contact  {...props} />
               </PageWrapper>
             )}
-          /> 
+          />  */}
 
       </Router>
     </div>

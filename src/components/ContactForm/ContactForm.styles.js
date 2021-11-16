@@ -8,6 +8,9 @@ export const StyledForm = styled.div`
       color:#fff;
     }
     margin-bottom: 48px;
+    .error {
+        color: #ff0000;
+    }
 `;
 
 export const StyledCheckbox = styled.label`
@@ -69,20 +72,27 @@ export const StyledCheckbox = styled.label`
 `;
 
 export const Input = styled.input`
-    border-radius: 6px;
+    border-radius: 3px;
+    border: none;
     width:100%;
     padding: 16px;
     margin-bottom: 8px;
     background-color: #fff;
+    font-family: ${props => props.theme.global.primaryFont};
+    font-size: 18px;
 `;
 
 export const Select = styled.select`
-    border-radius: 6px;
+    border-radius: 3px;
+    border: none;
     width: 100%;
     padding: 16px;
     margin-bottom: 8px;
     background-color: #fff;
     position: relative;
+    font-family: ${props => props.theme.global.primaryFont};
+    font-weight: 300;
+    font-size: 18px;
 
     &.untouched {
         color: #aaa;
@@ -91,6 +101,7 @@ export const Select = styled.select`
 
 export const Option = styled.option`
     border-radius: 6px;
+    border: none;
     padding: 16px;
     background-color: #fff;
     width: 100%;
@@ -100,12 +111,9 @@ export const SelectList = styled.ul`
     list-style: none;
     margin: 0;
     padding: 0;
-}`;
-
-
+`;
 
 export const ConfirmationStyles = styled.div`
-
     width:100%;
     height:100%;
     display:flex;
@@ -115,4 +123,14 @@ export const ConfirmationStyles = styled.div`
         text-align:center;
         color:#fff;
     }
+`;
+
+export const SubmitButton = styled.input`
+    border-radius: 3px;
+    width:100%;
+    padding: 16px;
+    margin-bottom: 8px;
+    border: none;
+    text-transform: uppercase;
+    background-color: ${props => props.submitting ? '#ff0000' : '#ffffff'}
 `;

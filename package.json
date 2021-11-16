@@ -33,6 +33,7 @@
     "yup": "^0.28.0"
   },
   "devDependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "imports-loader": "^0.8.0"
   },
   "scripts": {

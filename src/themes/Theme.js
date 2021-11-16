@@ -2,7 +2,6 @@ export const invertTheme = ({colors, colorsInvert, global}) => ({
     colors: colorsInvert,
     colorsInvert: colors,
     global
-
 })
 
 const colors = {
@@ -52,7 +51,6 @@ const Theme = {
         primaryFont: "Montserrat, Roboto, sans-serif",
         secondaryFont: "Open Sans, Roboto, sans-serif",
         buttonStyles: 
-
         `display: inline-block;
         line-height: 35px;
         margin: 8px;
@@ -110,6 +108,11 @@ const Theme = {
 
         &:hover:after {
             height: 100%;
+        }
+
+        @media(max-width: 600px) {
+            padding: 12px 16px;
+            font-size: 18px;
         }
     `,
     }

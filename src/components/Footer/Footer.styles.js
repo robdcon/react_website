@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import { media } from '../../utils/media';
 
 export const StyledFooter = styled.footer`
     display: flex;
     flex-direction: column;
     padding: 24px;
     background-color: #000;
+    color: ${props => props.theme.colors.primaryColor};
+    font-family: ${props => props.theme.global.primaryFont};
+    font-weight: 300;
+
     span {
         color: ${props => props.theme.colors.primaryColor};
     }
@@ -19,7 +24,9 @@ export const StyledFooter = styled.footer`
         }
     }
     .footer__info {
-        color: ${props => props.theme.colors.greyLightText}
+        text-align: center;
+        color: ${props => props.theme.colors.greyLightText};
+        margin: 0.25em;
     }
 `;
 
@@ -33,12 +40,14 @@ export const StyledFooterRow = styled.div`
     flex-direction: ${props => props.flexDirection ? props.flexDirection : "row"};
     justify-content: ${props => props.justifyContent ? props.justifyContent : "center"};
     align-items: ${props => props.alignItems ? props.alignItems : "center"};
-    padding: 16px 24px;
+    padding: 16px 0;
     background-color: #000;
 
     @media(max-width: 800px) {
         flex-direction: column;
     }
+
+    ${media.handheld`padding: 16px 24px`};
 
     h2 {
         margin-bottom: 24px;
