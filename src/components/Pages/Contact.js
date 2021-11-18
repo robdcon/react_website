@@ -50,14 +50,8 @@ const fields =
     ]
   ]
 }
-
-
-
 class Contact extends Component
 {
-
-    
-
     render() 
     {
       return (

@@ -11,21 +11,6 @@ import DevicesIcon from '@material-ui/icons/Devices';
 import FindInPageIcon from '@material-ui/icons/FindInPage';
 import FaqSection from '../FaqSection/FaqSection';
 
-const faqs = [
-  {
-    faqHeading: "Test Heading One",
-    faqContent: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-  },
-  {
-    faqHeading: "Test Heading Two",
-    faqContent: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-  },
-  {
-    faqHeading: "Test Heading Three",
-    faqContent: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-  }
-];
-
 const services =
 [
   {
@@ -58,7 +43,6 @@ const Home = () =>  {
             buttonText="Let's Get Started" 
         />
       </ThemeProvider>
-      <FaqSection faqs={faqs} title="FAQ Section" />
       <CtaSection 
         heading="Welcome to Innerspace Digital"
         subheading="A one-stop-shop for all things web."

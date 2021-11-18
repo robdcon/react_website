@@ -1,5 +1,18 @@
 import React, {useState} from 'react';
 import Footer from './Footer';
+import Navigation from './Navigation';
+import NavBar from './NavBar';
+
+const pages = [
+    {
+        title: 'Home',
+        path: '/'
+    },
+    {
+        title: 'FAQ',
+        path: '/faq'
+    }
+];
 
 const PageWrapper = ({children}) => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -9,8 +22,8 @@ const PageWrapper = ({children}) => {
 
     return (
         <div className="page-wrapper">
-            {/* <Navigation pages={pages} open={menuOpen} toggleMenu={() => {toggleMenu()}}></Navigation>
-            <NavBar toggleMenu={() => {toggleMenu()}} collapsed={menuOpen}/> */}
+            <Navigation pages={pages} open={menuOpen} toggleMenu={() => {toggleMenu()}}></Navigation>
+            <NavBar toggleMenu={() => {toggleMenu()}} collapsed={menuOpen}/>
                 <main>
                     {children}
                 </main>

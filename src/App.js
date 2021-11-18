@@ -1,6 +1,7 @@
 import React, { Component, lazy } from 'react';
 import {connect} from 'react-redux';
-import PageWrapper from './components/PageWrapper'
+import PageWrapper from './components/PageWrapper';
+import Faq from './components/Pages/Faq';
 import {
   BrowserRouter as Router,
   Switch,
@@ -102,6 +103,16 @@ class App extends Component {
             render={props =>(
               <PageWrapper>
                 <Home {...props} />
+              </PageWrapper>
+            )}
+          /> 
+
+          <Route 
+            exact={true}
+            path='/faq'
+            render={props =>(
+              <PageWrapper>
+                <Faq {...props} />
               </PageWrapper>
             )}
           /> 
