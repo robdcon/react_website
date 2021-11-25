@@ -6,14 +6,15 @@ import {media} from '../utils/media'
 const StyledMenuButton = styled.div`
     cursor:pointer;
     display:inline-block;
-    ${media.tablet`display:none;`}
+    ${media.desktop`display:none;`}
+    z-index: 99999999999999;
 `;
 
-const MenuButton = (props) => 
+const MenuButton = ({action}) => 
 {
     return(
         <StyledMenuButton>
-            <MenuIcon onClick={() => {props.toggleMenu()}} style={{ color: '#fed136' }} />
+            <MenuIcon onClick={action} style={{ color: '#fed136' }} />
         </StyledMenuButton>
     )
 }

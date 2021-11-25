@@ -5,10 +5,10 @@ import ContactForm from '../ContactForm/ContactForm';
 const Footer = (props) => {
   return (
   <StyledFooter className="footer-wrapper">
-  <StyledFooterRow flexDirection="column">
-    <h2>Get in touch for a free quote</h2>
-    <ContactForm />
-  </StyledFooterRow>
+    <StyledFooterRow flexDirection="column">
+      <h2>Get in touch for a free quote</h2>
+      <ContactForm />
+    </StyledFooterRow>
     <StyledFooterRow justifyContent={"space-between"} className="footer__row">
       <div className="footer__info"><a href="mailto:info@innerspace.digital">info@innerspace.digital</a></div>
       <StyledLinkList>

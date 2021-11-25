@@ -1,35 +1,37 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavigationWrapper, NavigationListItem } from './Navigation.styles';
 import { TweenMax } from "gsap";
+import { pages } from '../../utils/nav-config';
 
-const Navigation = (props) => {
+const Navigation = ({expanded}) => {
   const navWrapper = useRef();
   const navItems = useRef([]);
-  useEffect(() => {
 
-     if(props.open === true) {
+  useEffect(() => {
+    if(expanded === null) return;
+    if(expanded === true) {
       TweenMax.to(navWrapper.current, .5, {top:0});
       TweenMax.staggerFromTo(navItems.current, .5, { opacity:0, y:100 }, { opacity:1, y:0, delay:.25 }, .125);
     } else {
       TweenMax.staggerFromTo(navItems.current, .35, { opacity:1, y:0 }, { opacity:0, y:-100 }, .125);
-      TweenMax.to(navWrapper.current, .5, {top:"-100%", delay:.35});
+      TweenMax.to(navWrapper.current, .5, {top:'-100vh', delay:.35});
     }
 
-  }, [props.open])
+  }, [expanded])
 
   return(
-    <NavigationWrapper ref={navWrapper} className="NavigationWrapper">
+    <NavigationWrapper ref={navWrapper} className={`navigation__wrapper navigation--expanded-${expanded}`}>
       {
-        props.pages.map((page, i) => 
+        pages.map((page, i) => 
         {
           return(
             <NavigationListItem 
               key={page.title} 
               ref={(element) => {navItems.current[i] = element}} 
-              className="NavigationListItem"
+              className="navigation__list-item"
             >
-              <Link className="NavigationLink" to={page.path}>{page.title}</Link>
+              <Link className="navigation__link" to={page.path}>{page.title}</Link>
             </NavigationListItem>
           )
         })

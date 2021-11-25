@@ -17,6 +17,7 @@ const colors = {
 }
 
 const Theme = {
+    spacing: 8,
     colors: {
         primaryColor: colors.primary,
         secondaryColor: colors.secondary,

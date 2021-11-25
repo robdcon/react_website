@@ -1,17 +1,21 @@
 export const pages = [{
-        title: "Services",
-        path: "/services"
+        title: 'Home',
+        path: '/'
     },
+    // {
+    //     title: "About",
+    //     path: "/about"
+    // },
+    // {
+    //     title: "Portfolio",
+    //     path: "/portfolio"
+    // },
+    // {
+    //     title: "Contact",
+    //     path: "/contact"
+    // }
     {
-        title: "About",
-        path: "/about"
-    },
-    {
-        title: "Portfolio",
-        path: "/portfolio"
-    },
-    {
-        title: "Contact",
-        path: "/contact"
+        title: 'FAQ',
+        path: 'faq'
     }
 ];

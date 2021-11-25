@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Footer from './Footer';
 import Navigation from './Navigation';
 import NavBar from './NavBar';
+import Header from './Header/Header';
 
 const pages = [
     {
@@ -22,8 +23,9 @@ const PageWrapper = ({children}) => {
 
     return (
         <div className="page-wrapper">
-            <Navigation pages={pages} open={menuOpen} toggleMenu={() => {toggleMenu()}}></Navigation>
-            <NavBar toggleMenu={() => {toggleMenu()}} collapsed={menuOpen}/>
+            {/* <Navigation pages={pages} open={menuOpen} toggleMenu={() => {toggleMenu()}}></Navigation>
+            <NavBar pages={pages} toggleMenu={() => {toggleMenu()}} collapsed={menuOpen}/> */}
+            <Header />
                 <main>
                     {children}
                 </main>
