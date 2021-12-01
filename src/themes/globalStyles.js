@@ -68,6 +68,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         background-color: ${({theme}) => theme.body};
         color: #333333;
+        font-family: 'Montserrat', sans-serif;
     }
 
     h1, h2, h3, h4, h5, h6, p {

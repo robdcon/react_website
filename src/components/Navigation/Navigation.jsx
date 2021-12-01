@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavigationWrapper, NavigationListItem } from './Navigation.styles';
 import { TweenMax } from "gsap";
-import { pages } from '../../utils/nav-config';
+import { pages } from '../../utils/nav.config';
 
 const Navigation = ({expanded}) => {
   const navWrapper = useRef();

@@ -1,0 +1,4 @@
+#AddHandler application/x-httpd-php70 .php .php5 .php4 .php3
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^innerspace.digital [NC]
+RewriteRule ^(.*)$ http://www.innerspace.digital/$1 [L,R=301]

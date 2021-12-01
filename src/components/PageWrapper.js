@@ -25,7 +25,7 @@ const PageWrapper = ({children}) => {
         <div className="page-wrapper">
             {/* <Navigation pages={pages} open={menuOpen} toggleMenu={() => {toggleMenu()}}></Navigation>
             <NavBar pages={pages} toggleMenu={() => {toggleMenu()}} collapsed={menuOpen}/> */}
-            <Header />
+            {/* <Header /> */}
                 <main>
                     {children}
                 </main>

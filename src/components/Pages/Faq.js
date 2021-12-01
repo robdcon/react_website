@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import FaqSection from '../FaqSection/FaqSection';
 
 const faqs = [
@@ -19,7 +19,9 @@ const faqs = [
 
 const Faq = () => {
     return (
-        <FaqSection faqs={faqs} title="FAQ Section" />
+        <Fragment>
+          <FaqSection faqs={faqs} title="FAQ Section" />
+        </Fragment>
     )
 }
 export default Faq;
