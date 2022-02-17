@@ -1,41 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Controller, Scene } from 'react-scrollmagic';
-import { Tween, Timeline } from 'react-gsap';
-import { StyledParallaxSection, StyledParallaxImage, StyledParallaxContent, Overlay } from './ParallaxSection.styles';
-import { StyledFlexBox } from '../ServicesSection/ServicesSection.styles';
+import React, {useRef, useEffect, useState} from 'react';
+import { StyledParallaxSection, StyledParallaxImage, StyledParallaxContent, Overlay, StyledCanvas } from './ParallaxSection.styles';
+import { parallaxContainer } from '../../utils/animations';
 
-const ParallaxSection = (props) => (
-  <Controller>
-    <Scene
-    duration={"200%"}
-    triggerHook="onLeave"
-    // triggerElement="ParallaxSection"
-    indicators={false}
-    >
-      <Timeline wrapper={<StyledParallaxSection className="ParallaxSection"></StyledParallaxSection>}>
-        <Tween
-          to={{y:"-20%", opacity:0}} 
-        >
-          <StyledParallaxImage image={props.image} className="ParallaxImage">
-            { props.overlay && <Overlay color={`#000`} /> }
-          </StyledParallaxImage>
-       
-        </Tween>
-        <Tween wrapper={<StyledParallaxContent className="ParallaxContent" />}>
-          {props.children}
-        </Tween>
-      </Timeline>
-    </Scene>
-  </Controller>
-);
 
-ParallaxSection.propTypes = {
-  // bla: PropTypes.string,
-};
+const ParallaxSection = (props) => {
+  const container = useRef(null);
+  const fgImg = useRef(null);
+  const canvas = useRef(null);
 
-ParallaxSection.defaultProps = {
-  // bla: 'test',
+  useEffect(() => {
+    parallaxContainer(container.current);
+  }, []);
+
+  return (
+    <StyledParallaxSection ref={container} background={props.background} className="parallax-section">
+      <StyledParallaxImage ref={fgImg} foreground={props.foreground} className="ParallaxImage">
+        { props.overlay && <Overlay color={`#000`} /> }
+        <StyledCanvas id="canvas" ref={canvas}></StyledCanvas>
+      </StyledParallaxImage>
+    </StyledParallaxSection>
+  )
+  
 };
 
 export default ParallaxSection;

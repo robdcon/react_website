@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import largeEarthImage from '../../assets/earth-from-space-desktop.jpg';
-import smallEarthImage from '../../assets/earth-from-space-mobile.jpg'
+import smallEarthImage from '../../assets/earth-from-space-mobile.jpg';
+import foregroundImg from '../../assets/mountains/header-foreground.png';
+import mountains from '../../assets/mountains/mountains.jpg';
 import CtaSection from '../CtaSection/CtaSection';
 import { ThemeProvider } from "styled-components";
 import Theme, {invertTheme} from '../../themes/Theme';
@@ -10,6 +12,7 @@ import DeveloperModeIcon from '@material-ui/icons/DeveloperMode';
 import DevicesIcon from '@material-ui/icons/Devices';
 import FindInPageIcon from '@material-ui/icons/FindInPage';
 import FaqSection from '../FaqSection/FaqSection';
+import ParallaxSection from '../ParallaxSection/ParallaxSection';
 
 const services =
 [
@@ -43,6 +46,11 @@ const Home = () =>  {
             buttonText="Let's Get Started" 
         />
       </ThemeProvider>
+      {/* <ParallaxSection 
+        // overlay={true}
+        foreground={foregroundImg}
+        background={mountains}
+      /> */}
       <CtaSection 
         heading="Welcome to Innerspace Digital"
         subheading="A one-stop-shop for all things web."

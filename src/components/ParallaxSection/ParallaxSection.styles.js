@@ -1,14 +1,25 @@
 import styled from 'styled-components';
 import customCursor from '../../assets/cursors/custom-cursor.png';
 
+export const StyledCanvas = styled.canvas`
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+`;
+
 export const StyledParallaxSection = styled.section`
-    min-height:100vh;
+    height:800px;
     width:100vw;
     padding: 10vh 0;
     background-color:#000;
-    position:relative;
+    position: relative;
     overflow:hidden;
     cursor: url(${customCursor}), auto;
+    background-image: url(${props => props.background});
+    background-size:auto 1000px;
+    background-repeat: no-repeat;
 `;
 
 export const StyledParallaxContent = styled.div`
@@ -20,12 +31,13 @@ export const StyledParallaxContent = styled.div`
 export const StyledParallaxImage = styled.div`
     position:absolute;
     top:0;
-    height:200%;
     width:100%;
+    height:100%;
     z-index:1;
-    background-color:#000;
-    background-image: url(${props => props.image});
+    background-image: url(${props => props.foreground});
     background-size:100%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
 `;
 
 export const StyledFlexBox = styled.div `
