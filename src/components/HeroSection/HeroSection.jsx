@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { StyledHeroBanner, StyledBackgroundImage, StyledHeading, StyledSubheading, StyledDescription, StyledButton, StyledOverlay } from './HeroSection.styles';
+import { StyledImageContainer, StyledHeroBanner, StyledBackgroundImage, StyledHeading, StyledSubheading, StyledDescription, StyledButton, StyledOverlay } from './HeroSection.styles';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 import {gsap, TweenMax, TimelineMax} from "gsap";
@@ -29,10 +29,14 @@ const HeroSection = (props) => {
   <StyledHeroBanner ref={sectionContainer} className="hero">
     <StyledOverlay bgImage={props.bgImage} className="bgImage" />
     <StyledBackgroundImage smallBgImage={props.smallImage} largeBgImage={props.largeImage} className="bgImage" />
+    <StyledDescription>You cordially invited to</StyledDescription>
     <StyledHeading className="hero__heading" ref={sectionHeading => items.current.push(sectionHeading)}>{props.heading}</StyledHeading>
     {props.subheading && <StyledSubheading className="hero__subheading" ref={sectionSubheading => items.current.push(sectionSubheading)}>{props.subheading}</StyledSubheading>}
     <StyledDescription className="hero__desccription" ref={sectionDescription => items.current.push(sectionDescription)}>{props.description}</StyledDescription>
     {props.buttonText && <StyledButton ref={sectionButton => items.current.push(sectionButton)}>{props.buttonText}</StyledButton>}
+    {/* <StyledImageContainer right/>
+    <StyledImageContainer left /> */}
+    <StyledImageContainer image={props.featureImageMobile}/>
   </StyledHeroBanner>
 )}
 

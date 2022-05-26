@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import largeEarthImage from '../../assets/earth-from-space-desktop.jpg';
 import smallEarthImage from '../../assets/earth-from-space-mobile.jpg';
+import waterColourBg from '../../assets/water-colour-bg-blue.jpg';
+import shayAndCallum from '../../assets/shay_and_callum.png';
 import foregroundImg from '../../assets/mountains/header-foreground.png';
 import mountains from '../../assets/mountains/mountains.jpg';
 import CtaSection from '../CtaSection/CtaSection';
@@ -36,14 +38,16 @@ const services =
 const Home = () =>  {
   return (
     <Fragment>
-      <ThemeProvider theme={invertTheme}>
+      <ThemeProvider theme={Theme}>
         <HeroSection 
-            largeImage={largeEarthImage}
-            smallImage={smallEarthImage}
-            heading="Launch your online presence"
-            subheading="Watch your business take off!"
-            description="Web Design | Web Development | SEO"
-            buttonText="Let's Get Started" 
+            largeImage={waterColourBg}
+            smallImage={waterColourBg}
+            featureImageMobile={shayAndCallum}
+            preheading="You cordially invited to"
+            heading="Callum & Shay's Naming Ceremony"
+            subheading="Oranmore Castle, Castle Rd, Innplot, Oranmore, Co. Galway, Ireland"
+            description="June 18th - 1pm to 4.30pm"
+            buttonText="RSVP" 
         />
       </ThemeProvider>
       {/* <ParallaxSection 
@@ -51,13 +55,13 @@ const Home = () =>  {
         foreground={foregroundImg}
         background={mountains}
       /> */}
-      <CtaSection 
+      {/* <CtaSection 
         heading="Welcome to Innerspace Digital"
         subheading="A one-stop-shop for all things web."
         description="Web Design | Web Development | SEO"
         buttonText="GET A FREE QUOTE"
-      />
-      <ThemeProvider theme={invertTheme}>
+      /> */}
+      {/* <ThemeProvider theme={invertTheme}>
         <CtaSection
           heading="Web Design & Development"
           description={`Web design is not just about making something that looks nice. 
@@ -65,8 +69,8 @@ const Home = () =>  {
                     Boosting your business.`}
           darkTheme={true}
         />
-      </ThemeProvider>
-      <ServicesSection heading="What do we do?" items={services} />
+      </ThemeProvider> */}
+      {/* <ServicesSection heading="What do we do?" items={services} /> */}
     </Fragment>
   );
 }

@@ -1,12 +1,20 @@
 import {createGlobalStyle} from 'styled-components';
 import MontserratSemiBold from '../assets/fonts/Montserrat-SemiBold.ttf';
 import MontserratLite from '../assets/fonts/Montserrat-Light.ttf';
+import WaterBrushRegular from '../assets/fonts/WaterBrush-Regular.ttf';
 
 export const GlobalStyles = createGlobalStyle`
     @font-face {
         font-family: 'MontserratLite';
         src: local('MontserratLite'),
         url(${MontserratLite}) format('ttf');
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Water Brush';
+        src: url(${WaterBrushRegular}) format('ttf');
         font-weight: 300;
         font-style: normal;
     }
@@ -84,12 +92,12 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     h1, h2 {
-        font-family: 'Montserrat';
+        font-family: 'Ingrid Darling';
         text-align: center;
     }
 
     h3, h4, h5 {
-        font-family: 'Montserrat';
+        font-family: 'Water Brush';
         text-align: center;
     }
 

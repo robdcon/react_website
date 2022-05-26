@@ -7,6 +7,38 @@ import configureStore from './store/configStore';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from "styled-components";
 import Theme, {invertTheme} from './themes/Theme';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql
+} from "@apollo/client";
+
+
+// const cache = new InMemoryCache();
+// const client = new ApolloClient({
+//   uri: 'https://webdesign.robdcon.co.uk/graphql',
+//   cache: cache
+// });
+
+// client.query({
+//   query: gql`
+//   query MyQuery {
+//     faqs {
+//       edges {
+//         node {
+//           id
+//           faqs {
+//             answer
+//             question
+//           }
+//         }
+//       }
+//     }
+//   }  `
+// })
+// .then(result => console.log(result));
 
 
 const {store, persistor} = configureStore();

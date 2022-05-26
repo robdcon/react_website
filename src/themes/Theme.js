@@ -5,7 +5,7 @@ export const invertTheme = ({colors, colorsInvert, global}) => ({
 })
 
 const colors = {
-    primary: '#f96200',
+    primary: '#000000',
     secondary: '#000000',
     lightBackground: '#ffffff',
     darkBackground: '#000000',
@@ -37,7 +37,7 @@ const Theme = {
     global: {
         fontFamily: 'Montserrat, Verdana, sans-serif',
         // Font Sizes
-        h1FontSize: "60px",
+        h1FontSize: "70px",
         h2FontSize: "48px",
         h3FontSize: "36px",
         h4FontSize: "24px",
@@ -50,8 +50,8 @@ const Theme = {
         cardShadow: "0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)",
         maxTextWidth: "800px",
         subheadingLineHeight: "1.3",
-        primaryFont: "Montserrat, Roboto, sans-serif",
-        secondaryFont: "Open Sans, Roboto, sans-serif",
+        primaryFont: "Water Brush",
+        secondaryFont: "'IM Fell Great Primer SC', serif;",
         buttonStyles: 
         `display: inline-block;
         line-height: 35px;
